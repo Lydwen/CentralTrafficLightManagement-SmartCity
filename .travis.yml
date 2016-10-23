@@ -6,12 +6,10 @@ addons:
     packages:
       - oracle-java8-installer
 
+env: HEROKU_API_KEY=4b5e5055-fa98-4130-a9d0-9a8aa4fd0e88
 sudo: false
-script: mvn clean package
-before_deploy:
+script:
+  - "mvn clean package"
   - "cd central"
   - "ls"
-deploy:
-  provider: heroku
-  api_key: 4b5e5055-fa98-4130-a9d0-9a8aa4fd0e88
-  app: central-traffic-light
+  - "mvn clean heroku:deploy-war"
