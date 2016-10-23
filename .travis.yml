@@ -1,3 +1,13 @@
 language: java
 sudo: false
 script: mvn clean package
+before_deploy:
+  - "echo 'ready?'"
+  - "ls"
+  - "cd central"
+  - "ls"
+deploy:
+  provider: heroku
+  api_key: 4b5e5055-fa98-4130-a9d0-9a8aa4fd0e88
+  app: central-traffic-light
+  skip_cleanup: true
