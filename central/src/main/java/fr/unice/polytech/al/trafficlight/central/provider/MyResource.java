@@ -21,13 +21,13 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-        return "Got it!";
+        return "Got it seriously!";
     }
 
     @GET
     @Path("/here")
     @Produces(MediaType.APPLICATION_JSON)
     public Response areYouHere(){
-        return Response.ok().entity("yes").build();
+        return Response.ok().entity("yes or no").build();
     }
 }
