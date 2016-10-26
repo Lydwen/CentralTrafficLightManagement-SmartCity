@@ -22,6 +22,14 @@ public class Carrefour {
         groupList = group;
     }
 
+    public void go() throws InterruptedException {
+        while(true) {
+            for(Group g : groupList) {
+                g.goGreen();
+            }
+        }
+    }
+
     /** Add a group to the list of group
      *  @param group the group to add
      *   @return 1 if the group already exist, 0 in other case
