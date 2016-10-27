@@ -13,3 +13,6 @@ script:
   - "cd central"
   - "ls"
   - "mvn clean heroku:deploy-war"
+  - "cd ../crossing"
+  - "ls"
+  - "mvn clean heroku:deploy-war"
