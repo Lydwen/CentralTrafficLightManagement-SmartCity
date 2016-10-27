@@ -32,10 +32,10 @@ public class CrossingModuleCore {
     }
 
     @PUT
-    @Path("starter")
+    @Path("/starter")
     @Consumes(MediaType.APPLICATION_JSON)
     public void changeScenario(Scenario newScenario) {
-        System.out.println("GOOOOOOO ! Scenar = "+newScenario);
+        System.out.println("GOOOOOOO !");
         runnable.changeScenario(newScenario);
     }
     public Scenario getActiveScenario() {
@@ -43,7 +43,7 @@ public class CrossingModuleCore {
     }
 
     @PUT
-    @Path("stopper")
+    @Path("/stopper")
     public void stopTrafficLight() {
         System.out.println("Stoooooop !");
         runnable.stopRunning();
