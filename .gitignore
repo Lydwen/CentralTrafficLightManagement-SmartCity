@@ -10,3 +10,9 @@ target
 #intellij generated
 .idea
 *.iml
+
+../.project
+../.settings/
+.classpath
+.project
+.settings/
