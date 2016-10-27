@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.crossing;
+package fr.unice.polytech.al.trafficlight.crossroad;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,12 +17,12 @@ import java.util.Set;
 /**
  * Created by nathael on 27/10/16.
  */
-@Path("crossingmodule")
-public class CrossingModuleCore {
-    private final CrossingModuleRunning runnable;
+@Path("crossroad")
+public class CrossroadModuleCore {
+    private final CrossroadModuleRunning runnable;
     private final Set<TrafficLight> trafficLightSet;
 
-    public CrossingModuleCore(/*Set<TrafficLight> trafficLightSet*/) {
+    public CrossroadModuleCore(/*Set<TrafficLight> trafficLightSet*/) {
         // ↓ TODO: this is a bad mock of traffic light disposing
         trafficLightSet = new HashSet<>();
         trafficLightSet.add(new TrafficLight(new TrafficLightId("north")));
@@ -31,7 +31,7 @@ public class CrossingModuleCore {
         trafficLightSet.add(new TrafficLight(new TrafficLightId("west")));
         // ↑ TODO: end of mock
 
-        this.runnable = new CrossingModuleRunning(this);
+        this.runnable = new CrossroadModuleRunning(this);
         //this.trafficLightSet = trafficLightSet;
     }
 

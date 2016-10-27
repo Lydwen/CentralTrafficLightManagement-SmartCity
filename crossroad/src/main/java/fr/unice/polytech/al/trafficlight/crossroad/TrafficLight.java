@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.crossing;
+package fr.unice.polytech.al.trafficlight.crossroad;
 
 import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
 

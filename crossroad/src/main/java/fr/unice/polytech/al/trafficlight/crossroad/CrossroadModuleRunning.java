@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.crossing;
+package fr.unice.polytech.al.trafficlight.crossroad;
 
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
@@ -6,13 +6,13 @@ import fr.unice.polytech.al.trafficlight.utils.Scenario;
 /**
  * Created by nathael on 27/10/16.
  */
-class CrossingModuleRunning implements Runnable {
-    private final CrossingModuleCore crossModuleCore;
+class CrossroadModuleRunning implements Runnable {
+    private final CrossroadModuleCore crossModuleCore;
     private Scenario activeScenario;
     private boolean isRunning = false;
 
-    CrossingModuleRunning(final CrossingModuleCore crossingModuleCore) {
-        this.crossModuleCore = crossingModuleCore;
+    CrossroadModuleRunning(final CrossroadModuleCore crossroadModuleCore) {
+        this.crossModuleCore = crossroadModuleCore;
     }
 
 

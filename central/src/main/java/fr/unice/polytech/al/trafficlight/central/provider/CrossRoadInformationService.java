@@ -89,8 +89,8 @@ public class CrossRoadInformationService {
     public Response receiveScenario(String scenario) {
         Gson gson = builder.create();
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("https://inria-crossing.herokuapp.com");
-        target = target.path("crossingmodule/starter");
+        WebTarget target = client.target("https://inria-crossroad.herokuapp.com");
+        target = target.path("crossroad/starter");
         System.out.println(gson.toJson(scenario));
         Response response = target.request(MediaType.APPLICATION_JSON).put(Entity.entity(scenario,MediaType.APPLICATION_JSON),Response.class);
         System.out.println("RECEIVE OKI");
