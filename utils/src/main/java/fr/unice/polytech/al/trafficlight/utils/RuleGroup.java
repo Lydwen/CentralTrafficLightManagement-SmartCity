@@ -11,7 +11,7 @@ import java.util.Set;
 public class RuleGroup {
     private final String id;
     private long greenTime; // Green time in ms
-    private Set<TrafficLightId> trafficLightList;
+    private final Set<TrafficLightId> trafficLightList;
 
     public RuleGroup(String id, long greenTime) {
         this.id = id;

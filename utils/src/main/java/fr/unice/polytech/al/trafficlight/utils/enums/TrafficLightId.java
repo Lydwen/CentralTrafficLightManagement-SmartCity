@@ -3,10 +3,10 @@ package fr.unice.polytech.al.trafficlight.utils.enums;
 /**
  * Created by nathael on 27/10/16.
  */
-public class TrafficLightsId {
+public class TrafficLightId {
     private final String id;
 
-    public TrafficLightsId(String id) {
+    public TrafficLightId(String id) {
         this.id = id;
     }
 }

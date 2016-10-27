@@ -23,6 +23,7 @@
 
     <modules>
         <module>central</module>
+        <module>utils</module>
     </modules>
 
     <build>
