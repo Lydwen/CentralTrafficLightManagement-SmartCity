@@ -9,4 +9,14 @@ public class TrafficLightId {
     public TrafficLightId(String id) {
         this.id = id;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof String)
+            return id.equals((String) obj);
+        else if (obj instanceof TrafficLightId) {
+            return id.equals(((TrafficLightId) obj).id);
+        }
+        else return false;
+    }
 }
