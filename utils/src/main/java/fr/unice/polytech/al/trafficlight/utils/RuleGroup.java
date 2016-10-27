@@ -63,4 +63,9 @@ public class RuleGroup {
     public void setGreenTime(long greenTime) {
         this.greenTime = greenTime;
     }
+
+    @Override
+    public String toString() {
+        return "RG:"+id+":"+greenTime+":"+trafficLightList;
+    }
 }

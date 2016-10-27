@@ -29,6 +29,7 @@ class CrossingModuleRunning implements Runnable {
             this.activeScenario = newScenario;
             // TODO : should be adapted to active scenario to not make people crazy
         }
+        System.out.println("Scenario set to "+ newScenario);
     }
 
     void stopRunning() {
@@ -53,12 +54,15 @@ class CrossingModuleRunning implements Runnable {
                     // activeScenario has no groupRules
                     return; // so die.
                 }
-
+                System.out.println("All Red "+activeScenario.getTransitionTime()+"s");
                 // set all traffic lights to red
                 crossModuleCore.getTrafficLights().forEach(TrafficLight::setRed);
 
                 // wait for transition
                 Thread.sleep(activeScenario.getTransitionTime()*1000);
+
+
+                System.out.println("Running step:"+currentRule+" "+activeRule.getGreenTime()+"s ("+activeRule+")");
 
                 // set to green all traffic lights specified in rule
                 final RuleGroup finalActiveRule = activeRule;

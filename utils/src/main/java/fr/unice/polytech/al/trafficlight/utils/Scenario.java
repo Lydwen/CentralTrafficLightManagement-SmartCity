@@ -86,4 +86,9 @@ public class Scenario {
     public void addRuleGroupList(RuleGroup ruleGroup) {
         this.ruleGroupList.add(ruleGroup);
     }
+
+    @Override
+    public String toString() {
+        return "Sc:"+id+":"+transitionTime+":"+ruleGroupList;
+    }
 }
