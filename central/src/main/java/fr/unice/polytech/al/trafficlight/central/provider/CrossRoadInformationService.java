@@ -86,14 +86,14 @@ public class CrossRoadInformationService {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response receiveScenario(Scenario scenario) {
+    public Response receiveScenario(String scenario) {
         Gson gson = builder.create();
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("https://inria-crossing.herokuapp.com");
         target = target.path("crossingmodule/starter");
-        String input = "{\"youhou\":\"BITE\"}";
-        Response response = target.request(MediaType.APPLICATION_JSON).put(Entity.entity(gson.toJson(scenario),MediaType.APPLICATION_JSON),Response.class);
+        System.out.println(gson.toJson(scenario));
+        Response response = target.request(MediaType.APPLICATION_JSON).put(Entity.entity(scenario,MediaType.APPLICATION_JSON),Response.class);
         System.out.println("RECEIVE OKI");
-        return null;
+        return Response.ok().entity(scenario).build();
     }
 }
