@@ -8,10 +8,7 @@ import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -78,5 +75,13 @@ public class CrossRoadInformationService {
 
         crossRoad.setScenario(scenar);
         return Response.ok().entity(gson.toJson(crossRoad)).build();
+    }
+
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response receiveScenario(Scenario scenario) {
+        System.out.println("RECEIVE OKI");
     }
 }
