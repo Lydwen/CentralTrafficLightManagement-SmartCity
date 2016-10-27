@@ -58,7 +58,7 @@ class CrossingModuleRunning implements Runnable {
                 crossModuleCore.getTrafficLights().forEach(TrafficLight::setRed);
 
                 // wait for transition
-                Thread.sleep(activeScenario.getTransitionTime());
+                Thread.sleep(activeScenario.getTransitionTime()*1000);
 
                 // set to green all traffic lights specified in rule
                 final RuleGroup finalActiveRule = activeRule;
@@ -66,6 +66,9 @@ class CrossingModuleRunning implements Runnable {
                     if(finalActiveRule.getTrafficLights().contains(trafficLight.getId()))
                         trafficLight.setGreen();
                 });
+
+                // wait for step
+                Thread.sleep(activeRule.getGreenTime()*1000);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

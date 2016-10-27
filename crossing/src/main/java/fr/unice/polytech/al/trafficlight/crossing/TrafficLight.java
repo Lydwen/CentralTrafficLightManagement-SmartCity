@@ -43,4 +43,9 @@ class TrafficLight {
     TrafficLightId getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "TL:"+id+"-"+(isGreen?"green":"red");
+    }
 }
