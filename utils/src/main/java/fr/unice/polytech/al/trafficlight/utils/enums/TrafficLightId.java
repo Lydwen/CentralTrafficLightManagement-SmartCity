@@ -19,4 +19,9 @@ public class TrafficLightId {
         }
         else return false;
     }
+
+    @Override
+    public String toString() {
+        return "TL:"+id;
+    }
 }
