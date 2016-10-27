@@ -88,8 +88,8 @@ public class CrossRoadInformationService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response receiveScenario(Scenario scenario) {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("https://inria-crossing.herokuapp.com/starter");
-        target = target.path("putMessage");
+        WebTarget target = client.target("https://inria-crossing.herokuapp.com");
+        target = target.path("starter");
         String input = "{\"youhou\":\"BITE\"}";
         Response response = target.request(MediaType.APPLICATION_JSON).put(Entity.entity(input,MediaType.APPLICATION_JSON),Response.class);
         System.out.println("RECEIVE OKI");
