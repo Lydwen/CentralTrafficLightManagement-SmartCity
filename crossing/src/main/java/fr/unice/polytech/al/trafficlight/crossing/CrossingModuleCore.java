@@ -39,9 +39,10 @@ public class CrossingModuleCore {
     @Path("/starter")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response changeScenario(Scenario newScenario) {
-        Gson gson = new GsonBuilder().create();
+    public Response changeScenario(String newScenarioStr) {
         System.out.println("GOOOOOOO !");
+        Gson gson = new GsonBuilder().create();
+        Scenario newScenario = gson.fromJson(newScenarioStr, Scenario.class);
         runnable.changeScenario(newScenario);
         return Response.ok().entity(gson.toJson(newScenario)).build();
     }
