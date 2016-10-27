@@ -83,5 +83,6 @@ public class CrossRoadInformationService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response receiveScenario(Scenario scenario) {
         System.out.println("RECEIVE OKI");
+        return null;
     }
 }
