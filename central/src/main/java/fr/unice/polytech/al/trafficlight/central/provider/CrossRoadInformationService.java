@@ -8,11 +8,13 @@ import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,5 +80,19 @@ public class CrossRoadInformationService {
 
         crossRoad.setScenario(scenar);
         return Response.ok().entity(gson.toJson(crossRoad)).build();
+    }
+
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response receiveScenario(Scenario scenario) {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target("https://inria-crossing.herokuapp.com/starter");
+        target = target.path("putMessage");
+        String input = "{\"youhou\":\"BITE\"}";
+        Response response = target.request(MediaType.APPLICATION_JSON).put(Entity.entity(input,MediaType.APPLICATION_JSON),Response.class);
+        System.out.println("RECEIVE OKI");
+        return null;
     }
 }
