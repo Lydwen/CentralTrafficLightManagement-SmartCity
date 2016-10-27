@@ -1,12 +1,16 @@
 package fr.unice.polytech.al.trafficlight.crossing;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,9 +38,12 @@ public class CrossingModuleCore {
     @PUT
     @Path("/starter")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void changeScenario(Scenario newScenario) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response changeScenario(Scenario newScenario) {
+        Gson gson = new GsonBuilder().create();
         System.out.println("GOOOOOOO !");
         runnable.changeScenario(newScenario);
+        return Response.ok().entity(gson.toJson(newScenario)).build();
     }
     public Scenario getActiveScenario() {
         return runnable.getActiveScenario();
@@ -44,9 +51,11 @@ public class CrossingModuleCore {
 
     @PUT
     @Path("/stopper")
-    public void stopTrafficLight() {
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response stopTrafficLight() {
         System.out.println("Stoooooop !");
         runnable.stopRunning();
+        return Response.ok().build();
     }
 
     Set<TrafficLight> getTrafficLights() {
