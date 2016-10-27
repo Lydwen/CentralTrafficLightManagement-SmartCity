@@ -46,8 +46,11 @@ public class Scenario {
      * @param stepNumber The step number for the needed rule group
      * @return The ruleGroup that was at the specified step
      *          Return null if there is no step of the given number
+     * @throws IndexOutOfBoundsException if stepNumber < 0 or if this scenario has no rules
      */
-    public RuleGroup getRuleGroup(int stepNumber) {
+    public RuleGroup getRuleGroup(int stepNumber) throws IndexOutOfBoundsException {
+        if(stepNumber > ruleGroupList.size() -1 && !ruleGroupList.isEmpty())
+            return null;
         return this.ruleGroupList.get(stepNumber);
     }
 

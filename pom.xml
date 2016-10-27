@@ -24,6 +24,7 @@
     <modules>
         <module>central</module>
         <module>utils</module>
+        <module>crossing</module>
     </modules>
 
     <build>
