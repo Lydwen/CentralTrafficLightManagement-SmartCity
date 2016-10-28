@@ -2,6 +2,8 @@ package fr.unice.polytech.al.trafficlight.central.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -23,7 +25,12 @@ public class WebRequester {
     /**
      * URLs files configurations location.
      */
-    public static final Path URLS_FILE_DIR = Paths.get("./resources/urls/");
+    public static final Path URLS_FILE_DIR = Paths.get("./urls/");
+
+    /**
+     * Logger.
+     */
+    private final static Logger logger = LogManager.getLogger(WebRequester.class);
 
     /**
      * JSON serializer/deserializer.
@@ -46,7 +53,7 @@ public class WebRequester {
     public WebRequester(String urlType, String urlPath) {
         try {
             // Load the configuration file with URLs
-            this.loadUrls(URLS_FILE_DIR.resolve(urlType));
+            this.loadUrls(URLS_FILE_DIR.resolve(urlType + ".properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,6 +68,9 @@ public class WebRequester {
      * @throws IOException if IO error occurs
      */
     public void loadUrls(Path urlsConfigPath) throws IOException {
+        logger.info("Loading URLs configuration : {}",
+                () -> getClass().getClassLoader().getResource(urlsConfigPath.toString()));
+
         try (InputStream fis = getClass().getClassLoader()
                 // Get resource from class loader
                 .getResourceAsStream(urlsConfigPath.toString())) {
