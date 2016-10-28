@@ -8,8 +8,8 @@ import fr.unice.polytech.al.trafficlight.utils.Scenario;
  */
 class CrossroadModuleRunning implements Runnable {
     private final CrossroadModuleCore crossModuleCore;
-    private Scenario activeScenario;
-    private boolean isRunning = false;
+    private transient Scenario activeScenario;
+    private transient boolean isRunning = false;
 
     CrossroadModuleRunning(final CrossroadModuleCore crossroadModuleCore) {
         this.crossModuleCore = crossroadModuleCore;
@@ -34,12 +34,13 @@ class CrossroadModuleRunning implements Runnable {
 
     void stopRunning() {
         isRunning = false;
+        System.out.println("Running set to FALSE");
     }
 
     @Override
     public void run() {
+        isRunning = true;
         try {
-            isRunning = true;
             int currentRule = 0;
             while(isRunning) {
                 currentRule++;
@@ -52,6 +53,7 @@ class CrossroadModuleRunning implements Runnable {
                     }
                 } catch(IndexOutOfBoundsException ioobe) {
                     // activeScenario has no groupRules
+                    stopRunning();
                     return; // so die.
                 }
                 System.out.println("All Red "+activeScenario.getTransitionTime()+"s");
@@ -77,7 +79,7 @@ class CrossroadModuleRunning implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            isRunning = false;
+            stopRunning();
         }
     }
 }

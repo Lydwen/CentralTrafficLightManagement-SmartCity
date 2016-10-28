@@ -40,10 +40,12 @@ public class CrossroadModuleCore {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response changeScenario(String newScenarioStr) {
-        System.out.println("GOOOOOOO !");
+        System.out.println("######## Starter called !");
         Gson gson = new GsonBuilder().create();
         Scenario newScenario = gson.fromJson(newScenarioStr, Scenario.class);
         runnable.changeScenario(newScenario);
+
+        System.out.println("Starter call finished > Response OK");
         return Response.ok().entity(gson.toJson(newScenario)).build();
     }
     public Scenario getActiveScenario() {
@@ -54,8 +56,10 @@ public class CrossroadModuleCore {
     @Path("/stopper")
     @Produces(MediaType.APPLICATION_JSON)
     public Response stopTrafficLight() {
-        System.out.println("Stoooooop !");
+        System.out.println("######## Stopper called !");
         runnable.stopRunning();
+
+        System.out.println("Stopper call finished > Response OK");
         return Response.ok().build();
     }
 
