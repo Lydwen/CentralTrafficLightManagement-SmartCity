@@ -10,7 +10,7 @@ class TrafficLight {
     private final static Logger LOG = Logger.getLogger(TrafficLight.class);
 
     private final TrafficLightId id;
-    private transient boolean isGreen = false;
+    private volatile boolean isGreen = false;
 
     public TrafficLight(TrafficLightId id) {
         this.id = id;
@@ -52,6 +52,6 @@ class TrafficLight {
 
     @Override
     public String toString() {
-        return id+"-"+(isGreen?"green":"red");
+        return id+":"+(isGreen?"green":"red");
     }
 }

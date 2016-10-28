@@ -10,8 +10,8 @@ import org.apache.log4j.Logger;
 class CrossroadModuleRunning implements Runnable {
     private final static Logger LOG = Logger.getLogger(CrossroadModuleRunning.class);
     private final CrossroadModuleCore crossModuleCore;
-    private transient Scenario activeScenario;
-    private transient boolean isRunning = false;
+    private volatile Scenario activeScenario;
+    private volatile boolean isRunning = false;
 
     CrossroadModuleRunning(final CrossroadModuleCore crossroadModuleCore) {
         this.crossModuleCore = crossroadModuleCore;
@@ -24,9 +24,8 @@ class CrossroadModuleRunning implements Runnable {
 
     void changeScenario(final Scenario newScenario) {
         if(isRunning == false) {
-            LOG.error("(Not an error) new CrossRoadModuleRunning started");
             this.activeScenario = newScenario;
-            new Thread(this).start();
+            startRunning();
         }
         else {
             this.activeScenario = newScenario;
@@ -40,12 +39,23 @@ class CrossroadModuleRunning implements Runnable {
         LOG.debug("Running set to FALSE");
     }
 
+    private void startRunning() {
+        if(isRunning)
+            throw new RuntimeException("Already running !");
+
+        LOG.info("New CrossRoadModuleRunning started");
+        isRunning = true;
+        new Thread(this).start();
+    }
+    boolean isRunning() {
+        return isRunning;
+    }
+
     @Override
     public void run() {
-        isRunning = true;
         try {
             int currentRule = 0;
-            while(isRunning) {
+            while(isRunning()) {
                 currentRule++;
                 RuleGroup activeRule;
                 try {
@@ -74,6 +84,8 @@ class CrossroadModuleRunning implements Runnable {
                 crossModuleCore.getTrafficLights().forEach(trafficLight -> {
                     if(finalActiveRule.getTrafficLights().contains(trafficLight.getId()))
                         trafficLight.setGreen();
+                    else
+                        LOG.debug(finalActiveRule.getTrafficLights()+" does not contains "+trafficLight);
                 });
 
                 // wait for step
