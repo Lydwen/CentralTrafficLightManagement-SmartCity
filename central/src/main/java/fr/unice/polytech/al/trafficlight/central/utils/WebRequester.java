@@ -62,6 +62,7 @@ public class WebRequester {
      */
     public void loadUrls(Path urlsConfigPath) throws IOException {
         try (InputStream fis = getClass().getClassLoader()
+                // Get resource from class loader
                 .getResourceAsStream(urlsConfigPath.toString())) {
             // Load properties
             urlsConfig.load(fis);
