@@ -2,29 +2,35 @@ package fr.unice.polytech.al.trafficlight.central.provider;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import fr.unice.polytech.al.trafficlight.central.data.*;
+import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
+import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.data.TrafficLight;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
 
 import javax.ws.rs.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by tom dall'agnol on 27/10/16.
+ * Crossroad service.
+ *
+ * @author Tom Dall'Agnol
  */
 @Path("crossroad")
-public class CrossRoadInformationService {
+public class CrossroadService {
+    /**
+     * JSON serializer/deserializer.
+     */
     private GsonBuilder builder = new GsonBuilder();
+
+    /**
+     * Crossroad web requester.
+     */
+    private WebRequester crossroadRequester = new WebRequester("crossroads", "/crossroad");
 
     /**
      * Retrieves all the existing crossroads
@@ -36,7 +42,7 @@ public class CrossRoadInformationService {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response retrieveCrossRoads(){
+    public Response retrieveCrossRoads() {
         Gson gson = builder.create();
 
         List<String> crossRoads = new ArrayList<>();
@@ -44,14 +50,13 @@ public class CrossRoadInformationService {
         crossRoads.add("carrefour_des_pins");
         return Response.ok()
                 .entity(gson.toJson(crossRoads))
-                .build()
-                ;
+                .build();
     }
 
     @GET
     @Path("/{crossRoadName}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response retrieveSpecifcCrossRoad(@PathParam("crossRoadName") String crossRoadName){
+    public Response retrieveSpecifcCrossRoad(@PathParam("crossRoadName") String crossRoadName) {
         Gson gson = builder.create();
         CrossRoad crossRoad = new CrossRoad("carrefour_du_casino", "url");
         crossRoad.addRoad("avenue du tapis vert");
@@ -82,18 +87,15 @@ public class CrossRoadInformationService {
         return Response.ok().entity(gson.toJson(crossRoad)).build();
     }
 
-
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response receiveScenario(String scenario) {
-        Gson gson = builder.create();
-        Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("https://inria-crossroad.herokuapp.com");
-        target = target.path("crossroad/starter");
-        System.out.println(gson.toJson(scenario));
-        Response response = target.request(MediaType.APPLICATION_JSON).put(Entity.entity(scenario,MediaType.APPLICATION_JSON),Response.class);
-        System.out.println("RECEIVE OKI");
-        return Response.ok().entity(scenario).build();
+    public Response receiveScenario(String jsonScenario) {
+        // Deserialize the scenario
+        Scenario scenario = builder.create().fromJson(jsonScenario, Scenario.class);
+
+        // Puts the request to the crossroad
+        crossroadRequester.put("INRIA", "/starter", scenario);
+        return Response.ok().entity(jsonScenario).build();
     }
 }
