@@ -1,14 +1,16 @@
 package fr.unice.polytech.al.trafficlight.crossroad;
 
 import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
+import org.apache.log4j.Logger;
 
 /**
  * Created by nathael on 26/10/16.
  */
 class TrafficLight {
+    private final static Logger LOG = Logger.getLogger(TrafficLight.class);
 
-    private TrafficLightId id;
-    private boolean isGreen = false;
+    private final TrafficLightId id;
+    private transient boolean isGreen = false;
 
     public TrafficLight(TrafficLightId id) {
         this.id = id;
@@ -21,7 +23,7 @@ class TrafficLight {
         //Send order
         //if we have validation
         isGreen = true;
-        System.out.println("TrafficLight "+id+" is now Green !!");
+        LOG.info("TrafficLight "+id+" is now Green !!");
         return 0;
     }
 
@@ -32,8 +34,12 @@ class TrafficLight {
         //Send order
         //if we have validation
         isGreen = false;
-        System.out.println("TrafficLight "+id+" is now Red :(");
+        LOG.info("TrafficLight "+id+" is now Red :(");
         return 0;
+    }
+
+    boolean isGreen() {
+        return isGreen;
     }
 
 

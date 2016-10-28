@@ -2,11 +2,13 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import org.apache.log4j.Logger;
 
 /**
  * Created by nathael on 27/10/16.
  */
 class CrossroadModuleRunning implements Runnable {
+    private final static Logger LOG = Logger.getLogger(CrossroadModuleRunning.class);
     private final CrossroadModuleCore crossModuleCore;
     private transient Scenario activeScenario;
     private transient boolean isRunning = false;
@@ -22,6 +24,7 @@ class CrossroadModuleRunning implements Runnable {
 
     void changeScenario(final Scenario newScenario) {
         if(isRunning == false) {
+            LOG.error("(Not an error) new CrossRoadModuleRunning started");
             this.activeScenario = newScenario;
             new Thread(this).start();
         }
@@ -29,12 +32,12 @@ class CrossroadModuleRunning implements Runnable {
             this.activeScenario = newScenario;
             // TODO : should be adapted to active scenario to not make people crazy
         }
-        System.out.println("Scenario set to "+ newScenario);
+        LOG.debug("Scenario set to "+ newScenario);
     }
 
     void stopRunning() {
         isRunning = false;
-        System.out.println("Running set to FALSE");
+        LOG.debug("Running set to FALSE");
     }
 
     @Override
@@ -56,7 +59,7 @@ class CrossroadModuleRunning implements Runnable {
                     stopRunning();
                     return; // so die.
                 }
-                System.out.println("All Red "+activeScenario.getTransitionTime()+"s");
+                LOG.debug("All Red "+activeScenario.getTransitionTime()+"s");
                 // set all traffic lights to red
                 crossModuleCore.getTrafficLights().forEach(TrafficLight::setRed);
 
@@ -64,7 +67,7 @@ class CrossroadModuleRunning implements Runnable {
                 Thread.sleep(activeScenario.getTransitionTime()*1000);
 
 
-                System.out.println("Running step:"+currentRule+" "+activeRule.getGreenTime()+"s ("+activeRule+")");
+                LOG.debug("Running step:"+currentRule+" "+activeRule.getGreenTime()+"s ("+activeRule+")");
 
                 // set to green all traffic lights specified in rule
                 final RuleGroup finalActiveRule = activeRule;
