@@ -25,7 +25,7 @@ public class CrossroadService {
     /**
      * JSON serializer/deserializer.
      */
-    private GsonBuilder builder = new GsonBuilder();
+    private Gson gson = new GsonBuilder().create();
 
     /**
      * Crossroad web requester.
@@ -43,8 +43,6 @@ public class CrossroadService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response retrieveCrossRoads() {
-        Gson gson = builder.create();
-
         List<String> crossRoads = new ArrayList<>();
         crossRoads.add("carrefour_du_casino");
         crossRoads.add("carrefour_des_pins");
@@ -57,7 +55,6 @@ public class CrossroadService {
     @Path("/{crossRoadName}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response retrieveSpecifcCrossRoad(@PathParam("crossRoadName") String crossRoadName) {
-        Gson gson = builder.create();
         CrossRoad crossRoad = new CrossRoad("carrefour_du_casino", "url");
         crossRoad.addRoad("avenue du tapis vert");
         crossRoad.addRoad("avenue des orangers");
@@ -92,7 +89,7 @@ public class CrossroadService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response receiveScenario(String jsonScenario) {
         // Deserialize the scenario
-        Scenario scenario = builder.create().fromJson(jsonScenario, Scenario.class);
+        Scenario scenario = gson.fromJson(jsonScenario, Scenario.class);
 
         // Puts the request to the crossroad
         crossroadRequester.put("INRIA", "/starter", scenario);

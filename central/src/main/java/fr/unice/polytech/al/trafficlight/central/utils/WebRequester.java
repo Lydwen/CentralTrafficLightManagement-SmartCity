@@ -82,39 +82,39 @@ public class WebRequester {
     // ================================
 
     /**
-     * Creates a web target for the specified crossroad.
+     * Creates a web target for the specified URL (by ID, in the configuration file).
      *
-     * @param crossroad the crossroad
-     * @param path      the path
+     * @param urlId the url id (in config file)
+     * @param path  the path
      * @return the web target
      */
-    public WebTarget target(String crossroad, String path) {
-        // Get URLs of the crossroad
-        String url = this.urlsConfig.getProperty(crossroad);
+    public WebTarget target(String urlId, String path) {
+        // Get URLs from ID
+        String url = this.urlsConfig.getProperty(urlId);
         if (url == null) {
-            throw new RuntimeException("Specified crossroad doesn't exists in configuration file.");
+            throw new RuntimeException("Specified URL's ID doesn't exists in configuration file.");
         }
 
         // Create target
         return ClientBuilder.newClient()
-                .target(this.urlsConfig.getProperty(crossroad))
-                .path(this.urlPath + path);
+                .target(url) // Set base URL
+                .path(this.urlPath + path); // Set path
     }
 
     /**
-     * Puts a request for the specified crossroad, at the specified path.
+     * Puts a request for the specified URL (by ID, in the configuration file), at the specified path.
      *
-     * @param crossroad the crossroad
-     * @param path      the path
-     * @param entity    the entity
+     * @param urlId  the url id (in config file)
+     * @param path   the path
+     * @param entity the entity
      * @return the response
      */
-    public Response put(String crossroad, String path, Object entity) {
+    public Response put(String urlId, String path, Object entity) {
         // Convert entity to JSON
         Entity requestEntity = Entity.entity(gson.toJson(entity), MediaType.APPLICATION_JSON);
 
         // Call the target path
-        return target(crossroad, path)
+        return target(urlId, path)
                 .request(MediaType.APPLICATION_JSON)
                 .put(requestEntity, Response.class);
     }
