@@ -10,7 +10,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -24,7 +23,7 @@ public class WebRequester {
     /**
      * URLs files configurations location.
      */
-    public static final Path URLS_FILE_DIR = Paths.get("/resources/urls/");
+    public static final Path URLS_FILE_DIR = Paths.get("./resources/urls/");
 
     /**
      * JSON serializer/deserializer.
@@ -46,6 +45,7 @@ public class WebRequester {
      */
     public WebRequester(String urlType, String urlPath) {
         try {
+            // Load the configuration file with URLs
             this.loadUrls(URLS_FILE_DIR.resolve(urlType));
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,7 +61,9 @@ public class WebRequester {
      * @throws IOException if IO error occurs
      */
     public void loadUrls(Path urlsConfigPath) throws IOException {
-        try (InputStream fis = Files.newInputStream(urlsConfigPath)) {
+        try (InputStream fis = getClass().getClassLoader()
+                .getResourceAsStream(urlsConfigPath.toString())) {
+            // Load properties
             urlsConfig.load(fis);
         }
     }
