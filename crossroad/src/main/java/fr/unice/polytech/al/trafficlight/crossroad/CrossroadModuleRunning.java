@@ -2,6 +2,7 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.apache.log4j.Logger;
 
 /**
@@ -116,5 +117,26 @@ class CrossroadModuleRunning implements Runnable {
         LOG.debug("Wait "+transitionTime+"s red step...");
         // wait for transition
         Thread.sleep(transitionTime*1000);
+    }
+
+    void callEmergency(TrafficLightId crossroadId, int duration) {
+        LOG.debug("Call Emergency not already implemented");
+        LOG.debug("(called to set "+crossroadId+" green during "+duration+"s)");
+
+        // TODO: Stop run -NOW-
+
+        // uncomment following when todo done
+        /*
+            crossModuleCore.getTrafficLights().forEach(trafficLight -> {
+                if(trafficLight.getId().equals(crossroadId)) {
+                    trafficLight.setGreen();
+                } else {
+                    trafficLight.setRed();
+                }
+            });
+            Thread.sleep(duration);
+        */
+
+        // TODO: Relaunch run at a red step
     }
 }

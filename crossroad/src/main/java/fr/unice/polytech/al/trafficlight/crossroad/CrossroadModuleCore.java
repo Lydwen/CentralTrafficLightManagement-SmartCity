@@ -2,8 +2,9 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.Consumes;
@@ -26,7 +27,7 @@ public class CrossroadModuleCore {
     private final Set<TrafficLight> trafficLightSet;
 
     public CrossroadModuleCore(/*Set<TrafficLight> trafficLightSet*/) {
-        LOG.error("(Not an error) new CrossRoadModuleCore created");
+        LOG.debug("new CrossRoadModuleCore created");
         // ↓ TODO: this is a bad mock of traffic light disposing
         trafficLightSet = new HashSet<>();
         trafficLightSet.add(new TrafficLight(new TrafficLightId("north")));
@@ -44,7 +45,7 @@ public class CrossroadModuleCore {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response changeScenario(String newScenarioStr) {
-        LOG.info("######## Starter called !");
+        LOG.debug("######## Starter called !");
         Gson gson = new GsonBuilder().create();
         Scenario newScenario = gson.fromJson(newScenarioStr, Scenario.class);
         runnable.changeScenario(newScenario);
@@ -60,14 +61,29 @@ public class CrossroadModuleCore {
     @Path("/stopper")
     @Produces(MediaType.APPLICATION_JSON)
     public Response stopTrafficLight() {
-        LOG.info("######## Stopper called !");
+        LOG.debug("######## Stopper called !");
 
         if(!runnable.isRunning())
             LOG.info("Wasn't running, but calling stop anyway");
 
         runnable.stopRunning();
 
-        
+
+        return Response.ok().build();
+    }
+
+    @PUT
+    @Path("/emergency")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response callEmergency(String emergencyCallStr) {
+        LOG.debug("######## Emergency called !");
+
+        Gson gson = new GsonBuilder().create();
+        Emergency emergency = gson.fromJson(emergencyCallStr, Emergency.class);
+
+        runnable.callEmergency(emergency.getTrafficLightId(), emergency.getDuration());
+
         return Response.ok().build();
     }
 

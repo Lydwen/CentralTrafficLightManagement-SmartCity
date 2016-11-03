@@ -7,7 +7,7 @@ import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.data.TrafficLight;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
