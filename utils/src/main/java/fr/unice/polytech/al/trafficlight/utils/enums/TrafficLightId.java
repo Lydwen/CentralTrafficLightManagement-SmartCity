@@ -10,6 +10,10 @@ public class TrafficLightId {
         this.id = id;
     }
 
+    public String getId() {
+        return id;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof String)
