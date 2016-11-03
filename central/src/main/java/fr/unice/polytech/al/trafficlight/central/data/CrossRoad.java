@@ -1,6 +1,8 @@
 package fr.unice.polytech.al.trafficlight.central.data;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import fr.unice.polytech.al.trafficlight.central.json.CrossRoadSerializer;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 
 import java.util.HashSet;
@@ -14,6 +16,7 @@ import java.util.Set;
  *
  * Created by tom dall'agnol on 27/10/16.
  */
+@JsonSerialize(contentUsing=CrossRoadSerializer.class)
 public class CrossRoad {
     private String name;
     private String url;
