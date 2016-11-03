@@ -61,9 +61,13 @@ public class CrossroadModuleCore {
     @Produces(MediaType.APPLICATION_JSON)
     public Response stopTrafficLight() {
         LOG.info("######## Stopper called !");
+
+        if(!runnable.isRunning())
+            LOG.info("Wasn't running, but calling stop anyway");
+
         runnable.stopRunning();
 
-        LOG.debug("Stopper call finished > Response OK");
+        
         return Response.ok().build();
     }
 
