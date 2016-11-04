@@ -8,10 +8,10 @@ import java.util.Set;
  */
 public class RuleGroup {
     private final String id;
-    private long greenTime; // Green time in ms
+    private int greenTime; // Green time in s
     private final Set<TrafficLightId> trafficLightList;
 
-    public RuleGroup(String id, long greenTime) {
+    public RuleGroup(String id, int greenTime) {
         this.id = id;
         this.greenTime = greenTime;
         trafficLightList = new HashSet<>();
@@ -36,9 +36,9 @@ public class RuleGroup {
 
     /**
      * Get how long is this group traffic lights's green time
-     * @return ms time
+     * @return s time
      */
-    public long getGreenTime() {
+    public int getGreenTime() {
         return greenTime;
     }
 
@@ -56,9 +56,9 @@ public class RuleGroup {
 
     /**
      * Change this group traffic lights's green time
-     * @param greenTime Green time in ms
+     * @param greenTime Green time in s
      */
-    public void setGreenTime(long greenTime) {
+    public void setGreenTime(int greenTime) {
         this.greenTime = greenTime;
     }
 

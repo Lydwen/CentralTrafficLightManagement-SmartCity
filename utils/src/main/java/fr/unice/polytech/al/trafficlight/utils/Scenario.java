@@ -9,7 +9,7 @@ import java.util.List;
 public class Scenario {
     private final String id;
     private final List<RuleGroup> ruleGroupList;
-    private long transitionTime; // time in s between each group green time
+    private int transitionTime; // time in s between each group green time
 
     public Scenario(String id) {
         this.id = id;
@@ -22,7 +22,7 @@ public class Scenario {
     /**
      * @return Transition time in ms
      */
-    public long getTransitionTime() {
+    public int getTransitionTime() {
         return transitionTime;
     }
 
@@ -64,8 +64,8 @@ public class Scenario {
     /**
      * @return The time to do a complete scenario loop in s (including transition times)
      */
-    public long getTotalScenarioTime() {
-        long time = 0;
+    public int getTotalScenarioTime() {
+        int time = 0;
         for(RuleGroup rg : ruleGroupList) {
             time += rg.getGreenTime() + transitionTime;
         }
@@ -76,7 +76,7 @@ public class Scenario {
     //  //  //  //  //   SET   //   //  //  //  //
 
 
-    public void setTransitionTime(long transitionTime) {
+    public void setTransitionTime(int transitionTime) {
         this.transitionTime = transitionTime;
     }
 
