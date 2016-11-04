@@ -10,7 +10,7 @@ public class Scenario {
 
     private String id;
     private List<RuleGroup> ruleGroupList;
-    private long transitionTime; // time in s between each group green time
+    private int transitionTime; // time in s between each group green time
 
     public Scenario(){
         ruleGroupList = new ArrayList<>();
@@ -35,7 +35,7 @@ public class Scenario {
     /**
      * @return Transition time in ms
      */
-    public long getTransitionTime() {
+    public int getTransitionTime() {
         return transitionTime;
     }
 
@@ -77,8 +77,8 @@ public class Scenario {
     /**
      * @return The time to do a complete scenario loop in s (including transition times)
      */
-    public long getTotalScenarioTime() {
-        long time = 0;
+    public int getTotalScenarioTime() {
+        int time = 0;
         for(RuleGroup rg : ruleGroupList) {
             time += rg.getGreenTime() + transitionTime;
         }
@@ -93,12 +93,12 @@ public class Scenario {
         this.id = id;
     }
 
-    public void setRuleGroupList(List<RuleGroup> ruleGroupList) {
-        this.ruleGroupList = ruleGroupList;
+    public void setTransitionTime(int transitionTime) {
+        this.transitionTime = transitionTime;
     }
 
-    public void setTransitionTime(long transitionTime) {
-        this.transitionTime = transitionTime;
+    public void setRuleGroupList(List<RuleGroup> ruleGroupList) {
+        this.ruleGroupList = ruleGroupList;
     }
 
     @Override

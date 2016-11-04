@@ -1,9 +1,11 @@
 package fr.unice.polytech.al.trafficlight.crossroad;
 
+import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.apache.log4j.Logger;
+
+import java.util.Stack;
 
 /**
  * Created by nathael on 27/10/16.
@@ -14,10 +16,11 @@ class CrossroadModuleRunning implements Runnable {
     private volatile Scenario activeScenario;
     private volatile boolean isRunning = false;
 
+    private final Stack<Emergency> emergenciesStack = new Stack<>();
+
     CrossroadModuleRunning(final CrossroadModuleCore crossroadModuleCore) {
         this.crossModuleCore = crossroadModuleCore;
     }
-
 
     Scenario getActiveScenario() {
         return activeScenario;
@@ -26,12 +29,12 @@ class CrossroadModuleRunning implements Runnable {
     void changeScenario(final Scenario newScenario) {
         if(!isRunning) {
             this.activeScenario = newScenario;
-            LOG.debug("Scenario set to "+ newScenario);
+            LOG.info("Scenario set to "+ newScenario);
             startRunning();
         }
         else {
             this.activeScenario = newScenario;
-            LOG.debug("Scenario will be set to "+ newScenario+" after current running ruleGroup finished running");
+            LOG.info("Scenario will be set to "+ newScenario+" after current running ruleGroup finished running");
             // Will be used after the current running rule finished running
         }
     }
@@ -45,7 +48,7 @@ class CrossroadModuleRunning implements Runnable {
         if(isRunning)
             throw new RuntimeException("Already running !");
 
-        LOG.info("New CrossRoadModuleRunning started");
+        LOG.debug("CrossRoadModuleRunning started");
         isRunning = true;
         new Thread(this).start();
     }
@@ -64,7 +67,7 @@ class CrossroadModuleRunning implements Runnable {
                     // the scenario has changed !!
                     runningScenario = activeScenario;
                     runningRuleIndex = 0; // start at the beginning of the new scenario
-                    LOG.debug("Scenario changed to "+ runningScenario);
+                    LOG.info("Scenario changed to "+ runningScenario);
                 } else {
                     // continue the same scenario at next step
                     runningRuleIndex = (runningRuleIndex+1)%activeScenario.getRuleGroupList().size();
@@ -101,10 +104,20 @@ class CrossroadModuleRunning implements Runnable {
 
         // wait for step time seconds
         LOG.debug("Wait "+currentRunningRule.getGreenTime()+"s green step...");
-        Thread.sleep(currentRunningRule.getGreenTime()*1000);
+        synchronized (emergenciesStack) {
+            try {
+                emergenciesStack.wait(currentRunningRule.getGreenTime() * 1000L);
+                // An emergency call occurs
+                solveEmergency();
+
+                // Next step is red step, nothing special to do.
+            } catch (InterruptedException ignored) {
+                // No emergency call send while waiting
+            }
+        }
     }
 
-    private void redStep(long transitionTime, RuleGroup nextRunningRule) throws InterruptedException {
+    private void redStep(int transitionTime, RuleGroup nextRunningRule) throws InterruptedException {
         // set all traffic lights to red
         crossModuleCore.getTrafficLights().forEach(TrafficLight::setRed);
 
@@ -116,27 +129,48 @@ class CrossroadModuleRunning implements Runnable {
 
         LOG.debug("Wait "+transitionTime+"s red step...");
         // wait for transition
-        Thread.sleep(transitionTime*1000);
+        synchronized (emergenciesStack) {
+            try {
+                emergenciesStack.wait(transitionTime * 1000L);
+                // If an emergency call occurs while waiting, solve it now
+                solveEmergency();
+
+                // Redo redStep (solving emergency doesn't do that)
+                redStep(transitionTime, nextRunningRule);
+            } catch (InterruptedException ignored) {
+                // No emergency call send while waiting
+            }
+        }
     }
 
-    void callEmergency(TrafficLightId crossroadId, int duration) {
-        LOG.debug("Call Emergency not already implemented");
-        LOG.debug("(called to set "+crossroadId+" green during "+duration+"s)");
+    void callEmergency(Emergency emergency) {
+        synchronized (emergenciesStack) {
+            emergenciesStack.push(emergency);
+            emergenciesStack.notify();
+        }
+    }
 
-        // TODO: Stop run -NOW-
+    private void solveEmergency() {
+        try {
+            while(!emergenciesStack.isEmpty()) {
+                Emergency currentEmergency = emergenciesStack.pop();
 
-        // uncomment following when todo done
-        /*
-            crossModuleCore.getTrafficLightList().forEach(trafficLight -> {
-                if(trafficLight.getId().equals(crossroadId)) {
-                    trafficLight.setGreen();
-                } else {
-                    trafficLight.setRed();
-                }
-            });
-            Thread.sleep(duration);
-        */
+                // creating temporary rulegroup
+                RuleGroup runningRule = new RuleGroup(currentEmergency.toString(), currentEmergency.getDuration());
+                runningRule.addTrafficLight(currentEmergency.getTrafficLightId());
+                LOG.info("EMERGENCY: RuleGroup changed to " + runningRule);
 
-        // TODO: Relaunch run at a red step
+                // passing the traffic light to green and wait needed duration
+                greenStep(runningRule);
+
+                // passing all traffic lights to red and wait
+                redStep(activeScenario.getTransitionTime(), runningRule);
+            }
+
+            // end of emergency step, remove emergenciesStack
+            LOG.info("Emergency call normally ended");
+        } catch (InterruptedException e) {
+            LOG.error("Emergency call was interrupted", e);
+        }
     }
 }

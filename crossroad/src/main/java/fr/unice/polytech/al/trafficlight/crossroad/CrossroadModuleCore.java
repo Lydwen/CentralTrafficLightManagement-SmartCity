@@ -80,9 +80,7 @@ public class CrossroadModuleCore {
         LOG.debug("######## Emergency called !");
 
         Gson gson = new GsonBuilder().create();
-        Emergency emergency = gson.fromJson(emergencyCallStr, Emergency.class);
-
-        runnable.callEmergency(emergency.getTrafficLightId(), emergency.getDuration());
+        runnable.callEmergency(gson.fromJson(emergencyCallStr, Emergency.class));
 
         return Response.ok().build();
     }
