@@ -9,42 +9,36 @@ public class Emergency {
     /**
      * Crossroad.
      */
-    private String crossroadId;
+    private CrossRoadId crossroadId;
 
     /**
-     * Traffic light in the carrefour.
+     * Traffic light of the crossroad.
      */
-    private String trafficLightId;
+    private TrafficLightId trafficLightId;
 
     /**
-     * Duration to let on the traffic light.
+     * Minimum duration to set the traffic light green.
      */
     private int duration;
 
     //  //  //  //  //   GET   //   //  //  //  //
 
     /**
-     * Gets crossroad.
-     *
-     * @return the crossroad id
+     * @return id of the crossroad where the traffic light needed is
      */
-    public String getCrossroadId() {
+    public CrossRoadId getCrossroadId() {
         return crossroadId;
     }
 
     /**
-     * Gets traffic light.
-     *
-     * @return the traffic light id
+     * @return id of the traffic light needed to be green when this emergency called
      */
-    public String getTrafficLightId() {
+    public TrafficLightId getTrafficLightId() {
         return trafficLightId;
     }
 
     /**
-     * Gets duration.
-     *
-     * @return the duration
+     * @return minimum green light duration needed to this emergency
      */
     public int getDuration() {
         return duration;
@@ -57,7 +51,7 @@ public class Emergency {
      *
      * @param crossroadId the crossroad id
      */
-    public void setCrossroadId(String crossroadId) {
+    public void setCrossroadId(CrossRoadId crossroadId) {
         this.crossroadId = crossroadId;
     }
 
@@ -66,7 +60,7 @@ public class Emergency {
      *
      * @param trafficLightId the traffic light id
      */
-    public void setTrafficLightId(String trafficLightId) {
+    public void setTrafficLightId(TrafficLightId trafficLightId) {
         this.trafficLightId = trafficLightId;
     }
 

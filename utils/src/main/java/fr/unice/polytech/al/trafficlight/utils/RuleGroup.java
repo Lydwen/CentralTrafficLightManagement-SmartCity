@@ -1,7 +1,5 @@
 package fr.unice.polytech.al.trafficlight.utils;
 
-import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
-
 import java.util.HashSet;
 import java.util.Set;
 

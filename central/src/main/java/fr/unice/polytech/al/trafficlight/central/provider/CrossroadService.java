@@ -1,20 +1,15 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
+
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.data.TrafficLight;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 

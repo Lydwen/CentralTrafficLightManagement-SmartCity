@@ -2,6 +2,7 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.apache.log4j.Logger;
 
 /**
@@ -23,15 +24,16 @@ class CrossroadModuleRunning implements Runnable {
     }
 
     void changeScenario(final Scenario newScenario) {
-        if(isRunning == false) {
+        if(!isRunning) {
             this.activeScenario = newScenario;
+            LOG.debug("Scenario set to "+ newScenario);
             startRunning();
         }
         else {
             this.activeScenario = newScenario;
-            // TODO : should be adapted to active scenario to not make people crazy
+            LOG.debug("Scenario will be set to "+ newScenario+" after current running ruleGroup finished running");
+            // Will be used after the current running rule finished running
         }
-        LOG.debug("Scenario set to "+ newScenario);
     }
 
     void stopRunning() {
@@ -54,47 +56,87 @@ class CrossroadModuleRunning implements Runnable {
     @Override
     public void run() {
         try {
-            int currentRule = 0;
+            int runningRuleIndex = 0;
+            Scenario runningScenario = activeScenario;
             while(isRunning()) {
-                currentRule++;
-                RuleGroup activeRule;
-                try {
-                    activeRule = activeScenario.getRuleGroup(currentRule);
-                    if (activeRule == null) {
-                        currentRule = 0;
-                        activeRule = activeScenario.getRuleGroup(0);
-                    }
-                } catch(IndexOutOfBoundsException ioobe) {
-                    // activeScenario has no groupRules
-                    stopRunning();
-                    return; // so die.
+                // computing next rule to follow
+                if(!runningScenario.equals(activeScenario)) {
+                    // the scenario has changed !!
+                    runningScenario = activeScenario;
+                    runningRuleIndex = 0; // start at the beginning of the new scenario
+                    LOG.debug("Scenario changed to "+ runningScenario);
+                } else {
+                    // continue the same scenario at next step
+                    runningRuleIndex = (runningRuleIndex+1)%activeScenario.getRuleGroupList().size();
                 }
-                LOG.debug("All Red "+activeScenario.getTransitionTime()+"s");
-                // set all traffic lights to red
-                crossModuleCore.getTrafficLights().forEach(TrafficLight::setRed);
+                // obtaining rule to use
+                RuleGroup runningRule = activeScenario.getRuleGroup(runningRuleIndex);
+                LOG.debug("RuleGroup changed to "+runningRule);
 
-                // wait for transition
-                Thread.sleep(activeScenario.getTransitionTime()*1000);
+                // passing traffic lights to red and wait
+                redStep(activeScenario.getTransitionTime(), runningRule);
 
-
-                LOG.debug("Running step:"+currentRule+" "+activeRule.getGreenTime()+"s ("+activeRule+")");
-
-                // set to green all traffic lights specified in rule
-                final RuleGroup finalActiveRule = activeRule;
-                crossModuleCore.getTrafficLights().forEach(trafficLight -> {
-                    if(finalActiveRule.getTrafficLights().contains(trafficLight.getId()))
-                        trafficLight.setGreen();
-                    else
-                        LOG.debug(finalActiveRule.getTrafficLights()+" does not contains "+trafficLight);
-                });
-
-                // wait for step
-                Thread.sleep(activeRule.getGreenTime()*1000);
+                // passing some traffic lights to green and wait
+                greenStep(runningRule);
             }
+        } catch(IndexOutOfBoundsException ioobe) {
+            // activeScenario has no groupRules
+            stopRunning();
+            return; // so die.
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
             stopRunning();
         }
+
+        LOG.info("CrossRoadModule stopped running, thread die.");
+    }
+
+    private void greenStep(final RuleGroup currentRunningRule) throws InterruptedException {
+        // set to green all traffic lights specified in rule
+        crossModuleCore.getTrafficLights().forEach(trafficLight -> {
+            if(currentRunningRule.getTrafficLights().contains(trafficLight.getId()))
+                trafficLight.setGreen();
+        });
+
+        // wait for step time seconds
+        LOG.debug("Wait "+currentRunningRule.getGreenTime()+"s green step...");
+        Thread.sleep(currentRunningRule.getGreenTime()*1000);
+    }
+
+    private void redStep(long transitionTime, RuleGroup nextRunningRule) throws InterruptedException {
+        // set all traffic lights to red
+        crossModuleCore.getTrafficLights().forEach(TrafficLight::setRed);
+
+        // set to red all traffic lights not specified in the next rule to follow
+        crossModuleCore.getTrafficLights().forEach(trafficLight -> {
+            if(!nextRunningRule.getTrafficLights().contains(trafficLight.getId()))
+                trafficLight.setRed();
+        });
+
+        LOG.debug("Wait "+transitionTime+"s red step...");
+        // wait for transition
+        Thread.sleep(transitionTime*1000);
+    }
+
+    void callEmergency(TrafficLightId crossroadId, int duration) {
+        LOG.debug("Call Emergency not already implemented");
+        LOG.debug("(called to set "+crossroadId+" green during "+duration+"s)");
+
+        // TODO: Stop run -NOW-
+
+        // uncomment following when todo done
+        /*
+            crossModuleCore.getTrafficLights().forEach(trafficLight -> {
+                if(trafficLight.getId().equals(crossroadId)) {
+                    trafficLight.setGreen();
+                } else {
+                    trafficLight.setRed();
+                }
+            });
+            Thread.sleep(duration);
+        */
+
+        // TODO: Relaunch run at a red step
     }
 }

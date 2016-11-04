@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.data.TrafficLight;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
-import fr.unice.polytech.al.trafficlight.utils.enums.TrafficLightId;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.springframework.boot.jackson.JsonComponent;
 
 import java.io.IOException;
@@ -57,6 +57,7 @@ public class CrossRoadSerializer extends JsonSerializer<CrossRoad>{
             jsonGenerator.writeNumberField("greenTime", group.getGreenTime());
 
             jsonGenerator.writeArrayFieldStart("trafficLightList");
+
             for(TrafficLightId id : group.getTrafficLights()){
                 jsonGenerator.writeStartObject();
                 jsonGenerator.writeStringField("id", id.getId());
