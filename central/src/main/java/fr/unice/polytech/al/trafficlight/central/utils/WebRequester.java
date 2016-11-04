@@ -2,8 +2,8 @@ package fr.unice.polytech.al.trafficlight.central.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -30,7 +30,7 @@ public class WebRequester {
     /**
      * Logger.
      */
-    private final static Logger logger = LogManager.getLogger(WebRequester.class);
+    //private final static Logger logger = LogManager.getLogger(WebRequester.class);
 
     /**
      * JSON serializer/deserializer.
@@ -68,8 +68,8 @@ public class WebRequester {
      * @throws IOException if IO error occurs
      */
     public void loadUrls(Path urlsConfigPath) throws IOException {
-        logger.info("Loading URLs configuration : {}",
-                () -> getClass().getClassLoader().getResource(urlsConfigPath.toString()));
+        //logger.info("Loading URLs configuration : {}",
+        //        () -> getClass().getClassLoader().getResource(urlsConfigPath.toString()));
 
         try (InputStream fis = getClass().getClassLoader()
                 // Get resource from class loader
