@@ -7,15 +7,28 @@ import java.util.List;
  * Created by nathael on 27/10/16.
  */
 public class Scenario {
-    private final String id;
-    private final List<RuleGroup> ruleGroupList;
+
+    private String id;
+    private List<RuleGroup> ruleGroupList;
     private long transitionTime; // time in s between each group green time
+
+    public Scenario(){
+        ruleGroupList = new ArrayList<>();
+    }
 
     public Scenario(String id) {
         this.id = id;
         this.ruleGroupList = new ArrayList<>();
         this.transitionTime = 0;
     }
+
+    public void addRuleGroupList(int stepNumber, RuleGroup ruleGroup) {
+        this.ruleGroupList.add(stepNumber, ruleGroup);
+    }
+    public void addRuleGroupList(RuleGroup ruleGroup) {
+        this.ruleGroupList.add(ruleGroup);
+    }
+
 
     //  //  //  //  //   GET   //   //  //  //  //
 
@@ -76,15 +89,16 @@ public class Scenario {
     //  //  //  //  //   SET   //   //  //  //  //
 
 
-    public void setTransitionTime(long transitionTime) {
-        this.transitionTime = transitionTime;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void addRuleGroupList(int stepNumber, RuleGroup ruleGroup) {
-        this.ruleGroupList.add(stepNumber, ruleGroup);
+    public void setRuleGroupList(List<RuleGroup> ruleGroupList) {
+        this.ruleGroupList = ruleGroupList;
     }
-    public void addRuleGroupList(RuleGroup ruleGroup) {
-        this.ruleGroupList.add(ruleGroup);
+
+    public void setTransitionTime(long transitionTime) {
+        this.transitionTime = transitionTime;
     }
 
     @Override

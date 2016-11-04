@@ -7,14 +7,24 @@ import java.util.Set;
  * Created by nathael on 26/10/16.
  */
 public class RuleGroup {
-    private final String id;
+    private String id;
     private long greenTime; // Green time in ms
-    private final Set<TrafficLightId> trafficLightList;
+    private Set<TrafficLightId> trafficLightList;
+
+    public RuleGroup(){}
 
     public RuleGroup(String id, long greenTime) {
         this.id = id;
         this.greenTime = greenTime;
         trafficLightList = new HashSet<>();
+    }
+
+    /** Add a traffic light to the rule group
+     *  @param trafficLight the traffic light to add
+     *  @return 'true' if trafficLight was successfully added to RuleGroup
+     */
+    public boolean addTrafficLight(TrafficLightId trafficLight) {
+        return trafficLightList.add(trafficLight);
     }
 
     //  //  //  //  //   GET   //   //  //  //  //
@@ -30,7 +40,7 @@ public class RuleGroup {
     /** Return group list of traffic light
      *  @return a list who contains all the group of the group
      */
-    public Set<TrafficLightId> getTrafficLights() {
+    public Set<TrafficLightId> getTrafficLightList() {
         return new HashSet<>(trafficLightList);
     }
 
@@ -45,13 +55,12 @@ public class RuleGroup {
 
     //  //  //  //  //   SET   //   //  //  //  //
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    /** Add a traffic light to the rule group
-     *  @param trafficLight the traffic light to add
-     *  @return 'true' if trafficLight was successfully added to RuleGroup
-     */
-    public boolean addTrafficLight(TrafficLightId trafficLight) {
-        return trafficLightList.add(trafficLight);
+    public void setTrafficLightList(Set<TrafficLightId> trafficLightList) {
+        this.trafficLightList = trafficLightList;
     }
 
     /**
