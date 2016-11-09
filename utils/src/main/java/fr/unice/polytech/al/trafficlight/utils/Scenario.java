@@ -80,10 +80,10 @@ public class Scenario {
         this.transitionTime = transitionTime;
     }
 
-    public void addRuleGroupList(int stepNumber, RuleGroup ruleGroup) {
+    public void addRuleGroup(int stepNumber, RuleGroup ruleGroup) {
         this.ruleGroupList.add(stepNumber, ruleGroup);
     }
-    public void addRuleGroupList(RuleGroup ruleGroup) {
+    public void addRuleGroup(RuleGroup ruleGroup) {
         this.ruleGroupList.add(ruleGroup);
     }
 

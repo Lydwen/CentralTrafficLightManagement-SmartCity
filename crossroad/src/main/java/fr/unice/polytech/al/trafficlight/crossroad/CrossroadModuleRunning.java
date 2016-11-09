@@ -107,12 +107,12 @@ class CrossroadModuleRunning implements Runnable {
         synchronized (emergenciesStack) {
             try {
                 emergenciesStack.wait(currentRunningRule.getGreenTime() * 1000L);
+                // No emergency call send while waiting
+            } catch (InterruptedException ignored) {
                 // An emergency call occurs
                 solveEmergency();
 
                 // Next step is red step, nothing special to do.
-            } catch (InterruptedException ignored) {
-                // No emergency call send while waiting
             }
         }
     }
@@ -132,13 +132,13 @@ class CrossroadModuleRunning implements Runnable {
         synchronized (emergenciesStack) {
             try {
                 emergenciesStack.wait(transitionTime * 1000L);
+                // No emergency call send while waiting
+            } catch (InterruptedException ignored) {
                 // If an emergency call occurs while waiting, solve it now
                 solveEmergency();
 
                 // Redo redStep (solving emergency doesn't do that)
                 redStep(transitionTime, nextRunningRule);
-            } catch (InterruptedException ignored) {
-                // No emergency call send while waiting
             }
         }
     }
