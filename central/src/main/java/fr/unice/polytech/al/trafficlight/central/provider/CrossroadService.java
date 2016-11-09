@@ -3,13 +3,15 @@ package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.data.TrafficLight;
+import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import org.springframework.boot.SpringApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 
+import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,8 @@ public class CrossroadService {
     /**
      * Crossroad web requester.
      */
-    //private WebRequester crossroadRequester = new WebRequester("crossroads", "/crossroad");
+    @Autowired
+    private WebRequester crossroadRequester;
 
     /**
      * Retrieves all the existing crossroads
@@ -36,7 +39,7 @@ public class CrossroadService {
      *
      * @return a Response containing all the crossroads names
      */
-    @RequestMapping(value="/", method= RequestMethod.GET)
+    @RequestMapping(value="", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public List<String> retrieveCrossRoads() {
         List<String> crossRoads = new ArrayList<>();
         crossRoads.add("carrefour_du_casino");
@@ -44,7 +47,7 @@ public class CrossroadService {
         return crossRoads;
     }
 
-    @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET)
+    @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public @ResponseBody CrossRoad retrieveSpecifcCrossRoad(@PathVariable String crossRoadName) {
         CrossRoad crossRoad = new CrossRoad("carrefour_du_casino", "url");
         crossRoad.addRoad("avenue du tapis vert");
@@ -75,15 +78,13 @@ public class CrossroadService {
         return crossRoad;
     }
 
-    @RequestMapping(value="/", method=RequestMethod.PUT)
-    public Scenario receiveScenario(@RequestParam Scenario scenario) {
+    @RequestMapping(value="", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    public Scenario receiveScenario(@RequestBody Scenario scenario) {
 
         // Puts the request to the crossroad
-       // crossroadRequester.put("INRIA", "/starter", scenario);
-        return scenario;
-    }
+        String URI = crossroadRequester.target("crossroads", "/crossroad", "INRIA","/starter");
+        crossroadRequester.put(URI, scenario);
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(CrossroadService.class, args);
+        return scenario;
     }
 }

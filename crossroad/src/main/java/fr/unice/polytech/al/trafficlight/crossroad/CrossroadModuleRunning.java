@@ -98,7 +98,7 @@ class CrossroadModuleRunning implements Runnable {
     private void greenStep(final RuleGroup currentRunningRule) throws InterruptedException {
         // set to green all traffic lights specified in rule
         crossModuleCore.getTrafficLights().forEach(trafficLight -> {
-            if(currentRunningRule.getTrafficLights().contains(trafficLight.getId()))
+            if(currentRunningRule.getTrafficLightList().contains(trafficLight.getId()))
                 trafficLight.setGreen();
         });
 
@@ -123,7 +123,7 @@ class CrossroadModuleRunning implements Runnable {
 
         // set to red all traffic lights not specified in the next rule to follow
         crossModuleCore.getTrafficLights().forEach(trafficLight -> {
-            if(!nextRunningRule.getTrafficLights().contains(trafficLight.getId()))
+            if(!nextRunningRule.getTrafficLightList().contains(trafficLight.getId()))
                 trafficLight.setRed();
         });
 

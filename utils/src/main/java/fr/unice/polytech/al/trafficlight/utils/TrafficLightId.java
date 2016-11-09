@@ -4,7 +4,9 @@ package fr.unice.polytech.al.trafficlight.utils;
  * Created by nathael on 27/10/16.
  */
 public class TrafficLightId {
-    private final String id;
+    private String id;
+
+    public TrafficLightId(){}
 
     public TrafficLightId(String id) {
         this.id = id;
@@ -12,6 +14,10 @@ public class TrafficLightId {
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
