@@ -23,7 +23,7 @@ import java.util.Set;
 public class CrossroadModuleCore {
     private final static Logger LOG = Logger.getLogger(CrossroadModuleCore.class);
 
-    private final CrossroadModuleRunning runnable;
+    final CrossroadModuleRunning runnable;
     private final Set<TrafficLight> trafficLightSet;
 
     public CrossroadModuleCore(/*Set<TrafficLight> trafficLightSet*/) {

@@ -7,7 +7,6 @@ import java.util.List;
  * Created by nathael on 27/10/16.
  */
 public class Scenario {
-
     private String id;
     private List<RuleGroup> ruleGroupList;
     private int transitionTime; // time in s between each group green time
