@@ -72,4 +72,9 @@ public class Emergency {
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
+    @Override
+    public String toString() {
+        return "("+duration+"s Emergency on "+trafficLightId+" of "+crossroadId+")";
+    }
 }

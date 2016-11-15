@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
+import static fr.unice.polytech.al.trafficlight.crossroad.UtilsForTests.*;
 import static junit.framework.TestCase.*;
 
 /**
@@ -16,8 +17,11 @@ import static junit.framework.TestCase.*;
 public class TestCrossroadModule {
     private final static Logger LOG = Logger.getLogger(TestCrossroadModule.class);
 
-    // Much larger => Test more precise but much longer
-    private static final int LOOP_NUMBER = 1;
+    /**
+     * Much larger => Test for normal scenario more precise but much longer
+     * LOOP_NUMBER +1 => test during + ~30s
+     */
+    private static final int LOOP_NUMBER = 3; // 3 => ~2min
 
     private CrossroadModuleCore module = new CrossroadModuleCore();
     private Scenario scenario = new Scenario("scenario test");
@@ -51,8 +55,13 @@ public class TestCrossroadModule {
         scenario.setTransitionTime(2);
     }
 
+    /**
+     * Test that traffic lights are at correct colors
+     * at right time (+/- 1s precision) during a normal scenario
+     * @throws InterruptedException
+     */
     @Test
-    public void test1() throws InterruptedException {
+    public void testNormal() throws InterruptedException {
         // Check before scenario state
         for(TrafficLight tl : module.getTrafficLights()) {
             assertTrue(tl.isDisabled());
@@ -74,51 +83,51 @@ public class TestCrossroadModule {
         for(int i=0; i<LOOP_NUMBER; i++) {
             LOG.debug("TEST>Wait 2s (Group1, Green Step, 1s/5s)");
             sleep(2);
-            checkTrafficLightStep(group1);
+            checkTrafficLightStep(module.getTrafficLights(), group1);
 
             LOG.debug("TEST>Wait 3s (Group1, Green Step, 4s/5s)");
             sleep(3);
-            checkTrafficLightStep(group1);
+            checkTrafficLightStep(module.getTrafficLights(), group1);
 
             LOG.debug("TEST>Wait 2s (Group2, Red Step, 1s/2s)");
             sleep(2);
-            checkTrafficLightRed(group1, group2);
+            checkTrafficLightRed(module.getTrafficLights(), group1, group2);
 
             LOG.debug("TEST>Wait 2s (Group2, Green Step, 1s/7s)");
             sleep(2);
-            checkTrafficLightStep(group2);
+            checkTrafficLightStep(module.getTrafficLights(), group2);
 
             LOG.debug("TEST>Wait 5s (Group2, Green Step, 6s/7s)");
             sleep(5);
-            checkTrafficLightStep(group2);
+            checkTrafficLightStep(module.getTrafficLights(), group2);
 
             LOG.debug("TEST>Wait 2s (Group3, Red Step, 1s/2s)");
             sleep(2);
-            checkTrafficLightRed(group2, group3);
+            checkTrafficLightRed(module.getTrafficLights(), group2, group3);
 
             LOG.debug("TEST>Wait 2s (Group3, Green Step, 1s/5s)");
             sleep(2);
-            checkTrafficLightStep(group3);
+            checkTrafficLightStep(module.getTrafficLights(), group3);
 
             LOG.debug("TEST>Wait 3s (Group3, Green Step, 4s/5s)");
             sleep(3);
-            checkTrafficLightStep(group3);
+            checkTrafficLightStep(module.getTrafficLights(), group3);
 
             LOG.debug("TEST>Wait 2s (Group4, Red Step, 1s/2s)");
             sleep(2);
-            checkTrafficLightRed(group3, group4);
+            checkTrafficLightRed(module.getTrafficLights(), group3, group4);
 
             LOG.debug("TEST>Wait 2s (Group4, Green Step, 1s/6s)");
             sleep(2);
-            checkTrafficLightStep(group4);
+            checkTrafficLightStep(module.getTrafficLights(), group4);
 
             LOG.debug("TEST>Wait 4s (Group4, Green Step, 5s/6s)");
             sleep(4);
-            checkTrafficLightStep(group4);
+            checkTrafficLightStep(module.getTrafficLights(), group4);
 
             LOG.debug("TEST>Wait 2s (Group1, Red Step, 1s/2s)");
             sleep(2);
-            checkTrafficLightRed(group4, group1);
+            checkTrafficLightRed(module.getTrafficLights(), group4, group1);
         }
 
         module.stopTrafficLight(); // should stop after group1 green step
@@ -131,39 +140,111 @@ public class TestCrossroadModule {
         }
     }
 
-    private void checkTrafficLightRed(RuleGroup lastRule, RuleGroup nextRule) {
-        // Check all trafficLights are red and not disabled
+    /**
+     * Test that traffic lights scenario stops when called to
+     * and don't do crazy things if was already stopped
+     * @throws InterruptedException
+     */
+    @Test
+    public void testStopWhileGreen() throws InterruptedException {
+        // Check before scenario state
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertTrue(tl.isDisabled());
+        }
+        assertNull(module.getActiveScenario());
+
+        // Launch scenario
+        module.changeScenario(new Gson().toJson(scenario));
+        LOG.debug("TEST>START");
+
+        LOG.debug("TEST>Wait 1s (Group1, Red Step, 1s/2s)");
+        sleep(1);
+        // Check all trafficLights are red and not disabled at start
         for(TrafficLight tl : module.getTrafficLights()) {
             assertFalse(tl.isDisabled());
+            assertFalse(tl.isGreen());
+        }
 
-            // if the trafficlight was green and should be green at next green step
-            // so shouldnt be set to green during red step
-            if(lastRule.getTrafficLights().contains(tl.getId())
-                    && nextRule.getTrafficLights().contains(tl.getId())) {
-                assertTrue(tl.toString(), tl.isGreen()); // should be green
-            } else {
-                assertFalse(tl.toString(), tl.isGreen()); // should be red
-            }
+        // go to green step normally before force stop
+        LOG.debug("TEST>Wait 3s (Group1, Green Step, 2s/5s)");
+        sleep(3);
+        checkTrafficLightStep(module.getTrafficLights(), group1);
+
+        // Calling to stop while green
+        module.stopTrafficLight(); // should stop after group1 green step
+
+        // Wait for green step to continue normally
+        LOG.debug("TEST>Wait 2s (Group1, Green Step, 4s/5s)");
+        sleep(2);
+        checkTrafficLightStep(module.getTrafficLights(), group1);
+
+        // Wait for green to end; traffic lights should be disabled after
+        LOG.debug("TEST>Wait 2s (1s after Group1 Green Step)");
+        sleep(2);
+        assertFalse(module.runnable.isRunning());
+
+        // Check all trafficLights are disabled
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertTrue(tl.toString(), tl.isDisabled());
         }
     }
-    private void checkTrafficLightStep(RuleGroup rule) {
-        // Check all trafficLights are red and not disabled
+
+    /**
+     * Test that traffic lights scenario stops when called to
+     * and don't do crazy things if was already stopped
+     * @throws InterruptedException
+     */
+    @Test
+    public void testStopWhileRed() throws InterruptedException {
+        // Check before scenario state
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertTrue(tl.isDisabled());
+        }
+        assertNull(module.getActiveScenario());
+
+        // Launch scenario
+        module.changeScenario(new Gson().toJson(scenario));
+        LOG.debug("TEST>START");
+
+        LOG.debug("TEST>Wait 1s (Group1, Red Step, 1s/2s)");
+        sleep(1);
+        // Check all trafficLights are red and not disabled at start
         for(TrafficLight tl : module.getTrafficLights()) {
             assertFalse(tl.isDisabled());
-
-            if(rule.getTrafficLights().contains(tl.getId())) {
-                assertTrue(tl.toString(), tl.isGreen()); // should be green
-            } else {
-                assertFalse(tl.toString(), tl.isGreen()); // should be red
-            }
+            assertFalse(tl.isGreen());
         }
-    }
 
-    private void sleep(int seconds) {
-        try {
-            Thread.sleep(seconds*1000);
-        }catch (InterruptedException ie) {
-            ie.printStackTrace();
+        // doing green step normally
+        LOG.debug("TEST>Wait 5s (Group1, Green Step, 4s/5s)");
+        sleep(5);
+        checkTrafficLightStep(module.getTrafficLights(), group1);
+
+        // Wait for green to end; traffic lights should be disabled after
+        LOG.debug("TEST>Wait 2s (Group2, Red Step, 1s/2s)");
+        sleep(2);
+        checkTrafficLightRed(module.getTrafficLights(), group1, group2);
+
+        // Calling to stop while red
+        module.stopTrafficLight(); // should stop after group2 green step
+
+        // Traffic light should not be stopped now
+        LOG.debug("TEST>Wait 2s (Group2, Red Step, 1s/7s)");
+        sleep(2);
+        checkTrafficLightStep(module.getTrafficLights(), group2);
+
+        // Traffic light should not be stopped now
+        LOG.debug("TEST>Wait 5s (Group2, Red Step, 6s/7s)");
+        sleep(5);
+        checkTrafficLightStep(module.getTrafficLights(), group2);
+
+        LOG.debug("TEST>Wait 2s (1s after Group2 Green Step)");
+        sleep(2);
+        // Now should be stopped
+        assertFalse(module.runnable.isRunning());
+
+        // Check all trafficLights are disabled
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertTrue(tl.toString(), tl.isDisabled());
         }
     }
 
