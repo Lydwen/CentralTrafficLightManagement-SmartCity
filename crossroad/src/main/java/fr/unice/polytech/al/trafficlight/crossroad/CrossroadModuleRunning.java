@@ -60,10 +60,10 @@ class CrossroadModuleRunning implements Runnable {
     public void run() {
         try {
             int runningRuleIndex = 0;
-            Scenario runningScenario = activeScenario;
+            Scenario runningScenario = null;
             while(isRunning()) {
                 // computing next rule to follow
-                if(!runningScenario.equals(activeScenario)) {
+                if(!activeScenario.equals(runningScenario)) {
                     // the scenario has changed !!
                     runningScenario = activeScenario;
                     runningRuleIndex = 0; // start at the beginning of the new scenario
@@ -82,95 +82,113 @@ class CrossroadModuleRunning implements Runnable {
                 // passing some traffic lights to green and wait
                 greenStep(runningRule);
             }
-        } catch(IndexOutOfBoundsException ioobe) {
+        } catch(IndexOutOfBoundsException ignored) {
             // activeScenario has no groupRules
-            stopRunning();
-            return; // so die.
+            LOG.error("Active Scenario has no group Rules to use.", ignored);
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            stopRunning();
+            LOG.error("CrossroadModule was interrupted", e);
         }
 
+        stopRunning();
+        disableTrafficLights();
         LOG.info("CrossRoadModule stopped running, thread die.");
     }
 
     private void greenStep(final RuleGroup currentRunningRule) throws InterruptedException {
         // set to green all traffic lights specified in rule
         crossModuleCore.getTrafficLights().forEach(trafficLight -> {
-            if(currentRunningRule.getTrafficLightList().contains(trafficLight.getId()))
+            if(currentRunningRule.getTrafficLights().contains(trafficLight.getId()))
                 trafficLight.setGreen();
         });
 
         // wait for step time seconds
         LOG.debug("Wait "+currentRunningRule.getGreenTime()+"s green step...");
-        synchronized (emergenciesStack) {
-            try {
+        try {
+            synchronized (emergenciesStack) {
                 emergenciesStack.wait(currentRunningRule.getGreenTime() * 1000L);
-                // An emergency call occurs
-                solveEmergency();
-
-                // Next step is red step, nothing special to do.
-            } catch (InterruptedException ignored) {
-                // No emergency call send while waiting
             }
+
+            // Now is when waited transitionTime seconds
+            // OR when a notify was done on emergenciesStack
+            // We can't know what of these two was the reason
+            // so we try every time to solve emergency (will do nothing if no emergency called)
+
+            // If an emergency call occurs while waiting, solve it now
+            solveEmergency();
+        } catch (InterruptedException interrupted) {
+            LOG.error("Thread was interrupted for unknown reason");
         }
     }
 
     private void redStep(int transitionTime, RuleGroup nextRunningRule) throws InterruptedException {
-        // set all traffic lights to red
-        crossModuleCore.getTrafficLights().forEach(TrafficLight::setRed);
-
         // set to red all traffic lights not specified in the next rule to follow
         crossModuleCore.getTrafficLights().forEach(trafficLight -> {
-            if(!nextRunningRule.getTrafficLightList().contains(trafficLight.getId()))
+            if(!nextRunningRule.getTrafficLights().contains(trafficLight.getId())
+                    || trafficLight.isDisabled())
                 trafficLight.setRed();
         });
 
         LOG.debug("Wait "+transitionTime+"s red step...");
         // wait for transition
-        synchronized (emergenciesStack) {
-            try {
+        try {
+            synchronized (emergenciesStack) {
                 emergenciesStack.wait(transitionTime * 1000L);
-                // If an emergency call occurs while waiting, solve it now
-                solveEmergency();
-
-                // Redo redStep (solving emergency doesn't do that)
-                redStep(transitionTime, nextRunningRule);
-            } catch (InterruptedException ignored) {
-                // No emergency call send while waiting
             }
+
+            // Now is when waited transitionTime seconds
+            // OR when a notify was done on emergenciesStack
+            // We can't know what of these two was the reason
+            // so we try every time to solve emergency (will do nothing if no emergency called)
+
+            // If an emergency call occurs while waiting, solve it now
+            if(solveEmergency()) {
+                // Redo redStep (solving emergency end by a green state)
+                redStep(transitionTime, nextRunningRule);
+            }
+        } catch (InterruptedException interrupted) {
+            LOG.error("Thread was interrupted for unknown reason");
         }
+    }
+
+    private void disableTrafficLights() {
+        crossModuleCore.getTrafficLights().forEach(TrafficLight::setDisabled);
     }
 
     void callEmergency(Emergency emergency) {
         synchronized (emergenciesStack) {
             emergenciesStack.push(emergency);
-            emergenciesStack.notify();
+            emergenciesStack.notify(); // Force the current step to stop waiting
         }
     }
 
-    private void solveEmergency() {
-        try {
-            while(!emergenciesStack.isEmpty()) {
-                Emergency currentEmergency = emergenciesStack.pop();
+    /**
+     * Check for emergencies in stack, and solve them if there are
+     * @return 'true' if solved one or more emergencies
+     *         'false' otherwise
+     */
+    private boolean solveEmergency() throws InterruptedException {
+        boolean hasSolvedEmergency = false;
 
-                // creating temporary rulegroup
-                RuleGroup runningRule = new RuleGroup(currentEmergency.toString(), currentEmergency.getDuration());
-                runningRule.addTrafficLight(currentEmergency.getTrafficLightId());
-                LOG.info("EMERGENCY: RuleGroup changed to " + runningRule);
+        while(!emergenciesStack.isEmpty()) {
+            hasSolvedEmergency = true;
+            Emergency currentEmergency = emergenciesStack.pop();
 
-                // passing the traffic light to green and wait needed duration
-                greenStep(runningRule);
 
-                // passing all traffic lights to red and wait
-                redStep(activeScenario.getTransitionTime(), runningRule);
-            }
+            // creating temporary rulegroup
+            RuleGroup runningRule = new RuleGroup(currentEmergency.toString(), currentEmergency.getDuration());
+            runningRule.addTrafficLight(currentEmergency.getTrafficLightId());
+            LOG.warn("EMERGENCY: RuleGroup changed to " + runningRule);
+
+            // passing all traffic lights to red and wait before passing emergency to green
+            redStep(activeScenario.getTransitionTime(), runningRule);
+
+            // passing the traffic light to green and wait needed duration
+            greenStep(runningRule);
 
             // end of emergency step, remove emergenciesStack
-            LOG.info("Emergency call normally ended");
-        } catch (InterruptedException e) {
-            LOG.error("Emergency call was interrupted", e);
+            LOG.warn("Emergency call normally ended");
         }
+
+        return hasSolvedEmergency;
     }
 }

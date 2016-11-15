@@ -70,8 +70,8 @@ public class CrossroadService {
         group1.addTrafficLight(id2);
         group2.addTrafficLight(id2);
 
-        scenar.addRuleGroupList(0, group1);
-        scenar.addRuleGroupList(1, group2);
+        scenar.addRuleGroup(0, group1);
+        scenar.addRuleGroup(1, group2);
         scenar.setTransitionTime(5);
 
         crossRoad.setScenario(scenar);

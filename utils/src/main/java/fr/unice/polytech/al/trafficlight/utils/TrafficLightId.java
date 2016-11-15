@@ -23,15 +23,20 @@ public class TrafficLightId {
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof String)
-            return id.equals((String) obj);
-        else if (obj instanceof TrafficLightId) {
+            return obj.equals(id);
+        else if (obj instanceof TrafficLightId)
             return id.equals(((TrafficLightId) obj).id);
-        }
-        else return false;
+        else
+            return false;
     }
 
     @Override
     public String toString() {
         return "TL:"+id;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31*id.hashCode()+7;
     }
 }

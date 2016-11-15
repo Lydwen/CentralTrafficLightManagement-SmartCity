@@ -27,12 +27,12 @@ public class AddScenarioServlet extends HttpServlet{
             scenario.setTransitionTime(Integer.parseInt(request.getParameter("transition_time")));
 
             RuleGroup rgA = new RuleGroup("A", Integer.parseInt(request.getParameter("green_timeA")));
-            rgA.getTrafficLightList().add(new TrafficLightId(request.getParameter("traffic_light1")));
-            rgA.getTrafficLightList().add(new TrafficLightId(request.getParameter("traffic_light2")));
+            rgA.getTrafficLights().add(new TrafficLightId(request.getParameter("traffic_light1")));
+            rgA.getTrafficLights().add(new TrafficLightId(request.getParameter("traffic_light2")));
 
             RuleGroup rgB = new RuleGroup("B", Integer.parseInt(request.getParameter("green_timeB")));
-            rgB.getTrafficLightList().add(new TrafficLightId(request.getParameter("traffic_light3")));
-            rgB.getTrafficLightList().add(new TrafficLightId(request.getParameter("traffic_light4")));
+            rgB.getTrafficLights().add(new TrafficLightId(request.getParameter("traffic_light3")));
+            rgB.getTrafficLights().add(new TrafficLightId(request.getParameter("traffic_light4")));
 
 
             scenario.getRuleGroupList().add(rgA);

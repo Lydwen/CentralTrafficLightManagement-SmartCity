@@ -10,14 +10,14 @@ public class RuleGroup {
 
     private String id;
     private int greenTime; // Green time in s
-    private Set<TrafficLightId> trafficLightList;
+    private Set<TrafficLightId> trafficLights;
 
     public RuleGroup(){}
 
     public RuleGroup(String id, int greenTime) {
         this.id = id;
         this.greenTime = greenTime;
-        trafficLightList = new HashSet<>();
+        trafficLights = new HashSet<>();
     }
 
     /** Add a traffic light to the rule group
@@ -25,7 +25,7 @@ public class RuleGroup {
      *  @return 'true' if trafficLight was successfully added to RuleGroup
      */
     public boolean addTrafficLight(TrafficLightId trafficLight) {
-        return trafficLightList.add(trafficLight);
+        return trafficLights.add(trafficLight);
     }
 
     //  //  //  //  //   GET   //   //  //  //  //
@@ -41,8 +41,8 @@ public class RuleGroup {
     /** Return group list of traffic light
      *  @return a list who contains all the group of the group
      */
-    public Set<TrafficLightId> getTrafficLightList() {
-        return new HashSet<>(trafficLightList);
+    public Set<TrafficLightId> getTrafficLights() {
+        return new HashSet<>(trafficLights);
     }
 
     /**
@@ -60,8 +60,8 @@ public class RuleGroup {
         this.id = id;
     }
 
-    public void setTrafficLightList(Set<TrafficLightId> trafficLightList) {
-        this.trafficLightList = trafficLightList;
+    public void setTrafficLights(Set<TrafficLightId> trafficLights) {
+        this.trafficLights = trafficLights;
     }
 
     /**
@@ -74,6 +74,6 @@ public class RuleGroup {
 
     @Override
     public String toString() {
-        return "RG:"+id+":"+greenTime+":"+trafficLightList;
+        return "RG:"+id+":"+greenTime+":"+ trafficLights;
     }
 }

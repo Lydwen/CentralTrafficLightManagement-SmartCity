@@ -11,6 +11,7 @@ class TrafficLight {
 
     private final TrafficLightId id;
     private volatile boolean isGreen = false;
+    private volatile boolean isDisabled = true;
 
     TrafficLight(TrafficLightId id) {
         this.id = id;
@@ -21,8 +22,9 @@ class TrafficLight {
      */
     void setGreen(){
         // Do nothing if already green
-        if(!isGreen) {
+        if(isDisabled || !isGreen) {
             isGreen = true;
+            isDisabled = false;
             LOG.info("TrafficLight " + id + " is now Green :D");
         }
     }
@@ -32,18 +34,36 @@ class TrafficLight {
      */
     void setRed(){
         // Do nothing if already red
-        if(isGreen) {
+        if(isDisabled || isGreen) {
             isGreen = false;
+            isDisabled = false;
             LOG.info("TrafficLight " + id + " is now Red :(");
         }
     }
 
     /**
-     * @return 'true' if trafficLight is Green, 'false' otherwise (yellow or red)
+     * Send order to disable traffic light (set to blinking orange)
+     */
+    public void setDisabled() {
+        if(!isDisabled) {
+            isDisabled = true;
+            LOG.info("TrafficLight " + id + " is now blinking orange !!");
+        }
+    }
+
+    /**
+     * @return 'true' if trafficLight is Green,
+     *         'false' otherwise (disabled or red)
      */
     boolean isGreen() {
         return isGreen;
     }
+
+    /**
+     * @return 'true' if trafficLight is disabled (blinking orange),
+     *         'false' if trafficLight is working (red or green)
+     */
+    boolean isDisabled() { return isDisabled; }
 
 
     /**
@@ -55,6 +75,7 @@ class TrafficLight {
 
     @Override
     public String toString() {
-        return id+":"+(isGreen?"green":"red");
+        return id+":"+(isDisabled?"bl'orange":(isGreen?"green":"red"));
     }
+
 }
