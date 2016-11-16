@@ -27,7 +27,7 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
     @Autowired
     private DatabaseDao database;
 
-    public String checkScenario(Scenario scenario, CrossRoad crossRoad) {
+    public String checkScenario(Scenario scenario, String crossRoad) {
 
         List<RuleGroup> ruleList = scenario.getRuleGroupList();
         Set<TrafficLightId> trafficLightList = new HashSet<>();
@@ -41,7 +41,7 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
             }
         }
 
-        database.getCrossroad(crossRoad.getName()).setScenario(scenario);
+        database.getCrossroad(crossRoad).setScenario(scenario);
 
         String URI = requester.target("crossroads", "/crossroad", "INRIA","/starter");
         requester.put(URI, scenario);

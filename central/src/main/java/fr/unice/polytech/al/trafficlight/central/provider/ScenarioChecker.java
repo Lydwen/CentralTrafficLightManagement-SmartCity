@@ -8,5 +8,5 @@ import fr.unice.polytech.al.trafficlight.utils.Scenario;
  */
 public interface ScenarioChecker {
 
-    public String checkScenario(Scenario scenario, CrossRoad crossRoad);
+    public String checkScenario(Scenario scenario, String crossRoad);
 }
