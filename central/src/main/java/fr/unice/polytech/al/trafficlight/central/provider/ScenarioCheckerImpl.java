@@ -1,6 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
+import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequesterImpl;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
@@ -26,7 +27,7 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
     @Autowired
     private DatabaseDao database;
 
-    public String checkScenario(Scenario scenario) {
+    public String checkScenario(Scenario scenario, String crossRoad) {
 
         List<RuleGroup> ruleList = scenario.getRuleGroupList();
         Set<TrafficLightId> trafficLightList = new HashSet<>();
@@ -34,14 +35,14 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
         for(RuleGroup r : ruleList) {
             trafficLightList.addAll(r.getTrafficLights());
         }
-
         for(RuleGroup r : ruleList) {
             if (trafficLightList.size() == r.getTrafficLights().size()) {
                 return "All trafficLight green at same time";
             }
         }
 
-        database.addScenario(scenario);
+        database.getCrossroad(crossRoad).setScenario(scenario);
+
         String URI = requester.target("crossroads", "/crossroad", "INRIA","/starter");
         requester.put(URI, scenario);
         return "OK";
