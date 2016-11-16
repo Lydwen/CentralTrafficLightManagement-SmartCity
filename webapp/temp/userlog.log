@@ -88,3 +88,616 @@
 2016-11-09 18:49:38 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 09 18:49:37 CET 2016]; root of context hierarchy
 2016-11-09 18:49:38 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1708 ms
 2016-11-09 19:51:47 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 09 18:49:37 CET 2016]; root of context hierarchy
+2016-11-15 18:24:30 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 18:24:30 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:24:30 CET 2016]; root of context hierarchy
+2016-11-15 18:24:30 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 18:24:31 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 18:24:32 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 18:24:32 [INFO ] - Mapped "{[/crossroads],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 18:24:32 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 18:24:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:24:30 CET 2016]; root of context hierarchy
+2016-11-15 18:24:33 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:24:30 CET 2016]; root of context hierarchy
+2016-11-15 18:24:33 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2324 ms
+2016-11-15 18:32:51 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:24:30 CET 2016]; root of context hierarchy
+2016-11-15 18:33:03 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 18:33:03 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:33:03 CET 2016]; root of context hierarchy
+2016-11-15 18:33:03 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 18:33:03 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 18:33:04 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 18:33:04 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 18:33:04 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 18:33:04 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:33:03 CET 2016]; root of context hierarchy
+2016-11-15 18:33:04 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:33:03 CET 2016]; root of context hierarchy
+2016-11-15 18:33:04 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1551 ms
+2016-11-15 18:35:03 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:33:03 CET 2016]; root of context hierarchy
+2016-11-15 18:35:31 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 18:35:31 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:35:31 CET 2016]; root of context hierarchy
+2016-11-15 18:35:31 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 18:35:32 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 18:35:32 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 18:35:32 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 18:35:32 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 18:35:33 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:35:31 CET 2016]; root of context hierarchy
+2016-11-15 18:35:33 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:35:31 CET 2016]; root of context hierarchy
+2016-11-15 18:35:33 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1653 ms
+2016-11-15 18:57:54 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:35:31 CET 2016]; root of context hierarchy
+2016-11-15 18:58:10 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 18:58:10 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:58:10 CET 2016]; root of context hierarchy
+2016-11-15 18:58:10 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 18:58:10 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 18:58:11 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 18:58:11 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 18:58:11 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 18:58:11 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:58:10 CET 2016]; root of context hierarchy
+2016-11-15 18:58:11 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:58:10 CET 2016]; root of context hierarchy
+2016-11-15 18:58:11 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1650 ms
+2016-11-15 18:59:45 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 18:58:10 CET 2016]; root of context hierarchy
+2016-11-15 19:00:04 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 19:00:04 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:00:04 CET 2016]; root of context hierarchy
+2016-11-15 19:00:04 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 19:00:04 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 19:00:05 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 19:00:05 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 19:00:05 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 19:00:05 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:00:04 CET 2016]; root of context hierarchy
+2016-11-15 19:00:05 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:00:04 CET 2016]; root of context hierarchy
+2016-11-15 19:00:05 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1594 ms
+2016-11-15 19:02:23 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:00:04 CET 2016]; root of context hierarchy
+2016-11-15 19:02:38 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 19:02:38 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:02:38 CET 2016]; root of context hierarchy
+2016-11-15 19:02:38 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 19:02:38 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 19:02:39 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 19:02:39 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 19:02:39 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 19:02:39 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:02:38 CET 2016]; root of context hierarchy
+2016-11-15 19:02:39 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:02:38 CET 2016]; root of context hierarchy
+2016-11-15 19:02:39 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1727 ms
+2016-11-15 19:31:48 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:02:38 CET 2016]; root of context hierarchy
+2016-11-15 19:31:59 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 19:31:59 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:31:59 CET 2016]; root of context hierarchy
+2016-11-15 19:31:59 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 19:32:00 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 19:32:00 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 19:32:00 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 19:32:00 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 19:32:01 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:31:59 CET 2016]; root of context hierarchy
+2016-11-15 19:32:01 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:31:59 CET 2016]; root of context hierarchy
+2016-11-15 19:32:01 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1429 ms
+2016-11-15 20:04:00 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 19:31:59 CET 2016]; root of context hierarchy
+2016-11-15 20:04:13 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 20:04:13 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 20:04:13 CET 2016]; root of context hierarchy
+2016-11-15 20:04:13 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 20:04:13 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 20:04:14 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 20:04:14 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 20:04:14 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 20:04:14 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 20:04:13 CET 2016]; root of context hierarchy
+2016-11-15 20:04:15 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 20:04:13 CET 2016]; root of context hierarchy
+2016-11-15 20:04:15 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1772 ms
+2016-11-15 20:23:04 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 20:04:13 CET 2016]; root of context hierarchy
+2016-11-15 20:23:21 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 20:23:21 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 20:23:21 CET 2016]; root of context hierarchy
+2016-11-15 20:23:21 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 20:23:21 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 20:23:22 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 20:23:22 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 20:23:22 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 20:23:22 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 20:23:21 CET 2016]; root of context hierarchy
+2016-11-15 20:23:23 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 20:23:21 CET 2016]; root of context hierarchy
+2016-11-15 20:23:23 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1621 ms
+2016-11-15 21:00:35 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 20:23:21 CET 2016]; root of context hierarchy
+2016-11-15 21:00:56 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 21:00:56 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 21:00:56 CET 2016]; root of context hierarchy
+2016-11-15 21:00:56 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 21:00:57 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 21:00:57 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 21:00:58 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 21:00:58 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 21:00:58 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 21:00:56 CET 2016]; root of context hierarchy
+2016-11-15 21:00:58 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 21:00:56 CET 2016]; root of context hierarchy
+2016-11-15 21:00:58 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2191 ms
+2016-11-15 23:00:13 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 21:00:56 CET 2016]; root of context hierarchy
+2016-11-15 23:00:32 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 23:00:32 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:00:32 CET 2016]; root of context hierarchy
+2016-11-15 23:00:32 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 23:00:32 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 23:00:33 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 23:00:33 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 23:00:33 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-15 23:00:33 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 23:00:34 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:00:32 CET 2016]; root of context hierarchy
+2016-11-15 23:00:34 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:00:32 CET 2016]; root of context hierarchy
+2016-11-15 23:00:34 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1855 ms
+2016-11-15 23:07:13 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:00:32 CET 2016]; root of context hierarchy
+2016-11-15 23:07:25 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 23:07:25 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:07:25 CET 2016]; root of context hierarchy
+2016-11-15 23:07:25 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 23:07:26 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 23:07:26 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 23:07:26 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 23:07:26 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-15 23:07:26 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 23:07:27 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:07:25 CET 2016]; root of context hierarchy
+2016-11-15 23:07:27 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:07:25 CET 2016]; root of context hierarchy
+2016-11-15 23:07:27 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1699 ms
+2016-11-15 23:32:39 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:07:25 CET 2016]; root of context hierarchy
+2016-11-15 23:32:51 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 23:32:51 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:32:51 CET 2016]; root of context hierarchy
+2016-11-15 23:32:51 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 23:32:52 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 23:32:53 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 23:32:53 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 23:32:53 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-15 23:32:53 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 23:32:53 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:32:51 CET 2016]; root of context hierarchy
+2016-11-15 23:32:53 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:32:51 CET 2016]; root of context hierarchy
+2016-11-15 23:32:53 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1834 ms
+2016-11-15 23:34:36 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:32:51 CET 2016]; root of context hierarchy
+2016-11-15 23:34:47 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 23:34:48 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:34:48 CET 2016]; root of context hierarchy
+2016-11-15 23:34:48 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 23:34:48 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 23:34:49 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 23:34:49 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 23:34:49 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-15 23:34:49 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 23:34:50 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:34:48 CET 2016]; root of context hierarchy
+2016-11-15 23:34:50 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:34:48 CET 2016]; root of context hierarchy
+2016-11-15 23:34:50 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2354 ms
+2016-11-15 23:38:43 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:34:48 CET 2016]; root of context hierarchy
+2016-11-15 23:38:54 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 23:38:54 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:38:54 CET 2016]; root of context hierarchy
+2016-11-15 23:38:54 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 23:38:55 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 23:38:56 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 23:38:56 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 23:38:56 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-15 23:38:56 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 23:38:56 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:38:54 CET 2016]; root of context hierarchy
+2016-11-15 23:38:56 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:38:54 CET 2016]; root of context hierarchy
+2016-11-15 23:38:56 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1870 ms
+2016-11-15 23:41:50 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:38:54 CET 2016]; root of context hierarchy
+2016-11-15 23:42:04 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 23:42:04 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:42:04 CET 2016]; root of context hierarchy
+2016-11-15 23:42:04 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 23:42:05 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 23:42:05 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 23:42:05 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 23:42:05 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-15 23:42:05 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 23:42:06 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:42:04 CET 2016]; root of context hierarchy
+2016-11-15 23:42:06 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:42:04 CET 2016]; root of context hierarchy
+2016-11-15 23:42:06 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1634 ms
+2016-11-15 23:45:21 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:42:04 CET 2016]; root of context hierarchy
+2016-11-15 23:45:32 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-15 23:45:32 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:45:32 CET 2016]; root of context hierarchy
+2016-11-15 23:45:32 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-15 23:45:33 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-15 23:45:33 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-15 23:45:33 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-15 23:45:33 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-15 23:45:33 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-15 23:45:34 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:45:32 CET 2016]; root of context hierarchy
+2016-11-15 23:45:34 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:45:32 CET 2016]; root of context hierarchy
+2016-11-15 23:45:34 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1698 ms
+2016-11-15 23:47:11 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Tue Nov 15 23:45:32 CET 2016]; root of context hierarchy
+2016-11-16 16:09:41 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:09:41 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:09:41 CET 2016]; root of context hierarchy
+2016-11-16 16:09:42 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:09:42 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:09:43 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:09:43 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:09:43 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:09:43 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:09:43 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:09:41 CET 2016]; root of context hierarchy
+2016-11-16 16:09:43 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:09:41 CET 2016]; root of context hierarchy
+2016-11-16 16:09:43 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1886 ms
+2016-11-16 16:16:47 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:09:41 CET 2016]; root of context hierarchy
+2016-11-16 16:17:00 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:17:00 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:17:00 CET 2016]; root of context hierarchy
+2016-11-16 16:17:00 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:17:00 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:17:01 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:17:01 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:17:01 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:17:01 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:17:01 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:17:00 CET 2016]; root of context hierarchy
+2016-11-16 16:17:02 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:17:00 CET 2016]; root of context hierarchy
+2016-11-16 16:17:02 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2066 ms
+2016-11-16 16:18:12 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:17:00 CET 2016]; root of context hierarchy
+2016-11-16 16:18:24 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:18:25 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:18:25 CET 2016]; root of context hierarchy
+2016-11-16 16:18:25 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:18:25 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:18:26 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:18:26 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:18:26 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:18:26 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:18:26 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:18:25 CET 2016]; root of context hierarchy
+2016-11-16 16:18:26 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:18:25 CET 2016]; root of context hierarchy
+2016-11-16 16:18:26 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1770 ms
+2016-11-16 16:19:51 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:18:25 CET 2016]; root of context hierarchy
+2016-11-16 16:20:03 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:20:03 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:20:03 CET 2016]; root of context hierarchy
+2016-11-16 16:20:04 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:20:04 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:20:05 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:20:05 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:20:05 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:20:05 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:20:05 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:20:03 CET 2016]; root of context hierarchy
+2016-11-16 16:20:05 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:20:03 CET 2016]; root of context hierarchy
+2016-11-16 16:20:05 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1587 ms
+2016-11-16 16:22:03 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:20:03 CET 2016]; root of context hierarchy
+2016-11-16 16:22:15 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:22:15 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:22:15 CET 2016]; root of context hierarchy
+2016-11-16 16:22:15 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:22:16 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:22:16 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:22:17 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:22:17 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:22:17 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:22:17 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:22:15 CET 2016]; root of context hierarchy
+2016-11-16 16:22:17 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:22:15 CET 2016]; root of context hierarchy
+2016-11-16 16:22:17 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1990 ms
+2016-11-16 16:42:47 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:22:15 CET 2016]; root of context hierarchy
+2016-11-16 16:43:01 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:43:01 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:43:01 CET 2016]; root of context hierarchy
+2016-11-16 16:43:02 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:43:02 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:43:03 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:43:03 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:43:03 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:43:03 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:43:03 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:43:01 CET 2016]; root of context hierarchy
+2016-11-16 16:43:03 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:43:01 CET 2016]; root of context hierarchy
+2016-11-16 16:43:03 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1737 ms
+2016-11-16 16:45:25 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:43:01 CET 2016]; root of context hierarchy
+2016-11-16 16:45:46 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:45:46 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:45:46 CET 2016]; root of context hierarchy
+2016-11-16 16:45:46 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:45:47 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:45:48 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:45:48 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:45:48 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:45:48 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:45:48 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:45:46 CET 2016]; root of context hierarchy
+2016-11-16 16:45:48 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:45:46 CET 2016]; root of context hierarchy
+2016-11-16 16:45:48 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2006 ms
+2016-11-16 16:46:39 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:45:46 CET 2016]; root of context hierarchy
+2016-11-16 16:46:52 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:46:52 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:46:52 CET 2016]; root of context hierarchy
+2016-11-16 16:46:52 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:46:53 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:46:54 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:46:54 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:46:54 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:46:54 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:46:54 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:46:52 CET 2016]; root of context hierarchy
+2016-11-16 16:46:54 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:46:52 CET 2016]; root of context hierarchy
+2016-11-16 16:46:54 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1866 ms
+2016-11-16 16:48:00 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:46:52 CET 2016]; root of context hierarchy
+2016-11-16 16:48:13 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:48:13 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:48:13 CET 2016]; root of context hierarchy
+2016-11-16 16:48:13 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:48:14 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:48:14 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:48:14 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:48:14 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:48:14 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:48:14 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:48:13 CET 2016]; root of context hierarchy
+2016-11-16 16:48:14 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:48:13 CET 2016]; root of context hierarchy
+2016-11-16 16:48:15 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1628 ms
+2016-11-16 16:49:46 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:48:13 CET 2016]; root of context hierarchy
+2016-11-16 16:50:30 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:50:30 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:50:30 CET 2016]; root of context hierarchy
+2016-11-16 16:50:30 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:50:31 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:50:32 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:50:32 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:50:32 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:50:32 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:50:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:50:30 CET 2016]; root of context hierarchy
+2016-11-16 16:50:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:50:30 CET 2016]; root of context hierarchy
+2016-11-16 16:50:32 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1848 ms
+2016-11-16 16:51:53 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:50:30 CET 2016]; root of context hierarchy
+2016-11-16 16:51:58 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:51:58 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:51:58 CET 2016]; root of context hierarchy
+2016-11-16 16:51:58 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:51:59 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:51:59 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:51:59 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:51:59 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:51:59 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:52:00 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:51:58 CET 2016]; root of context hierarchy
+2016-11-16 16:52:00 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:51:58 CET 2016]; root of context hierarchy
+2016-11-16 16:52:00 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1806 ms
+2016-11-16 16:52:36 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:51:58 CET 2016]; root of context hierarchy
+2016-11-16 16:52:49 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:52:49 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:52:49 CET 2016]; root of context hierarchy
+2016-11-16 16:52:49 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:52:50 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:52:50 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:52:50 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:52:50 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:52:50 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:52:51 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:52:49 CET 2016]; root of context hierarchy
+2016-11-16 16:52:51 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:52:49 CET 2016]; root of context hierarchy
+2016-11-16 16:52:51 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1893 ms
+2016-11-16 16:55:39 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:52:49 CET 2016]; root of context hierarchy
+2016-11-16 16:56:00 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:56:00 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:56:00 CET 2016]; root of context hierarchy
+2016-11-16 16:56:00 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:56:01 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:56:01 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:56:01 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:56:01 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:56:01 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:56:02 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:56:00 CET 2016]; root of context hierarchy
+2016-11-16 16:56:02 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:56:00 CET 2016]; root of context hierarchy
+2016-11-16 16:56:02 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1834 ms
+2016-11-16 16:57:40 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:56:00 CET 2016]; root of context hierarchy
+2016-11-16 16:57:53 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 16:57:53 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:57:53 CET 2016]; root of context hierarchy
+2016-11-16 16:57:53 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 16:57:53 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 16:57:54 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 16:57:54 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 16:57:54 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 16:57:54 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 16:57:54 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:57:53 CET 2016]; root of context hierarchy
+2016-11-16 16:57:55 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:57:53 CET 2016]; root of context hierarchy
+2016-11-16 16:57:55 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1891 ms
+2016-11-16 17:00:32 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 16:57:53 CET 2016]; root of context hierarchy
+2016-11-16 17:00:48 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 17:00:48 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:00:48 CET 2016]; root of context hierarchy
+2016-11-16 17:00:48 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 17:00:48 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 17:00:49 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 17:00:49 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 17:00:49 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 17:00:49 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 17:00:49 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:00:48 CET 2016]; root of context hierarchy
+2016-11-16 17:00:49 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:00:48 CET 2016]; root of context hierarchy
+2016-11-16 17:00:50 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1808 ms
+2016-11-16 17:02:50 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:00:48 CET 2016]; root of context hierarchy
+2016-11-16 17:03:04 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 17:03:04 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:03:04 CET 2016]; root of context hierarchy
+2016-11-16 17:03:05 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 17:03:05 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 17:03:06 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 17:03:06 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 17:03:06 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 17:03:06 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 17:03:06 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:03:04 CET 2016]; root of context hierarchy
+2016-11-16 17:03:06 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:03:04 CET 2016]; root of context hierarchy
+2016-11-16 17:03:06 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1751 ms
+2016-11-16 17:12:48 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:03:04 CET 2016]; root of context hierarchy
+2016-11-16 17:14:51 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 17:14:51 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:14:51 CET 2016]; root of context hierarchy
+2016-11-16 17:14:51 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 17:14:51 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 17:14:52 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 17:14:52 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 17:14:52 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 17:14:52 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 17:14:52 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:14:51 CET 2016]; root of context hierarchy
+2016-11-16 17:14:53 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:14:51 CET 2016]; root of context hierarchy
+2016-11-16 17:14:53 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1853 ms
+2016-11-16 17:23:15 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:14:51 CET 2016]; root of context hierarchy
+2016-11-16 17:23:28 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 17:23:28 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:23:28 CET 2016]; root of context hierarchy
+2016-11-16 17:23:28 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 17:23:29 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 17:23:29 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 17:23:29 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 17:23:29 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 17:23:29 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 17:23:30 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:23:28 CET 2016]; root of context hierarchy
+2016-11-16 17:23:30 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:23:28 CET 2016]; root of context hierarchy
+2016-11-16 17:23:30 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1800 ms
+2016-11-16 17:29:09 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:23:28 CET 2016]; root of context hierarchy
+2016-11-16 17:29:22 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 17:29:22 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:29:22 CET 2016]; root of context hierarchy
+2016-11-16 17:29:22 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 17:29:23 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 17:29:23 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 17:29:23 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 17:29:23 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 17:29:23 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 17:29:23 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:29:22 CET 2016]; root of context hierarchy
+2016-11-16 17:29:24 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:29:22 CET 2016]; root of context hierarchy
+2016-11-16 17:29:24 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1718 ms
+2016-11-16 18:03:47 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 17:29:22 CET 2016]; root of context hierarchy
+2016-11-16 18:03:59 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:04:00 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:04:00 CET 2016]; root of context hierarchy
+2016-11-16 18:04:00 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:04:00 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:04:01 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:04:01 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:04:01 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:04:01 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:04:01 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:04:00 CET 2016]; root of context hierarchy
+2016-11-16 18:04:01 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:04:00 CET 2016]; root of context hierarchy
+2016-11-16 18:04:01 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1713 ms
+2016-11-16 18:06:46 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:04:00 CET 2016]; root of context hierarchy
+2016-11-16 18:06:58 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:06:58 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:06:58 CET 2016]; root of context hierarchy
+2016-11-16 18:06:58 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:06:59 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:06:59 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:06:59 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:06:59 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:06:59 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:07:00 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:06:58 CET 2016]; root of context hierarchy
+2016-11-16 18:07:00 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:06:58 CET 2016]; root of context hierarchy
+2016-11-16 18:07:00 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1717 ms
+2016-11-16 18:13:44 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:06:58 CET 2016]; root of context hierarchy
+2016-11-16 18:13:59 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:13:59 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:13:59 CET 2016]; root of context hierarchy
+2016-11-16 18:13:59 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:14:00 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:14:00 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:14:00 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:14:00 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:14:00 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:14:01 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:13:59 CET 2016]; root of context hierarchy
+2016-11-16 18:14:01 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:13:59 CET 2016]; root of context hierarchy
+2016-11-16 18:14:01 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1850 ms
+2016-11-16 18:18:41 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:13:59 CET 2016]; root of context hierarchy
+2016-11-16 18:18:58 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:18:58 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:18:58 CET 2016]; root of context hierarchy
+2016-11-16 18:18:58 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:18:59 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:18:59 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:18:59 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:18:59 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:18:59 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:19:00 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:18:58 CET 2016]; root of context hierarchy
+2016-11-16 18:19:00 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:18:58 CET 2016]; root of context hierarchy
+2016-11-16 18:19:00 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2065 ms
+2016-11-16 18:23:10 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:18:58 CET 2016]; root of context hierarchy
+2016-11-16 18:23:31 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:23:31 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:23:31 CET 2016]; root of context hierarchy
+2016-11-16 18:23:31 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:23:31 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:23:32 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:23:32 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:23:32 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:23:32 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:23:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:23:31 CET 2016]; root of context hierarchy
+2016-11-16 18:23:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:23:31 CET 2016]; root of context hierarchy
+2016-11-16 18:23:33 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1790 ms
+2016-11-16 18:27:06 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:23:31 CET 2016]; root of context hierarchy
+2016-11-16 18:27:18 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:27:18 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:27:18 CET 2016]; root of context hierarchy
+2016-11-16 18:27:18 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:27:19 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:27:19 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:27:19 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:27:19 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:27:19 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:27:20 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:27:18 CET 2016]; root of context hierarchy
+2016-11-16 18:27:20 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:27:18 CET 2016]; root of context hierarchy
+2016-11-16 18:27:20 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1977 ms
+2016-11-16 18:30:41 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:27:18 CET 2016]; root of context hierarchy
+2016-11-16 18:30:55 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:30:55 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:30:55 CET 2016]; root of context hierarchy
+2016-11-16 18:30:55 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:30:55 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:30:56 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:30:56 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:30:56 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:30:56 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:30:56 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:30:55 CET 2016]; root of context hierarchy
+2016-11-16 18:30:56 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:30:55 CET 2016]; root of context hierarchy
+2016-11-16 18:30:56 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1916 ms
+2016-11-16 18:34:57 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:30:55 CET 2016]; root of context hierarchy
+2016-11-16 18:35:09 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:35:09 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:35:09 CET 2016]; root of context hierarchy
+2016-11-16 18:35:09 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:35:10 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:35:10 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:35:10 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:35:10 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:35:10 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:35:11 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:35:09 CET 2016]; root of context hierarchy
+2016-11-16 18:35:11 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:35:09 CET 2016]; root of context hierarchy
+2016-11-16 18:35:11 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1627 ms
+2016-11-16 18:43:26 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:35:09 CET 2016]; root of context hierarchy
+2016-11-16 18:43:39 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:43:39 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:43:39 CET 2016]; root of context hierarchy
+2016-11-16 18:43:39 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:43:40 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:43:41 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:43:41 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:43:41 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:43:41 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:43:41 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:43:39 CET 2016]; root of context hierarchy
+2016-11-16 18:43:41 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:43:39 CET 2016]; root of context hierarchy
+2016-11-16 18:43:41 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2048 ms
+2016-11-16 18:44:34 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:43:39 CET 2016]; root of context hierarchy
+2016-11-16 18:44:39 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:44:39 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:44:39 CET 2016]; root of context hierarchy
+2016-11-16 18:44:39 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:44:39 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:44:40 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:44:40 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:44:40 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:44:40 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:44:40 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:44:39 CET 2016]; root of context hierarchy
+2016-11-16 18:44:40 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:44:39 CET 2016]; root of context hierarchy
+2016-11-16 18:44:41 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2004 ms
+2016-11-16 18:44:44 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:44:39 CET 2016]; root of context hierarchy
+2016-11-16 18:44:57 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:44:57 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:44:57 CET 2016]; root of context hierarchy
+2016-11-16 18:44:57 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:44:58 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:44:58 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:44:59 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:44:59 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:44:59 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:44:59 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:44:57 CET 2016]; root of context hierarchy
+2016-11-16 18:44:59 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:44:57 CET 2016]; root of context hierarchy
+2016-11-16 18:44:59 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2223 ms
+2016-11-16 18:48:41 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:44:57 CET 2016]; root of context hierarchy
+2016-11-16 18:48:54 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:48:54 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:48:54 CET 2016]; root of context hierarchy
+2016-11-16 18:48:54 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:48:55 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:48:55 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:48:55 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:48:55 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:48:55 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:48:56 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:48:54 CET 2016]; root of context hierarchy
+2016-11-16 18:48:56 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:48:54 CET 2016]; root of context hierarchy
+2016-11-16 18:48:56 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2027 ms
+2016-11-16 18:56:00 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:48:54 CET 2016]; root of context hierarchy
+2016-11-16 18:56:13 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 18:56:13 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:56:13 CET 2016]; root of context hierarchy
+2016-11-16 18:56:13 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 18:56:14 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 18:56:14 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 18:56:15 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 18:56:15 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 18:56:15 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 18:56:15 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:56:13 CET 2016]; root of context hierarchy
+2016-11-16 18:56:15 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:56:13 CET 2016]; root of context hierarchy
+2016-11-16 18:56:15 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2039 ms
+2016-11-16 19:05:51 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 18:56:13 CET 2016]; root of context hierarchy
+2016-11-16 19:06:06 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 19:06:06 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:06:06 CET 2016]; root of context hierarchy
+2016-11-16 19:06:06 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 19:06:07 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 19:06:07 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 19:06:07 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 19:06:07 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.Integer)
+2016-11-16 19:06:07 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 19:06:08 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:06:06 CET 2016]; root of context hierarchy
+2016-11-16 19:06:08 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:06:06 CET 2016]; root of context hierarchy
+2016-11-16 19:06:08 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1856 ms
+2016-11-16 19:07:24 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:06:06 CET 2016]; root of context hierarchy
+2016-11-16 19:07:37 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 19:07:37 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:07:37 CET 2016]; root of context hierarchy
+2016-11-16 19:07:37 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 19:07:38 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 19:07:38 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 19:07:38 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 19:07:38 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.String)
+2016-11-16 19:07:38 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 19:07:39 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:07:37 CET 2016]; root of context hierarchy
+2016-11-16 19:07:39 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:07:37 CET 2016]; root of context hierarchy
+2016-11-16 19:07:39 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2137 ms
+2016-11-16 19:13:11 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:07:37 CET 2016]; root of context hierarchy
+2016-11-16 19:13:31 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-16 19:13:31 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:13:31 CET 2016]; root of context hierarchy
+2016-11-16 19:13:31 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-16 19:13:31 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-16 19:13:32 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-16 19:13:32 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello()
+2016-11-16 19:13:32 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.hello(java.lang.String)
+2016-11-16 19:13:32 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-16 19:13:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:13:31 CET 2016]; root of context hierarchy
+2016-11-16 19:13:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:13:31 CET 2016]; root of context hierarchy
+2016-11-16 19:13:33 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2108 ms

@@ -18,7 +18,7 @@ public class HelloController {
     public ModelAndView hello() {
 
         ModelAndView model = new ModelAndView();
-        model.setViewName("hello");
+        model.setViewName("test");
         model.addObject("msg", "achraf");
 
         return model;

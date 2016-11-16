@@ -21,11 +21,11 @@
 
     <servlet>
         <servlet-name>AddScenarioServlet</servlet-name>
-        <display-name>AddScenarioServlet</display-name>
         <servlet-class>AddScenarioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddScenarioServlet</servlet-name>
         <url-pattern>/addscenario</url-pattern>
     </servlet-mapping>
+
 </web-app>
