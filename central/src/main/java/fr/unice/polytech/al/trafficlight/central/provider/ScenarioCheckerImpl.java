@@ -1,13 +1,12 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequester;
-import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequesterImpl;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -22,7 +21,8 @@ import java.util.Set;
 public class ScenarioCheckerImpl implements ScenarioChecker {
 
     @Autowired
-    private WebRequester requester;
+    @Qualifier("crossroadsRequester")
+    private WebRequester crossroadsRequester;
 
     @Autowired
     private DatabaseDao database;
@@ -43,8 +43,8 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
 
         database.getCrossroad(crossRoad).setScenario(scenario);
 
-        String URI = requester.target("crossroads", "/crossroad", "INRIA","/starter");
-        requester.put(URI, scenario);
+        // Send request
+        crossroadsRequester.put("INRIA", "/crossroad/starter", scenario);
         return "OK";
     }
 }
