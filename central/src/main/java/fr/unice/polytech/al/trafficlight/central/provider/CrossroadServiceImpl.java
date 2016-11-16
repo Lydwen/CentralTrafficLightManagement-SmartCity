@@ -51,32 +51,6 @@ public class CrossroadServiceImpl implements CrossroadService {
      */
     @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public @ResponseBody CrossRoad retrieveSpecificCrossRoad(@PathVariable String crossRoadName) {
-        /*CrossRoad crossRoad = new CrossRoad("carrefour_du_casino", "url");
-        crossRoad.addRoad("avenue du tapis vert");
-        crossRoad.addRoad("avenue des orangers");
-
-        TrafficLight trafficLight1 = new TrafficLight("feu de l'avenue des orangers");
-        trafficLight1.addRoad("avenue des orangers");
-        TrafficLight trafficLight2 = new TrafficLight("feu de l'avenue du tapis vert");
-        trafficLight1.addRoad("avenue du tapis vert");
-
-        crossRoad.addTrafficLight(trafficLight1);
-        crossRoad.addTrafficLight(trafficLight2);
-
-        Scenario scenar = new Scenario("basicScenario");
-        RuleGroup group1 = new RuleGroup("group1", 20);
-        RuleGroup group2 = new RuleGroup("group2", 40);
-        TrafficLightId id1 = new TrafficLightId("feu de l'avenue des orangers");
-        TrafficLightId id2 = new TrafficLightId("feu de l'avenue du tapis vert");
-        group1.addTrafficLight(id1);
-        group1.addTrafficLight(id2);
-        group2.addTrafficLight(id2);
-
-        scenar.addRuleGroup(0, group1);
-        scenar.addRuleGroup(1, group2);
-        scenar.setTransitionTime(5);
-
-        crossRoad.setScenario(scenar);*///TODO Je laisse ça là au cas où qu'on ai besoin d'init auto
         return crossroadRetreiver.getCrossroad(crossRoadName);
     }
 

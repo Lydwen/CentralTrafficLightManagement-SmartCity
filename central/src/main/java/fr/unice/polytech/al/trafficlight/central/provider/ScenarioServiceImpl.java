@@ -33,7 +33,7 @@ public class ScenarioServiceImpl implements ScenarioService {
      * @return a Response containing all the scenario id
      */
     @RequestMapping(value="", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-    public List<String> retrieveCrossRoads() {
+    public List<String> retrieveScenario() {
         List<String> scenario = new ArrayList<>(scenarioRetreiver.getAllScenarioId());
         return scenario;
     }
@@ -45,7 +45,7 @@ public class ScenarioServiceImpl implements ScenarioService {
      * @return a Scenario object or null if scenarioId is not linked with a scenario in the db
      */
     @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-    public @ResponseBody Scenario retrieveSpecificCrossRoad(@PathVariable String scenarioId) {
+    public @ResponseBody Scenario retrieveSpecificScenario(@PathVariable String scenarioId) {
 
         return scenarioRetreiver.getScenario(scenarioId);
     }

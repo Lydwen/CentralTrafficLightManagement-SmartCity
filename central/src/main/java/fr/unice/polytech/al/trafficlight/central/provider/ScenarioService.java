@@ -12,9 +12,9 @@ import java.util.List;
  */
 public interface ScenarioService {
 
-    public List<String> retrieveCrossRoads();
+    public List<String> retrieveScenario();
 
-    public @ResponseBody Scenario retrieveSpecificCrossRoad(@PathVariable String scenarioId);
+    public @ResponseBody Scenario retrieveSpecificScenario(@PathVariable String scenarioId);
 
     public String receiveScenario(@RequestBody Scenario scenario);
 }
