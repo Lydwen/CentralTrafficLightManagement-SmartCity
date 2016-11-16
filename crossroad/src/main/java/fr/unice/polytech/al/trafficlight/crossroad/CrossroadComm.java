@@ -75,15 +75,15 @@ public class CrossroadComm {
 
         String message = "";
 
-/*        for(TrafficLight trafficLight: CORE.getTrafficLights()) {
+        for(TrafficLight trafficLight: CORE.getTrafficLights()) {
             message += ",{\"id\":\""+trafficLight.getId() + "\",\"state\":\""
                     +(trafficLight.isDisabled()?"disabled":trafficLight.isGreen()?"green":"red")
                     +  "\"}";
         }
 
         message = message.length()>0?"[" + message.substring(1) + "]":"[]";
-*/
-        for(TrafficLight trafficLight: CORE.getTrafficLights()) {
+
+        /*for(TrafficLight trafficLight: CORE.getTrafficLights()) {
             message += "<p>"+trafficLight.getId()
                     + " <img  width=\"48\" height=\"48\" src=\""
                     +(trafficLight.isDisabled()?
@@ -94,7 +94,7 @@ public class CrossroadComm {
                     +"\"></p>";
         }
 
-        message = "</pre>"+message;
+        message = "<html><head></head><body>"+message+"</body></html>";*/
 
         return Response.ok().entity(message).build();
     }
