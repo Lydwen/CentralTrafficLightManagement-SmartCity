@@ -701,3 +701,4 @@
 2016-11-16 19:13:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:13:31 CET 2016]; root of context hierarchy
 2016-11-16 19:13:32 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:13:31 CET 2016]; root of context hierarchy
 2016-11-16 19:13:33 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 2108 ms
+2016-11-16 20:07:17 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Wed Nov 16 19:13:31 CET 2016]; root of context hierarchy
