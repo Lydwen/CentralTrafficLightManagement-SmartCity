@@ -3,7 +3,7 @@ package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.data.TrafficLight;
-import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
+import fr.unice.polytech.al.trafficlight.central.utils.WebRequesterImpl;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class CrossroadService {
      * Crossroad web requester.
      */
     @Autowired
-    private WebRequester crossroadRequester;
+    private WebRequesterImpl crossroadRequester;
 
     /**
      * Retrieves all the existing crossroads
