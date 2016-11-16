@@ -9,6 +9,8 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static fr.unice.polytech.al.trafficlight.crossroad.UtilsForTests.checkTrafficLightRed;
 import static fr.unice.polytech.al.trafficlight.crossroad.UtilsForTests.checkTrafficLightStep;
 import static fr.unice.polytech.al.trafficlight.crossroad.UtilsForTests.sleep;
@@ -22,7 +24,7 @@ import static junit.framework.TestCase.assertTrue;
 public class TestEmergencyCall {
     private final static Logger LOG = Logger.getLogger(TestEmergencyCall.class);
 
-    private CrossroadModuleCore module = new CrossroadModuleCore();
+    private CrossroadModuleCore module;
     private Scenario scenario = new Scenario("scenario test");
     private RuleGroup group1 = new RuleGroup("group1", 4);
     private RuleGroup group2 = new RuleGroup("group2", 5);
@@ -32,7 +34,9 @@ public class TestEmergencyCall {
     private RuleGroup emergencyRule = new RuleGroup("emergency", 3);
 
     @Before
-    public void begin() {
+    public void begin() throws IOException {
+        module = new CrossroadModuleCore();
+
         TrafficLightId id1 = new TrafficLightId("north");
         TrafficLightId id2 = new TrafficLightId("south");
         TrafficLightId id3 = new TrafficLightId("east");
@@ -136,7 +140,67 @@ public class TestEmergencyCall {
      */
     @Test
     public void testEmergencyWhileGreen() throws InterruptedException {
-        // TODO
+        // Check before scenario state
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertTrue(tl.isDisabled());
+        }
+        assertNull(module.getActiveScenario());
+
+        // Launch scenario
+        module.changeScenario(new Gson().toJson(scenario));
+        LOG.debug("TEST>START");
+
+        sleep(1);
+        LOG.debug("TEST>Wait 1s (Group1, Red Step, 1s/2s)");
+        // Check all trafficLights are red and not disabled at start
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertFalse(tl.isDisabled());
+            assertFalse(tl.isGreen());
+        }
+
+        // starting green step
+        sleep(2);
+        LOG.debug("TEST>Wait 2s (Group1, Green Step, 1s/4s)");
+        checkTrafficLightStep(module.getTrafficLights(), group1);
+
+        // Calling to emergency while green
+        module.callEmergency(new Gson().toJson(emergencyCall));
+
+        // When called while trafficLights red, emergency call should
+        // immediately call the red step of emergency state.
+        sleep(1);
+        LOG.debug("TEST>Wait 1s (Emergency, Red Step, 1s/2s)");
+        checkTrafficLightRed(module.getTrafficLights(), group2, emergencyRule);
+
+        // Should now be emergency step
+        sleep(2);
+        LOG.debug("TEST>Wait 2s (Emergency, Green Step, 1s/3s)");
+        checkTrafficLightStep(module.getTrafficLights(), emergencyRule);
+
+        sleep(1);
+        LOG.debug("TEST>Wait 1s (Emergency, Green Step, 2s/3s)");
+        checkTrafficLightStep(module.getTrafficLights(), emergencyRule);
+
+        // Emergency finished, return to following step of last running step = group2 red step
+        sleep(2);
+        LOG.debug("TEST>Wait 2s (Group2, Red Step, 1s/2s)");
+        checkTrafficLightRed(module.getTrafficLights(), emergencyRule, group2);
+
+        // Group 2 running well ?
+        sleep(2);
+        LOG.debug("TEST>Wait 2s (Group2, Red Step, 1s/4s)");
+        checkTrafficLightStep(module.getTrafficLights(), group2);
+
+        // Stopping
+        module.stopTrafficLight(); // should stop after (2nd) group1 red step
+        sleep(5);
+        LOG.debug("TEST>Wait 5s (1s after Group2 Green Step)");
+        assertFalse(module.runnable.isRunning());
+
+        // Check all trafficLights are disabled
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertTrue(module.getTrafficLights()+":"+tl.toString()+" should be disabled", tl.isDisabled());
+        }
     }
 
 }

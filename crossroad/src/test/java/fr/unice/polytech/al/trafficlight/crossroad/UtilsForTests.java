@@ -40,9 +40,9 @@ public class UtilsForTests {
         }
     }
 
-    static void sleep(int seconds) {
+    static void sleep(double seconds) {
         try {
-            Thread.sleep(seconds*1000);
+            Thread.sleep((int)(seconds*1000));
         }catch (InterruptedException ie) {
             ie.printStackTrace();
         }
