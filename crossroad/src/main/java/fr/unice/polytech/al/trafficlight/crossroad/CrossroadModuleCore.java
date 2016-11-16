@@ -7,10 +7,7 @@ import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.apache.log4j.Logger;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.File;
@@ -18,6 +15,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -99,8 +97,25 @@ public class CrossroadModuleCore {
         return Response.ok().build();
     }
 
+    @GET
+    @Path("/status")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getStatus() {
+        LOG.debug("######## Get status called !");
+
+        String message = "";
+
+        for(TrafficLight trafficLight: trafficLightSet) {
+            message += ",{\"id\":\""+trafficLight.getId() + "\",\"state\":\""
+                    +(trafficLight.isDisabled()?"disabled":trafficLight.isGreen()?"green":"red")
+                    +  "\"}";
+        }
+
+        message = message.length()>0?"[" + message.substring(1) + "]":"[]";
+        return Response.ok().entity(message).build();
+    }
+
     Set<TrafficLight> getTrafficLights() {
         return trafficLightSet;
     }
-
 }
