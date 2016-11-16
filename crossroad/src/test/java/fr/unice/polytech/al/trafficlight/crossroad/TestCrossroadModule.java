@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static fr.unice.polytech.al.trafficlight.crossroad.UtilsForTests.*;
 import static junit.framework.TestCase.*;
 
@@ -23,7 +25,7 @@ public class TestCrossroadModule {
      */
     private static final int LOOP_NUMBER = 3; // 3 => ~2min
 
-    private CrossroadModuleCore module = new CrossroadModuleCore();
+    private CrossroadModuleCore module;
     private Scenario scenario = new Scenario("scenario test");
     private RuleGroup group1 = new RuleGroup("group1", 5);
     private RuleGroup group2 = new RuleGroup("group2", 7);
@@ -31,7 +33,9 @@ public class TestCrossroadModule {
     private RuleGroup group4 = new RuleGroup("group4", 6);
 
     @Before
-    public void begin() {
+    public void begin() throws IOException {
+        module = new CrossroadModuleCore();
+
         TrafficLightId id1 = new TrafficLightId("north");
         TrafficLightId id2 = new TrafficLightId("south");
         TrafficLightId id3 = new TrafficLightId("east");

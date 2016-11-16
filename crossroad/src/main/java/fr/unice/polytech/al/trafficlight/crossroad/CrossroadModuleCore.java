@@ -13,8 +13,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by nathael on 27/10/16.
@@ -26,18 +31,27 @@ public class CrossroadModuleCore {
     final CrossroadModuleRunning runnable;
     private final Set<TrafficLight> trafficLightSet;
 
-    public CrossroadModuleCore(/*Set<TrafficLight> trafficLightSet*/) {
+    public CrossroadModuleCore() throws IOException {
         LOG.debug("new CrossRoadModuleCore created");
-        // ↓ TODO: this is a bad mock of traffic light disposing
+
+        List<String> lines = Files.readAllLines(new File(
+                getClass().getClassLoader().getResource("config/trafficLight.config").getFile()).toPath());
+
+        String json = "";
+        for(String line : lines)
+            json += line;
+
+        LOG.debug("Json= "+json);
+
         trafficLightSet = new HashSet<>();
-        trafficLightSet.add(new TrafficLight(new TrafficLightId("north")));
-        trafficLightSet.add(new TrafficLight(new TrafficLightId("south")));
-        trafficLightSet.add(new TrafficLight(new TrafficLightId("east")));
-        trafficLightSet.add(new TrafficLight(new TrafficLightId("west")));
-        // ↑ TODO: end of mock
+        Gson gson = new Gson();
+        Set trafficLightIds = gson.fromJson(json, Set.class);
+        for(Object trafficLightId : trafficLightIds) {
+            trafficLightSet.add(new TrafficLight(gson.fromJson(trafficLightId.toString(), TrafficLightId.class)));
+        }
+        LOG.debug("TrafficLightSet: "+trafficLightSet);
 
         this.runnable = new CrossroadModuleRunning(this);
-        //this.trafficLightSet = trafficLightSet;
     }
 
     @PUT
@@ -88,4 +102,5 @@ public class CrossroadModuleCore {
     Set<TrafficLight> getTrafficLights() {
         return trafficLightSet;
     }
+
 }
