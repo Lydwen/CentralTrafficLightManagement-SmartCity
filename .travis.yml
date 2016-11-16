@@ -10,9 +10,18 @@ env: HEROKU_API_KEY=4b5e5055-fa98-4130-a9d0-9a8aa4fd0e88
 sudo: false
 script:
   - "mvn clean install"
+
+# Central
   - "cd central"
   - "ls"
   - "mvn clean heroku:deploy"
+
+# Crossroad 1
+  #- "cd ../crossroadconfiggen"
+  #- "mvn clean exec:java trafficLight1.config north south east west"
+
+  #- "cp ../trafficLight1.config ../crossroad/src/main/resources/config/trafficLight.config"
+
   - "cd ../crossroad"
   - "ls"
   - "mvn clean heroku:deploy-war"

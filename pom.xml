@@ -32,6 +32,7 @@
         <module>utils</module>
         <module>crossroad</module>
         <module>webapp</module>
+        <module>crossroadconfiggen</module>
     </modules>
 
     <build>

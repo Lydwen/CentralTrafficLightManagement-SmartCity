@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.traffficlight.crossroad.generator;
+package fr.unice.polytech.al.trafficlight.crossroadconfiggen;
 
 import com.google.gson.Gson;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
@@ -29,22 +29,22 @@ public class CrossroadConfigGenerator {
         }
 
 
-        for(int i=1; i<args.length; i++) {
+        for(int i=1; i<args.length; i++)
             idList.add(new TrafficLightId(args[i]));
-        }
 
+        String json = new Gson().toJson(idList);
         File f = new File(args[0]);
         try {
             f.createNewFile();
 
             // write Json of idList in file
             FileWriter fw = new FileWriter(f);
-            fw.write(new Gson().toJson(idList));
+            fw.write(json);
             fw.flush();
+            System.out.printf("Generated json:\n"+json);
         } catch (IOException e) {
             System.err.println("Impossible to create config file: Aborted");
             e.printStackTrace();
         }
     }
-
 }
