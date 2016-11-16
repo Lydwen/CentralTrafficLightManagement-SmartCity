@@ -40,7 +40,7 @@ public class UtilsForTests {
         }
     }
 
-    static void sleep(float seconds) {
+    static void sleep(double seconds) {
         try {
             Thread.sleep((int)(seconds*1000));
         }catch (InterruptedException ie) {
