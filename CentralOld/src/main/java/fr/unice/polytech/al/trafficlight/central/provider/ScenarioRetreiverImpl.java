@@ -13,9 +13,9 @@ import java.util.Set;
  */
 
 @Service
-public class ScenarioRetreiverImpl implements ScenarioRetreiver{
+public class ScenarioRetreiverImpl{
 
-    @Autowired
+    /*@Autowired
     private DatabaseDao databaseDao;
 
     public Scenario getScenario(String id) {
@@ -37,5 +37,5 @@ public class ScenarioRetreiverImpl implements ScenarioRetreiver{
                 ret.add(s);
         }
         return ret;
-    }
+    }*/
 }

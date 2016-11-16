@@ -18,11 +18,11 @@ import java.util.List;
 @RequestMapping(value="/scenario")
 public class ScenarioServiceImpl implements ScenarioService {
 
-    @Autowired
-    private ScenarioChecker scenarioChecker;
+    //@Autowired
+    //private ScenarioCheckerImpl scenarioChecker;
 
-    @Autowired
-    private ScenarioRetreiver scenarioRetreiver;
+    //@Autowired
+    //private ScenarioRetreiverImpl scenarioRetreiver;
 
     /**
      * Retrieves all the existing scenario
@@ -34,8 +34,9 @@ public class ScenarioServiceImpl implements ScenarioService {
      */
     @RequestMapping(value="", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public List<String> retrieveCrossRoads() {
-        List<String> scenario = new ArrayList<>(scenarioRetreiver.getAllScenarioId());
-        return scenario;
+        //List<String> scenario = new ArrayList<>(scenarioRetreiver.getAllScenarioId());
+        //return scenario;
+        return null;
     }
 
 
@@ -47,13 +48,15 @@ public class ScenarioServiceImpl implements ScenarioService {
     @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public @ResponseBody Scenario retrieveSpecificCrossRoad(@PathVariable String scenarioId) {
 
-        return scenarioRetreiver.getScenario(scenarioId);
+        return null;
+        //return scenarioRetreiver.getScenario(scenarioId);
     }
 
     @RequestMapping(value="", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public String receiveScenario(@RequestBody Scenario scenario) {
 
-        return scenarioChecker.checkScenario(scenario);
+        return null;
+        //return scenarioChecker.checkScenario(scenario);
 
     }
 }

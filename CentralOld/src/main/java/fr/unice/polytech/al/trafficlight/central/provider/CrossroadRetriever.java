@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Created by rhoo on 16/11/16.
  */
-public interface CrossroadRetreiver {
+public interface CrossroadRetriever {
 
     public CrossRoad getCrossroad(String name);
 

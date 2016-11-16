@@ -2,7 +2,6 @@ package fr.unice.polytech.al.trafficlight.central.provider;
 
 
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
-import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequesterImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -25,10 +24,10 @@ public class CrossroadServiceImpl implements CrossroadService {
     /**
      * Crossroad web requester.
      */
-    @Autowired
-    private WebRequester crossroadRequester;
-    @Autowired
-    private CrossroadRetriever crossroadRetreiver;
+    //@Autowired
+    //private WebRequesterImpl crossroadRequester;
+    //@Autowired
+    //private CrossroadRetrieverImpl crossroadRetreiver;
 
     /**
      * Retrieves all the existing crossroads
@@ -40,8 +39,9 @@ public class CrossroadServiceImpl implements CrossroadService {
      */
     @RequestMapping(value="", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public List<String> retrieveCrossRoads() {
-        List<String> crossRoads = new ArrayList<>(crossroadRetreiver.getAllCrossroadName());
-        return crossRoads;
+        //List<String> crossRoads = new ArrayList<>(crossroadRetreiver.getAllCrossroadName());
+        //return crossRoads;
+        return null;
     }
 
     /**
@@ -77,13 +77,14 @@ public class CrossroadServiceImpl implements CrossroadService {
         scenar.setTransitionTime(5);
 
         crossRoad.setScenario(scenar);*///TODO Je laisse ça là au cas où qu'on ai besoin d'init auto
-        return crossroadRetreiver.getCrossroad(crossRoadName);
+        //return crossroadRetreiver.getCrossroad(crossRoadName);
+        return null;
     }
 
     @RequestMapping(value="", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public String receiveCrossroad(@RequestBody CrossRoad crossroad) {
 
-        crossroadRetreiver.addCrossroad(crossroad);
+        //crossroadRetreiver.addCrossroad(crossroad);
         return "OK";
 
     }

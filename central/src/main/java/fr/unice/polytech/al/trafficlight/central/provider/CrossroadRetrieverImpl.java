@@ -11,8 +11,8 @@ import java.util.Set;
 /**
  * Created by rhoo on 16/11/16.
  */
-@Service("CrossroadRetreiver")
-public class CrossroadRetreiverImpl {
+@Service
+public class CrossroadRetrieverImpl implements CrossroadRetriever {
 
     @Autowired
     private DatabaseDao databaseDao;
@@ -41,4 +41,5 @@ public class CrossroadRetreiverImpl {
     public void addCrossroad(CrossRoad crossRoad) {
         databaseDao.addCrossroad(crossRoad);
     }
+
 }
