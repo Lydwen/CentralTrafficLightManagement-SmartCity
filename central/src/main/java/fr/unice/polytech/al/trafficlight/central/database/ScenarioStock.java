@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.central.Database;
+package fr.unice.polytech.al.trafficlight.central.database;
 
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 

@@ -1,7 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.dao;
 
-import fr.unice.polytech.al.trafficlight.central.Database.CrossRoadStock;
-import fr.unice.polytech.al.trafficlight.central.Database.ScenarioStock;
+import fr.unice.polytech.al.trafficlight.central.database.CrossRoadStock;
+import fr.unice.polytech.al.trafficlight.central.database.ScenarioStock;
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.springframework.stereotype.Repository;
