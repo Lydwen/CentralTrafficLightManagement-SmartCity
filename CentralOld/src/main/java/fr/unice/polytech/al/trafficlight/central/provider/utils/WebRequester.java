@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.central.utils;
+package fr.unice.polytech.al.trafficlight.central.provider.utils;
 
 /**
  * Created by rhoo on 14/11/16.
