@@ -7,5 +7,5 @@ import fr.unice.polytech.al.trafficlight.utils.Scenario;
  */
 public interface ScenarioChecker {
 
-    public void checkScenario(Scenario scenario);
+    public String checkScenario(Scenario scenario);
 }

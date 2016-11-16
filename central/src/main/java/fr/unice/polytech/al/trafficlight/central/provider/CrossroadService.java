@@ -3,7 +3,7 @@ package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.data.TrafficLight;
-import fr.unice.polytech.al.trafficlight.central.utils.WebRequesterImpl;
+import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,9 @@ public class CrossroadService {
      * Crossroad web requester.
      */
     @Autowired
-    private WebRequesterImpl crossroadRequester;
+    private WebRequester crossroadRequester;
+    @Autowired
+    private CrossroadRetreiver crossroadRetreiver;
 
     /**
      * Retrieves all the existing crossroads
@@ -41,15 +43,18 @@ public class CrossroadService {
      */
     @RequestMapping(value="", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public List<String> retrieveCrossRoads() {
-        List<String> crossRoads = new ArrayList<>();
-        crossRoads.add("carrefour_du_casino");
-        crossRoads.add("carrefour_des_pins");
+        List<String> crossRoads = new ArrayList<>(crossroadRetreiver.getAllCrossroadName());
         return crossRoads;
     }
 
+    /**
+     * Retrieves the crossroad corresponding to crossRoadName name
+     * @param crossRoadName The name of the crossroad we want to retreive
+     * @return a CrossRoad object or null if crossRoadName is not linked with a CrossRoad in the db
+     */
     @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-    public @ResponseBody CrossRoad retrieveSpecifcCrossRoad(@PathVariable String crossRoadName) {
-        CrossRoad crossRoad = new CrossRoad("carrefour_du_casino", "url");
+    public @ResponseBody CrossRoad retrieveSpecificCrossRoad(@PathVariable String crossRoadName) {
+        /*CrossRoad crossRoad = new CrossRoad("carrefour_du_casino", "url");
         crossRoad.addRoad("avenue du tapis vert");
         crossRoad.addRoad("avenue des orangers");
 
@@ -74,17 +79,15 @@ public class CrossroadService {
         scenar.addRuleGroup(1, group2);
         scenar.setTransitionTime(5);
 
-        crossRoad.setScenario(scenar);
-        return crossRoad;
+        crossRoad.setScenario(scenar);*///TODO Je laisse ça là au cas où qu'on ai besoin d'init auto
+        return crossroadRetreiver.getCrossroad(crossRoadName);
     }
 
-    @RequestMapping(value="", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
-    public Scenario receiveScenario(@RequestBody Scenario scenario) {
+    @RequestMapping(value="", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    public String receiveCrossroad(@RequestBody CrossRoad crossroad) {
 
-        // Puts the request to the crossroad
-        String URI = crossroadRequester.target("crossroads", "/crossroad", "INRIA","/starter");
-        crossroadRequester.put(URI, scenario);
+        crossroadRetreiver.addCrossroad(crossroad);
+        return "OK";
 
-        return scenario;
     }
 }
