@@ -14,7 +14,7 @@ script:
 # Central
   - "cd central"
   - "ls"
-  - "mvn clean heroku:deploy"
+  - "mvn clean heroku:deploy -DskipTests"
 
 # Crossroad 1
   #- "cd ../crossroadconfiggen"
@@ -24,4 +24,4 @@ script:
 
   - "cd ../crossroad"
   - "ls"
-  - "mvn clean heroku:deploy-war"
+  - "mvn clean heroku:deploy-war -DskipTests"
