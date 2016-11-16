@@ -23,7 +23,7 @@ import java.util.List;
 @RestController
 @EnableAutoConfiguration
 @RequestMapping(value="/crossroad")
-public class CrossroadServiceImpl {
+public class CrossroadServiceImpl implements CrossroadService {
 
     /**
      * Crossroad web requester.

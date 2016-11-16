@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 @EnableAutoConfiguration
 @RequestMapping(value="/scenario")
-public class ScenarioServiceImpl {
+public class ScenarioServiceImpl implements ScenarioService {
 
     @Autowired
     private ScenarioChecker scenarioChecker;
