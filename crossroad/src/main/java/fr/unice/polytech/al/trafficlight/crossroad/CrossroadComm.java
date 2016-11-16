@@ -82,6 +82,20 @@ public class CrossroadComm {
         }
 
         message = message.length()>0?"[" + message.substring(1) + "]":"[]";
+
+        /*for(TrafficLight trafficLight: CORE.getTrafficLights()) {
+            message += "<p>"+trafficLight.getId()
+                    + " <img  width=\"48\" height=\"48\" src=\""
+                    +(trafficLight.isDisabled()?
+                        "https://cdn2.iconfinder.com/data/icons/function_icon_set/warning_48.png"
+                        :trafficLight.isGreen()?
+                        "https://cdn2.iconfinder.com/data/icons/function_icon_set/circle_green.png"
+                        :"https://cdn2.iconfinder.com/data/icons/function_icon_set/circle_red.png")
+                    +"\"></p>";
+        }
+
+        message = "<html><head></head><body>"+message+"</body></html>";*/
+
         return Response.ok().entity(message).build();
     }
 }

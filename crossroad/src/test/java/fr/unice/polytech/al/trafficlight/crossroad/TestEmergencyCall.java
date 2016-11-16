@@ -72,7 +72,7 @@ public class TestEmergencyCall {
         assertNull(module.getActiveScenario());
 
         // Launch scenario
-        module.changeScenario(new Gson().toJson(scenario));
+        module.changeScenario(scenario);
         LOG.debug("TEST>START");
 
         sleep(1);
@@ -94,7 +94,7 @@ public class TestEmergencyCall {
         checkTrafficLightRed(module.getTrafficLights(), group1, group2);
 
         // Calling to emergency while red
-        module.callEmergency(new Gson().toJson(emergencyCall));
+        module.callEmergency(emergencyCall);
 
         // When called while trafficLights red, emergency call should
         // immediately call the red step of emergency state.
@@ -122,7 +122,7 @@ public class TestEmergencyCall {
         checkTrafficLightStep(module.getTrafficLights(), group2);
 
         // Stopping
-        module.stopTrafficLight(); // should stop after (2nd) group1 red step
+        module.stopRunning(); // should stop after (2nd) group1 red step
         sleep(5);
         LOG.debug("TEST>Wait 5s (1s after Group2 Green Step)");
         assertFalse(module.runnable.isRunning());
@@ -151,7 +151,7 @@ public class TestEmergencyCall {
         assertNull(module.getActiveScenario());
 
         // Launch scenario
-        module.changeScenario(new Gson().toJson(scenario));
+        module.changeScenario(scenario);
         LOG.debug("TEST>START");
 
         sleep(1);
@@ -168,7 +168,7 @@ public class TestEmergencyCall {
         checkTrafficLightStep(module.getTrafficLights(), group1);
 
         // Calling to emergency while green
-        module.callEmergency(new Gson().toJson(emergencyCall));
+        module.callEmergency(emergencyCall);
 
         // When called while trafficLights red, emergency call should
         // immediately call the red step of emergency state.
@@ -196,7 +196,7 @@ public class TestEmergencyCall {
         checkTrafficLightStep(module.getTrafficLights(), group2);
 
         // Stopping
-        module.stopTrafficLight(); // should stop after (2nd) group1 red step
+        module.stopRunning(); // should stop after (2nd) group1 red step
         sleep(5);
         LOG.debug("TEST>Wait 5s (1s after Group2 Green Step)");
         assertFalse(module.runnable.isRunning());
