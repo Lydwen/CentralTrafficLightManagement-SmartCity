@@ -1,5 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
+import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 
 /**
@@ -7,5 +8,5 @@ import fr.unice.polytech.al.trafficlight.utils.Scenario;
  */
 public interface ScenarioChecker {
 
-    public String checkScenario(Scenario scenario);
+    public String checkScenario(Scenario scenario, CrossRoad crossRoad);
 }
