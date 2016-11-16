@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.central.provider.utils;
+package fr.unice.polytech.al.trafficlight.central.utils;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;

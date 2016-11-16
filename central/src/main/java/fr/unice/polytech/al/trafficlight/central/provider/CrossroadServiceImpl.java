@@ -1,9 +1,9 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 
+import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
-import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequester;
-import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequesterImpl;
+import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
