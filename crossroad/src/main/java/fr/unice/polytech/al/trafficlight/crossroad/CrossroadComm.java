@@ -95,7 +95,7 @@ public class CrossroadComm {
                     +"\"></p>";
         }
 
-        message += "</body></html>";
+        message = "<html><head></head><body>"+message+"</body></html>";
 
         return Response.ok().entity(message).build();
     }
