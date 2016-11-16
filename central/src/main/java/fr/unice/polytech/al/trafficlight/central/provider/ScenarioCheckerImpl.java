@@ -2,6 +2,7 @@ package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
 import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
+import fr.unice.polytech.al.trafficlight.central.utils.WebRequesterImpl;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
@@ -21,7 +22,7 @@ import java.util.Set;
 public class ScenarioCheckerImpl implements ScenarioChecker {
 
     @Autowired
-    private WebRequester requester;
+    private WebRequesterImpl requester;
 
     @Autowired
     private DatabaseDao database;

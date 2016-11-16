@@ -21,10 +21,10 @@ import java.util.List;
 public class ScenarioServiceImpl implements ScenarioService {
 
     @Autowired
-    private ScenarioChecker scenarioChecker;
+    private ScenarioCheckerImpl scenarioChecker;
 
     @Autowired
-    private ScenarioRetreiver scenarioRetreiver;
+    private ScenarioRetreiverImpl scenarioRetreiver;
 
     /**
      * Retrieves all the existing scenario
