@@ -136,7 +136,67 @@ public class TestEmergencyCall {
      */
     @Test
     public void testEmergencyWhileGreen() throws InterruptedException {
-        // TODO
+        // Check before scenario state
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertTrue(tl.isDisabled());
+        }
+        assertNull(module.getActiveScenario());
+
+        // Launch scenario
+        module.changeScenario(new Gson().toJson(scenario));
+        LOG.debug("TEST>START");
+
+        sleep(1);
+        LOG.debug("TEST>Wait 1s (Group1, Red Step, 1s/2s)");
+        // Check all trafficLights are red and not disabled at start
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertFalse(tl.isDisabled());
+            assertFalse(tl.isGreen());
+        }
+
+        // starting green step
+        sleep(2);
+        LOG.debug("TEST>Wait 2s (Group1, Green Step, 1s/4s)");
+        checkTrafficLightStep(module.getTrafficLights(), group1);
+
+        // Calling to emergency while green
+        module.callEmergency(new Gson().toJson(emergencyCall));
+
+        // When called while trafficLights red, emergency call should
+        // immediately call the red step of emergency state.
+        sleep(1);
+        LOG.debug("TEST>Wait 1s (Emergency, Red Step, 1s/2s)");
+        checkTrafficLightRed(module.getTrafficLights(), group2, emergencyRule);
+
+        // Should now be emergency step
+        sleep(2);
+        LOG.debug("TEST>Wait 2s (Emergency, Green Step, 1s/3s)");
+        checkTrafficLightStep(module.getTrafficLights(), emergencyRule);
+
+        sleep(1);
+        LOG.debug("TEST>Wait 1s (Emergency, Green Step, 2s/3s)");
+        checkTrafficLightStep(module.getTrafficLights(), emergencyRule);
+
+        // Emergency finished, return to following step of last running step = group2 red step
+        sleep(2);
+        LOG.debug("TEST>Wait 2s (Group2, Red Step, 1s/2s)");
+        checkTrafficLightRed(module.getTrafficLights(), emergencyRule, group2);
+
+        // Group 2 running well ?
+        sleep(2);
+        LOG.debug("TEST>Wait 2s (Group2, Red Step, 1s/4s)");
+        checkTrafficLightStep(module.getTrafficLights(), group2);
+
+        // Stopping
+        module.stopTrafficLight(); // should stop after (2nd) group1 red step
+        sleep(5);
+        LOG.debug("TEST>Wait 5s (1s after Group2 Green Step)");
+        assertFalse(module.runnable.isRunning());
+
+        // Check all trafficLights are disabled
+        for(TrafficLight tl : module.getTrafficLights()) {
+            assertTrue(module.getTrafficLights()+":"+tl.toString()+" should be disabled", tl.isDisabled());
+        }
     }
 
 }
