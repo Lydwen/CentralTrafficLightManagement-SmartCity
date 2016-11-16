@@ -20,11 +20,11 @@ import java.util.Set;
 @Service
 public class ScenarioCheckerImpl implements ScenarioChecker {
 
-    @Autowired
-    private WebRequester requester;
+    //@Autowired
+    //private WebRequesterImpl requester;
 
-    @Autowired
-    private DatabaseDao database;
+    //@Autowired
+    //private DatabaseDao database;
 
     public String checkScenario(Scenario scenario) {
 
@@ -41,9 +41,9 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
             }
         }
 
-        database.addScenario(scenario);
-        String URI = requester.target("crossroads", "/crossroad", "INRIA","/starter");
-        requester.put(URI, scenario);
+        //database.addScenario(scenario);
+        //String URI = requester.target("crossroads", "/crossroad", "INRIA","/starter");
+        //requester.put(URI, scenario);
         return "OK";
     }
 }

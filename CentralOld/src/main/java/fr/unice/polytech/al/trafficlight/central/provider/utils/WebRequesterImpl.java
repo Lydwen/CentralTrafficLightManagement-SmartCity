@@ -1,7 +1,5 @@
-package fr.unice.polytech.al.trafficlight.central.utils;
+package fr.unice.polytech.al.trafficlight.central.provider.utils;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
@@ -10,16 +8,7 @@ import org.springframework.web.client.RestTemplate;
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
 
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Properties;
 
 /**
@@ -27,7 +16,7 @@ import java.util.Properties;
  *
  * @author Kévin Buisson
  */
-@Component ("WebRequester")
+@Component
 public class WebRequesterImpl implements WebRequester {
 
 
