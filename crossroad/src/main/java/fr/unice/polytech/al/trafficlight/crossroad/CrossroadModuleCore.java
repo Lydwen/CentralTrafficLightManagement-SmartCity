@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 /**
  * Created by nathael on 27/10/16.
  */
-@Path("crossroad")
 public class CrossroadModuleCore {
     private final static Logger LOG = Logger.getLogger(CrossroadModuleCore.class);
 
@@ -52,70 +51,28 @@ public class CrossroadModuleCore {
         this.runnable = new CrossroadModuleRunning(this);
     }
 
-    @PUT
-    @Path("/starter")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response changeScenario(String newScenarioStr) {
-        LOG.debug("######## Starter called !");
-        Gson gson = new GsonBuilder().create();
-        Scenario newScenario = gson.fromJson(newScenarioStr, Scenario.class);
-        runnable.changeScenario(newScenario);
 
-        LOG.debug("Starter call finished > Response OK");
-        return Response.ok().entity(gson.toJson(newScenario)).build();
-    }
-    public Scenario getActiveScenario() {
+    Scenario getActiveScenario() {
         return runnable.getActiveScenario();
-    }
-
-    @PUT
-    @Path("/stopper")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response stopTrafficLight() {
-        LOG.debug("######## Stopper called !");
-
-        if(!runnable.isRunning())
-            LOG.info("Wasn't running, but calling stop anyway");
-
-        runnable.stopRunning();
-
-
-        return Response.ok().build();
-    }
-
-    @PUT
-    @Path("/emergency")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response callEmergency(String emergencyCallStr) {
-        LOG.debug("######## Emergency called !");
-
-        Gson gson = new GsonBuilder().create();
-        runnable.callEmergency(gson.fromJson(emergencyCallStr, Emergency.class));
-
-        return Response.ok().build();
-    }
-
-    @GET
-    @Path("/status")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getStatus() {
-        LOG.debug("######## Get status called !");
-
-        String message = "";
-
-        for(TrafficLight trafficLight: trafficLightSet) {
-            message += ",{\"id\":\""+trafficLight.getId() + "\",\"state\":\""
-                    +(trafficLight.isDisabled()?"disabled":trafficLight.isGreen()?"green":"red")
-                    +  "\"}";
-        }
-
-        message = message.length()>0?"[" + message.substring(1) + "]":"[]";
-        return Response.ok().entity(message).build();
     }
 
     Set<TrafficLight> getTrafficLights() {
         return trafficLightSet;
+    }
+
+    void changeScenario(Scenario newScenario) {
+        runnable.changeScenario(newScenario);
+    }
+
+    boolean isRunning() {
+        return runnable.isRunning();
+    }
+
+    public void stopRunning() {
+        runnable.stopRunning();
+    }
+
+    public void callEmergency(Emergency emergency) {
+        runnable.callEmergency(emergency);
     }
 }
