@@ -1,3 +1,5 @@
+package fr.unice.polytech.al.trafficlight.webapp.servlets;
+
 import com.google.gson.Gson;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;

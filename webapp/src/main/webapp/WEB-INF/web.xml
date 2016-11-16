@@ -19,13 +19,25 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!-- Add scenario -->
     <servlet>
         <servlet-name>AddScenarioServlet</servlet-name>
-        <display-name>AddScenarioServlet</display-name>
-        <servlet-class>AddScenarioServlet</servlet-class>
+        <servlet-class>fr.unice.polytech.al.trafficlight.webapp.servlets.AddScenarioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddScenarioServlet</servlet-name>
         <url-pattern>/addscenario</url-pattern>
     </servlet-mapping>
+    <!-- / Add scenario -->
+
+    <!-- Emergency -->
+    <servlet>
+        <servlet-name>EmergencyServlet</servlet-name>
+        <servlet-class>fr.unice.polytech.al.trafficlight.webapp.servlets.EmergencyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmergencyServlet</servlet-name>
+        <url-pattern>/emergency</url-pattern>
+    </servlet-mapping>
+    <!-- / Emergency -->
 </web-app>
