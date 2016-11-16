@@ -34,7 +34,6 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
         for(RuleGroup r : ruleList) {
             trafficLightList.addAll(r.getTrafficLights());
         }
-
         for(RuleGroup r : ruleList) {
             if (trafficLightList.size() == r.getTrafficLights().size()) {
                 return "All trafficLight green at same time";

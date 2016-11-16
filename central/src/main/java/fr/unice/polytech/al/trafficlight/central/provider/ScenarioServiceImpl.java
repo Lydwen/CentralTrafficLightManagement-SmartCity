@@ -41,13 +41,13 @@ public class ScenarioServiceImpl implements ScenarioService {
 
     /**
      * Retrieves the crossroad corresponding to crossRoadName name
-     * @param scenarioId The name of the scenario we want to retreive
+     * @param scenario The name of the scenario we want to retreive
      * @return a Scenario object or null if scenarioId is not linked with a scenario in the db
      */
-    @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-    public @ResponseBody Scenario retrieveSpecificScenario(@PathVariable String scenarioId) {
+    @RequestMapping(value="/{scenario}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public @ResponseBody Scenario retrieveSpecificScenario(@PathVariable String scenario) {
 
-        return scenarioRetreiver.getScenario(scenarioId);
+        return scenarioRetreiver.getScenario(scenario);
     }
 
     @RequestMapping(value="", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
