@@ -3,6 +3,8 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.apache.log4j.Logger;
 
+import java.util.Calendar;
+
 /**
  * Created by nathael on 26/10/16.
  */
@@ -12,6 +14,7 @@ class TrafficLight {
     private final TrafficLightId id;
     private volatile boolean isGreen = false;
     private volatile boolean isDisabled = true;
+    private volatile long lastStateChangeDate = Calendar.getInstance().getTimeInMillis();
 
     TrafficLight(TrafficLightId id) {
         this.id = id;
@@ -27,6 +30,9 @@ class TrafficLight {
             isDisabled = false;
             LOG.info("TrafficLight " + id + " is now Green :D");
         }
+
+        // update
+        lastStateChangeDate = Calendar.getInstance().getTimeInMillis();
     }
 
     /**
@@ -39,16 +45,22 @@ class TrafficLight {
             isDisabled = false;
             LOG.info("TrafficLight " + id + " is now Red :(");
         }
+
+        // update
+        lastStateChangeDate = Calendar.getInstance().getTimeInMillis();
     }
 
     /**
      * Send order to disable traffic light (set to blinking orange)
      */
-    public void setDisabled() {
+    void setDisabled() {
         if(!isDisabled) {
             isDisabled = true;
             LOG.info("TrafficLight " + id + " is now blinking orange !!");
         }
+
+        // update
+        lastStateChangeDate = Calendar.getInstance().getTimeInMillis();
     }
 
     /**
@@ -64,6 +76,10 @@ class TrafficLight {
      *         'false' if trafficLight is working (red or green)
      */
     boolean isDisabled() { return isDisabled; }
+
+    long getLastStateChangeDate() {
+        return lastStateChangeDate;
+    }
 
 
     /**
