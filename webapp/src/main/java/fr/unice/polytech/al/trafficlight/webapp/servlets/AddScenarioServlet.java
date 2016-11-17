@@ -1,15 +1,5 @@
 package fr.unice.polytech.al.trafficlight.webapp.servlets;
 
-import com.google.gson.Gson;
-import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
-import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,11 +7,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by nasri on 06/11/16.
+ * Add scenario servlet.
  */
-public class AddScenarioServlet extends HttpServlet{
+public class AddScenarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        /* (TEMP)
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpPut req = new HttpPut("https://central-traffic-light.herokuapp.com/crossroad");
 
@@ -58,5 +49,6 @@ public class AddScenarioServlet extends HttpServlet{
 
         } catch (IOException ex) {
         }
+        */
     }
 }
