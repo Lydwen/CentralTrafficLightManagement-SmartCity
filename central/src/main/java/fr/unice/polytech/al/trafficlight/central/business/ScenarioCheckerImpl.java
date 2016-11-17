@@ -67,7 +67,7 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
             //change the scenario in the db
             crossRoad.setScenario(scenario);
             //send the change to the crossroad
-            requester.put("INRIA", "/crossroad/starter", scenario);
+            requester.put(crossRoad.getName(), "/crossroad/starter", scenario);
         }
         return result;
     }
