@@ -105,7 +105,9 @@ class CrossroadModuleRunning implements Runnable {
         LOG.debug("Wait "+currentRunningRule.getGreenTime()+"s green step...");
         try {
             synchronized (emergenciesStack) {
-                emergenciesStack.wait(currentRunningRule.getGreenTime() * 1000L);
+                if(currentRunningRule.getGreenTime() > 0) {
+                    emergenciesStack.wait(currentRunningRule.getGreenTime() * 1000L);
+                }
             }
 
             // Now is when waited transitionTime seconds
@@ -132,7 +134,9 @@ class CrossroadModuleRunning implements Runnable {
         // wait for transition
         try {
             synchronized (emergenciesStack) {
-                emergenciesStack.wait(transitionTime * 1000L);
+                if(transitionTime > 0) {
+                    emergenciesStack.wait(transitionTime * 1000L);
+                }
             }
 
             // Now is when waited transitionTime seconds

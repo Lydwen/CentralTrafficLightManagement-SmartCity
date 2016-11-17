@@ -68,8 +68,8 @@ public class CrossroadModuleCore {
 
     void callEmergency(Emergency emergency) {
         if(emergency.getDuration() <= 0) {
+            LOG.error("Illegal Emergency: "+emergency);
             LOG.error("Refuse to execute emergency with time null or negative");
-            LOG.error("Emergency illegal: "+emergency);
         }
         else {
             runnable.callEmergency(emergency);
