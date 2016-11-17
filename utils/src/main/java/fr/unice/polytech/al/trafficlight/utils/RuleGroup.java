@@ -11,7 +11,9 @@ public class RuleGroup {
     private int greenTime; // Green time in s
     private Set<TrafficLightId> trafficLights;
 
-    public RuleGroup(){}
+    public RuleGroup(){
+        trafficLights = new HashSet<>();
+    }
 
     public RuleGroup(String id, int greenTime) {
         this.id = id;
