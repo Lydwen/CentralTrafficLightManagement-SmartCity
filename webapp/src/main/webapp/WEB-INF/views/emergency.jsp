@@ -25,8 +25,8 @@
     <div class="row">
         <div class="col-sm-offset-4 col-sm-4">
             <form action="emergency" method="POST">
-                <label for="crossroad">Crossroad</label>
                 <div class="form-group">
+                    <label for="crossroad">Crossroad</label>
                     <input type="text" name="crossroad" id="crossroad"
                            class="form-control"/>
                 </div>
