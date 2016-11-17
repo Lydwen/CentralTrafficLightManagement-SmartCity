@@ -32,6 +32,8 @@ public class EmergencyController {
                 new CrossRoadId(request.getParameter("crossroad")));
         emergency.setTrafficLightId(
                 new TrafficLightId(request.getParameter("traffic_light")));
+        emergency.setDuration(
+                Integer.parseInt(request.getParameter("duration")));
 
         // Build model&view
         ModelAndView modelAndView = new ModelAndView("emergency");

@@ -12,14 +12,14 @@
 <div class="container-fluid">
     <h1 class="page-header">Traffic Light Emergency</h1>
     <c:if test="${success}">
-    <div class="col-sm-offset-4 col-sm-4 text-success">
+    <div class="col-sm-offset-4 col-sm-4 text-center text-success">
         Emergency declared successfully!
     </div>
     </c:if>
     <c:if test="${not empty error}">
-    <div class="col-sm-offset-4 col-sm-4 text-success">
+    <div class="col-sm-offset-4 col-sm-4 text-center text-danger">
         Emergency declaration failed!<br/>
-            ${error}
+        <b>${error}</b>
     </div>
     </c:if>
     <div class="row">
@@ -33,6 +33,11 @@
                 <div class="form-group">
                     <label for="traffic_light">Traffic light</label>
                     <input type="text" name="traffic_light" id="traffic_light"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (seconds)</label>
+                    <input type="text" name="duration" id="duration"
                            class="form-control"/>
                 </div>
                 <div class="form-group text-center">
