@@ -1292,3 +1292,129 @@
 2016-11-17 03:17:55 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 03:17:53 CET 2016]; root of context hierarchy
 2016-11-17 03:17:55 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1636 ms
 2016-11-17 03:17:59 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 03:17:53 CET 2016]; root of context hierarchy
+2016-11-17 15:30:29 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:30:29 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:30:29 CET 2016]; root of context hierarchy
+2016-11-17 15:30:29 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:30:29 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:30:30 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:30:30 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:30:30 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:30:30 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:30:30 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:30:30 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:30:30 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:30:29 CET 2016]; root of context hierarchy
+2016-11-17 15:30:30 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:30:29 CET 2016]; root of context hierarchy
+2016-11-17 15:30:30 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1767 ms
+2016-11-17 15:32:44 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:30:29 CET 2016]; root of context hierarchy
+2016-11-17 15:32:57 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:32:57 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:32:57 CET 2016]; root of context hierarchy
+2016-11-17 15:32:57 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:32:57 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:32:58 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:32:58 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:32:58 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:32:58 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:32:58 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:32:58 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:32:58 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:32:57 CET 2016]; root of context hierarchy
+2016-11-17 15:32:58 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:32:57 CET 2016]; root of context hierarchy
+2016-11-17 15:32:58 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1855 ms
+2016-11-17 15:35:06 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:32:57 CET 2016]; root of context hierarchy
+2016-11-17 15:35:20 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:35:20 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:35:20 CET 2016]; root of context hierarchy
+2016-11-17 15:35:20 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:35:20 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:35:21 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:35:21 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:35:21 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:35:21 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:35:21 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:35:21 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:35:21 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:35:20 CET 2016]; root of context hierarchy
+2016-11-17 15:35:21 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:35:20 CET 2016]; root of context hierarchy
+2016-11-17 15:35:21 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1656 ms
+2016-11-17 15:43:28 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:35:20 CET 2016]; root of context hierarchy
+2016-11-17 15:43:42 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:43:42 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:43:42 CET 2016]; root of context hierarchy
+2016-11-17 15:43:42 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:43:43 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:43:43 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:43:43 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:43:43 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:43:43 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:43:43 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:43:43 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:43:43 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:43:42 CET 2016]; root of context hierarchy
+2016-11-17 15:43:44 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:43:42 CET 2016]; root of context hierarchy
+2016-11-17 15:43:44 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1718 ms
+2016-11-17 15:49:48 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:43:42 CET 2016]; root of context hierarchy
+2016-11-17 15:50:02 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:50:02 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:50:02 CET 2016]; root of context hierarchy
+2016-11-17 15:50:02 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:50:03 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:50:04 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:50:04 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:50:04 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:50:04 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:50:04 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:50:04 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:50:04 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:50:02 CET 2016]; root of context hierarchy
+2016-11-17 15:50:04 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:50:02 CET 2016]; root of context hierarchy
+2016-11-17 15:50:04 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1694 ms
+2016-11-17 15:50:47 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:50:02 CET 2016]; root of context hierarchy
+2016-11-17 15:51:00 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:51:01 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:51:01 CET 2016]; root of context hierarchy
+2016-11-17 15:51:01 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:51:01 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:51:02 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:51:02 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:51:02 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:51:02 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:51:02 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:51:02 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:51:02 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:51:01 CET 2016]; root of context hierarchy
+2016-11-17 15:51:02 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:51:01 CET 2016]; root of context hierarchy
+2016-11-17 15:51:02 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1861 ms
+2016-11-17 15:53:35 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:51:01 CET 2016]; root of context hierarchy
+2016-11-17 15:53:42 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:53:42 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:53:42 CET 2016]; root of context hierarchy
+2016-11-17 15:53:42 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:53:43 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:53:43 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:53:43 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:53:43 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:53:43 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:53:43 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:53:43 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:53:44 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:53:42 CET 2016]; root of context hierarchy
+2016-11-17 15:53:44 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:53:42 CET 2016]; root of context hierarchy
+2016-11-17 15:53:44 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1782 ms
+2016-11-17 15:54:51 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:53:42 CET 2016]; root of context hierarchy
+2016-11-17 15:55:16 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:55:16 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:55:16 CET 2016]; root of context hierarchy
+2016-11-17 15:55:16 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:55:17 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:55:17 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:55:18 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:55:18 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:55:18 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:55:18 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:55:18 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:55:18 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:55:16 CET 2016]; root of context hierarchy
+2016-11-17 15:55:18 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:55:16 CET 2016]; root of context hierarchy
+2016-11-17 15:55:18 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1860 ms
+2016-11-17 15:57:39 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:55:16 CET 2016]; root of context hierarchy
+2016-11-17 15:57:50 [INFO ] - FrameworkServlet 'spring-web': initialization started
+2016-11-17 15:57:50 [INFO ] - Refreshing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:57:50 CET 2016]; root of context hierarchy
+2016-11-17 15:57:50 [INFO ] - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-web-servlet.xml]
+2016-11-17 15:57:51 [INFO ] - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-11-17 15:57:51 [INFO ] - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2016-11-17 15:57:51 [INFO ] - Mapped "{[/emergency],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.EmergencyController.emergency()
+2016-11-17 15:57:51 [INFO ] - Mapped "{[/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroadByName(java.lang.String)
+2016-11-17 15:57:51 [INFO ] - Mapped "{[/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.setScenario(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-11-17 15:57:51 [INFO ] - Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.CrossroadController.getCrossroads()
+2016-11-17 15:57:51 [INFO ] - Mapped "{[/hello],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fr.unice.polytech.al.trafficlight.webapp.controller.HelloController.hello()
+2016-11-17 15:57:51 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:57:50 CET 2016]; root of context hierarchy
+2016-11-17 15:57:51 [INFO ] - Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:57:50 CET 2016]; root of context hierarchy
+2016-11-17 15:57:52 [INFO ] - FrameworkServlet 'spring-web': initialization completed in 1607 ms
+2016-11-17 16:02:43 [INFO ] - Closing WebApplicationContext for namespace 'spring-web-servlet': startup date [Thu Nov 17 15:57:50 CET 2016]; root of context hierarchy

@@ -1,7 +1,11 @@
-$(document).on("click", ".deleteGroup",function() {
-    $(this).closest('.group').remove();
-});
+$(document).ready(function(){
+    $(document).on("click", ".deleteGroup",function() {
+        $(this).closest('.group').remove();
 
+        var nbGroups = parseInt($('#nbGroups').val()) - 1;
+        $('#nbGroups').val(nbGroups)
+    });
+});
 $(document).on("click", ".deleteTrafficLight",function() {
     $(this).closest('.trafficLight').remove();
 });

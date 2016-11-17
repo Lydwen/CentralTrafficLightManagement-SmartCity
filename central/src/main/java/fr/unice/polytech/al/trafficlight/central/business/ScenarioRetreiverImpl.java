@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.central.provider;
+package fr.unice.polytech.al.trafficlight.central.business;
 
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;

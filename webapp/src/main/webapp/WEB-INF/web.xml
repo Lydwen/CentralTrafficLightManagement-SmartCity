@@ -21,7 +21,7 @@
 
     <servlet>
         <servlet-name>AddScenarioServlet</servlet-name>
-        <servlet-class>AddScenarioServlet</servlet-class>
+        <servlet-class>fr.unice.polytech.al.trafficlight.webapp.servlets.AddScenarioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddScenarioServlet</servlet-name>

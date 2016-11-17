@@ -1,6 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central;
 
-import fr.unice.polytech.al.trafficlight.central.provider.ScenarioChecker;
+import fr.unice.polytech.al.trafficlight.central.business.ScenarioChecker;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
@@ -55,8 +55,8 @@ public class TestScenarioChecker {
     }
     @Test
     public void testScenario() {
-        //assertEquals("OK",checker.checkScenario(ScenarioTrue));
-        //assertEquals("All trafficLight green at same time",checker.checkScenario(ScenarioFalse));
+        assertEquals("OK",checker.checkScenario(ScenarioTrue));
+        assertEquals("All trafficLight green at same time",checker.checkScenario(ScenarioFalse));
     }
 
 

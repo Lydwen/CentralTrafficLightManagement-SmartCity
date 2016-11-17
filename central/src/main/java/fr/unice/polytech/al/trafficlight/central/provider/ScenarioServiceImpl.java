@@ -1,6 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.central.business.ScenarioChecker;
+import fr.unice.polytech.al.trafficlight.central.business.ScenarioRetreiver;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.Wrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by rhoo on 16/11/16.
@@ -56,7 +56,7 @@ public class ScenarioServiceImpl implements ScenarioService {
     @RequestMapping(value="/{idCrossRoad}", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public String receiveScenario(@RequestBody Scenario scenario, @PathVariable String idCrossRoad) {
 
-        return scenarioChecker.checkScenario(scenario, idCrossRoad);
+        return scenarioChecker.checkAndSetScenario(scenario, idCrossRoad);
 
     }
 }

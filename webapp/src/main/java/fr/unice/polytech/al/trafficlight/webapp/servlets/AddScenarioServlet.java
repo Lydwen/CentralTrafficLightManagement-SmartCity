@@ -1,3 +1,5 @@
+package fr.unice.polytech.al.trafficlight.webapp.servlets;
+
 import com.google.gson.Gson;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
@@ -15,11 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by nasri on 06/11/16.
+ * Add scenario servlet.
  */
-public class AddScenarioServlet extends HttpServlet{
+public class AddScenarioServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpPut req = new HttpPut("https://central-traffic-light.herokuapp.com/crossroad");
 

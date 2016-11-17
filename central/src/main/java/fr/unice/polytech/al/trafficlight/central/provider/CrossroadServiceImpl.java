@@ -1,9 +1,8 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 
+import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
-import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequester;
-import fr.unice.polytech.al.trafficlight.central.provider.utils.WebRequesterImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +20,6 @@ import java.util.List;
 @EnableAutoConfiguration
 @RequestMapping(value="/crossroad")
 public class CrossroadServiceImpl implements CrossroadService {
-
-    /**
-     * Crossroad web requester.
-     */
-    @Autowired
-    private WebRequester crossroadRequester;
     @Autowired
     private CrossroadRetriever crossroadRetreiver;
 

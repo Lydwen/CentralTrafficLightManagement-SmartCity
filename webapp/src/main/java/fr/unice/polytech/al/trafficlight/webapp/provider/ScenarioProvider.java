@@ -11,6 +11,7 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,6 +22,8 @@ import java.io.InputStreamReader;
  */
 public class ScenarioProvider {
     public String setScenario(String id, Scenario scenario) {
+        Logger l = Logger.getLogger(this.getClass());
+        l.debug("START SENDING SCENARIO");
         String status = "";
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpPut req = new HttpPut("https://central-traffic-light.herokuapp.com/scenario/" + id);

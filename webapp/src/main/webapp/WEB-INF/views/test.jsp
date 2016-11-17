@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-9">
                     <c:if test="${not empty status}">
-                        <p>${status}</p>
+                        <p>Response status : ${status}</p>
                     </c:if>
                     <c:if test="${not empty scenario}">
                         <h2>${name}</h2>
