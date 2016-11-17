@@ -147,4 +147,8 @@ public class CrossRoadStock {
     public Set<CrossRoad> getAllScenario() {
         return new HashSet<>(crossroadData.values());
     }
+
+    public void clearDatabase() {
+        crossroadData.clear();
+    }
 }

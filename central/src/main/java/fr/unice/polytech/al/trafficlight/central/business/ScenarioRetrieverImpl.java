@@ -13,7 +13,7 @@ import java.util.Set;
  */
 
 @Service
-public class ScenarioRetreiverImpl implements ScenarioRetreiver{
+public class ScenarioRetrieverImpl implements ScenarioRetriever {
 
     @Autowired
     private DatabaseDao databaseDao;

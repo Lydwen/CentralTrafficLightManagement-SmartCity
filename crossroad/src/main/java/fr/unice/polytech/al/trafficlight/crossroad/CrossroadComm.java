@@ -10,6 +10,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by nathael on 16/11/16.
@@ -78,7 +80,10 @@ public class CrossroadComm {
         for(TrafficLight trafficLight: CORE.getTrafficLights()) {
             message += ",{\"id\":\""+trafficLight.getId() + "\",\"state\":\""
                     +(trafficLight.isDisabled()?"disabled":trafficLight.isGreen()?"green":"red")
-                    +  "\"}";
+                    +  "\",\"last_state_change\":\""
+                    + new SimpleDateFormat("yyyy-mm-dd hh:mm:ss")
+                        .format(new Date(trafficLight.getLastStateChangeDate()))
+                    +"\"}";
         }
 
         message = message.length()>0?"[" + message.substring(1) + "]":"[]";

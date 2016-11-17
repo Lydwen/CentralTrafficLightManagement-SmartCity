@@ -86,7 +86,7 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
         CrossRoad crossroad = database.getCrossroad(crossRoadName);
         //if the crossroad doesn't exist we can't continue
         if(crossroad==null){
-            return "the specified crossroad name doesn't exist : "+crossRoadName;
+            return "The specified crossroad name doesn't exist : "+crossRoadName;
         }
         return this.checkAndSetScenario(scenario, crossroad);
     }

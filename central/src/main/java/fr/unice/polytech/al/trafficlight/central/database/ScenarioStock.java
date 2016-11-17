@@ -38,4 +38,8 @@ public class ScenarioStock {
     public Set<Scenario> getAllScenario() {
         return new HashSet<>(scenarioData.values());
     }
+
+    public void clearDatabase() {
+        scenarioData.clear();
+    }
 }
