@@ -1,7 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.business.ScenarioChecker;
-import fr.unice.polytech.al.trafficlight.central.business.ScenarioRetreiver;
+import fr.unice.polytech.al.trafficlight.central.business.ScenarioRetriever;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.Wrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class ScenarioServiceImpl implements ScenarioService {
     private ScenarioChecker scenarioChecker;
 
     @Autowired
-    private ScenarioRetreiver scenarioRetreiver;
+    private ScenarioRetriever scenarioRetriever;
 
     /**
      * Retrieves all the existing scenario
@@ -37,7 +37,7 @@ public class ScenarioServiceImpl implements ScenarioService {
     @RequestMapping(value="", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public Wrapper retrieveScenario() {
         Wrapper wrap = new Wrapper();
-        wrap.setCrossRoadName(new ArrayList<>(scenarioRetreiver.getAllScenarioId()));
+        wrap.setCrossRoadName(new ArrayList<>(scenarioRetriever.getAllScenarioId()));
         return wrap;
     }
 
@@ -50,7 +50,7 @@ public class ScenarioServiceImpl implements ScenarioService {
     @RequestMapping(value="/{scenario}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public @ResponseBody Scenario retrieveSpecificScenario(@PathVariable String scenario) {
 
-        return scenarioRetreiver.getScenario(scenario);
+        return scenarioRetriever.getScenario(scenario);
     }
 
     @RequestMapping(value="/{idCrossRoad}", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)

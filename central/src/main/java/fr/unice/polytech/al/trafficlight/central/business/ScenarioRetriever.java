@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Created by rhoo on 16/11/16.
  */
-public interface ScenarioRetreiver {
+public interface ScenarioRetriever {
 
     public Scenario getScenario(String id);
 
