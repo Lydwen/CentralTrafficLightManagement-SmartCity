@@ -19,6 +19,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!-- Add scerario -->
     <servlet>
         <servlet-name>AddScenarioServlet</servlet-name>
         <servlet-class>fr.unice.polytech.al.trafficlight.webapp.servlets.AddScenarioServlet</servlet-class>
@@ -27,5 +28,16 @@
         <servlet-name>AddScenarioServlet</servlet-name>
         <url-pattern>/addscenario</url-pattern>
     </servlet-mapping>
+    <!-- / Add scerario -->
 
+    <!-- Emergency -->
+    <servlet>
+        <servlet-name>EmergencyServlet</servlet-name>
+        <servlet-class>fr.unice.polytech.al.trafficlight.webapp.servlets.EmergencyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmergencyServlet</servlet-name>
+        <url-pattern>/emergency</url-pattern>
+    </servlet-mapping>
+    <!-- / Emergency -->
 </web-app>
