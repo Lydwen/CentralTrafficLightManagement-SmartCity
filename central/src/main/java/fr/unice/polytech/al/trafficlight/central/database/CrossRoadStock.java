@@ -20,35 +20,73 @@ public class CrossRoadStock {
 
     public CrossRoadStock() {
         crossroadData = new HashMap<>();
+
+        //first scenario with 8 traffic lights
         CrossRoad crossRoad = new CrossRoad("carrefour_du_casino", "url");
         crossRoad.addRoad("avenue du tapis vert");
         crossRoad.addRoad("avenue des orangers");
+        crossRoad.addRoad("avenue des italiens");
+        crossRoad.addRoad("avenue des rhododendrons");
 
-        TrafficLight trafficLight1 = new TrafficLight("feu de l'avenue des orangers");
+        TrafficLight trafficLight1 = new TrafficLight("droite");
         trafficLight1.addRoad("avenue des orangers");
-        TrafficLight trafficLight2 = new TrafficLight("feu de l'avenue du tapis vert");
-        trafficLight1.addRoad("avenue du tapis vert");
+        TrafficLight trafficLight2 = new TrafficLight("haut_droite");
+        trafficLight2.addRoad("avenue du tapis vert");
+        TrafficLight trafficLight3 = new TrafficLight("haut");
+        trafficLight3.addRoad("avenue des italiens");
+        TrafficLight trafficLight4 = new TrafficLight("haut_gauche");
+        trafficLight4.addRoad("avenue des rhododendrons");
+        TrafficLight trafficLight5 = new TrafficLight("gauche");
+        trafficLight1.addRoad("avenue des orangers");
+        TrafficLight trafficLight6 = new TrafficLight("bas_gauche");
+        trafficLight2.addRoad("avenue du tapis vert");
+        TrafficLight trafficLight7 = new TrafficLight("bas");
+        trafficLight3.addRoad("avenue des italiens");
+        TrafficLight trafficLight8 = new TrafficLight("bas_droite");
+        trafficLight4.addRoad("avenue des rhododendrons");
 
         crossRoad.addTrafficLight(trafficLight1);
         crossRoad.addTrafficLight(trafficLight2);
+        crossRoad.addTrafficLight(trafficLight3);
+        crossRoad.addTrafficLight(trafficLight4);
+        crossRoad.addTrafficLight(trafficLight5);
+        crossRoad.addTrafficLight(trafficLight6);
+        crossRoad.addTrafficLight(trafficLight7);
+        crossRoad.addTrafficLight(trafficLight8);
 
         Scenario scenar = new Scenario("basicScenario");
         RuleGroup group1 = new RuleGroup("group1", 20);
         RuleGroup group2 = new RuleGroup("group2", 40);
-        TrafficLightId id1 = new TrafficLightId("feu de l'avenue des orangers");
-        TrafficLightId id2 = new TrafficLightId("feu de l'avenue du tapis vert");
+        RuleGroup group3 = new RuleGroup("group3", 30);
+        RuleGroup group4 = new RuleGroup("group4", 20);
+        TrafficLightId id1 = new TrafficLightId("droite");
+        TrafficLightId id2 = new TrafficLightId("bas");
+        TrafficLightId id3 = new TrafficLightId("gauche");
+        TrafficLightId id4 = new TrafficLightId("haut");
+        TrafficLightId id5 = new TrafficLightId("haut_droite");
+        TrafficLightId id6 = new TrafficLightId("bas_droite");
+        TrafficLightId id7 = new TrafficLightId("bas_gauche");
+        TrafficLightId id8 = new TrafficLightId("haut_gauche");
         group1.addTrafficLight(id1);
-        group1.addTrafficLight(id2);
+        group1.addTrafficLight(id3);
         group2.addTrafficLight(id2);
+        group2.addTrafficLight(id4);
+        group2.addTrafficLight(id5);
+        group2.addTrafficLight(id7);
+        group2.addTrafficLight(id6);
+        group2.addTrafficLight(id8);
 
         scenar.addRuleGroup(0, group1);
         scenar.addRuleGroup(1, group2);
+        scenar.addRuleGroup(2, group3);
+        scenar.addRuleGroup(3, group4);
         scenar.setTransitionTime(5);
 
         crossRoad.setScenario(scenar);
 
         crossroadData.put(crossRoad.getName(),crossRoad);
 
+        //add a scenario with 4 traffic lights
         crossRoad = new CrossRoad("carrefour_de_l_INRIA", "url");
         crossRoad.addRoad("avenue de polytech");
         crossRoad.addRoad("avenue de l'IUT");
@@ -58,26 +96,28 @@ public class CrossRoadStock {
         trafficLight1 = new TrafficLight("north");
         trafficLight1.addRoad("avenue de polytech");
         trafficLight2 = new TrafficLight("west");
-        trafficLight1.addRoad("avenue de l'IUT");
-        trafficLight1 = new TrafficLight("east");
-        trafficLight1.addRoad("avenue des lucioles");
-        trafficLight2 = new TrafficLight("south");
-        trafficLight1.addRoad("avenue des murs");
+        trafficLight2.addRoad("avenue de l'IUT");
+        trafficLight3 = new TrafficLight("east");
+        trafficLight3.addRoad("avenue des lucioles");
+        trafficLight4 = new TrafficLight("south");
+        trafficLight4.addRoad("avenue des murs");
 
         crossRoad.addTrafficLight(trafficLight1);
         crossRoad.addTrafficLight(trafficLight2);
+        crossRoad.addTrafficLight(trafficLight3);
+        crossRoad.addTrafficLight(trafficLight4);
 
         scenar = new Scenario("basicScenario");
         group1 = new RuleGroup("group1", 10);
         group2 = new RuleGroup("group2", 30);
         id1 = new TrafficLightId("north");
         id2 = new TrafficLightId("west");
-        TrafficLightId id3 = new TrafficLightId("east");
-        TrafficLightId id4 = new TrafficLightId("south");
+        id3 = new TrafficLightId("east");
+        id4 = new TrafficLightId("south");
         group1.addTrafficLight(id1);
-        group1.addTrafficLight(id2);
+        group1.addTrafficLight(id4);
+        group2.addTrafficLight(id2);
         group2.addTrafficLight(id3);
-        group2.addTrafficLight(id4);
 
         scenar.addRuleGroup(0, group1);
         scenar.addRuleGroup(1, group2);
