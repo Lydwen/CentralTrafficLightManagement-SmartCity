@@ -56,4 +56,9 @@ public class DatabaseDao {
     public Set<CrossRoad> getAllCrossroad() {
         return crossRoadData.getAllScenario();
     }
+
+    public void clearDatabase() {
+        crossRoadData.clearDatabase();
+        scenarioData.clearDatabase();
+    }
 }

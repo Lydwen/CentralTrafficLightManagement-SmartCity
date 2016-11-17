@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping(value="/crossroad")
 public class CrossroadServiceImpl implements CrossroadService {
     @Autowired
-    private CrossroadRetriever crossroadRetreiver;
+    private CrossroadRetriever crossroadRetriever;
 
     /**
      * Retrieves all the existing crossroads
@@ -33,7 +33,7 @@ public class CrossroadServiceImpl implements CrossroadService {
      */
     @RequestMapping(value="", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public List<String> retrieveCrossRoads() {
-        List<String> crossRoads = new ArrayList<>(crossroadRetreiver.getAllCrossroadName());
+        List<String> crossRoads = new ArrayList<>(crossroadRetriever.getAllCrossroadName());
         return crossRoads;
     }
 
@@ -44,13 +44,13 @@ public class CrossroadServiceImpl implements CrossroadService {
      */
     @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public @ResponseBody CrossRoad retrieveSpecificCrossRoad(@PathVariable String crossRoadName) {
-        return crossroadRetreiver.getCrossroad(crossRoadName);
+        return crossroadRetriever.getCrossroad(crossRoadName);
     }
 
     @RequestMapping(value="", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public String receiveCrossroad(@RequestBody CrossRoad crossroad) {
 
-        crossroadRetreiver.addCrossroad(crossroad);
+        crossroadRetriever.addCrossroad(crossroad);
         return "OK";
 
     }

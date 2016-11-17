@@ -54,12 +54,14 @@ public class TrafficLight {
 
         TrafficLight that = (TrafficLight) o;
 
+        if (this.getName() != ((TrafficLight) o).getName())
+            return false;
         return accessibleRoads != null ? accessibleRoads.equals(that.accessibleRoads) : that.accessibleRoads == null;
 
     }
 
     @Override
     public int hashCode() {
-        return accessibleRoads != null ? accessibleRoads.hashCode() : 0;
+        return accessibleRoads != null ? accessibleRoads.hashCode()+this.getName().hashCode() : 0+this.getName().hashCode();
     }
 }

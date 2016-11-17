@@ -28,6 +28,7 @@ public class TestScenarioChecker {
 
     private Scenario ScenarioTrue;
     private Scenario ScenarioFalse;
+    private String falseCrossroadName = "00000";
     @Before
     public void init() {
         ScenarioTrue = new Scenario("basicScenario");
@@ -59,5 +60,9 @@ public class TestScenarioChecker {
         assertEquals("All trafficLight green at same time",checker.checkScenario(ScenarioFalse));
     }
 
+    @Test
+    public void testCheckAndSet() {
+        assertEquals("The specified crossroad name doesn't exist : " + falseCrossroadName, checker.checkAndSetScenario(ScenarioTrue,falseCrossroadName));
+    }
 
 }
