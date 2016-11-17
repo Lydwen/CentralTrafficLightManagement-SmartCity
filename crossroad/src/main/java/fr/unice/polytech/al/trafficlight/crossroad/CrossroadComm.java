@@ -81,7 +81,7 @@ public class CrossroadComm {
             message += ",{\"id\":\""+trafficLight.getId() + "\",\"state\":\""
                     +(trafficLight.isDisabled()?"disabled":trafficLight.isGreen()?"green":"red")
                     +  "\",\"last_state_change\":\""
-                    + new SimpleDateFormat("yyyy-mm-dd hh:mm:ss")
+                    + new SimpleDateFormat("dd MMM HH:mm:ss")
                         .format(new Date(trafficLight.getLastStateChangeDate()))
                     +"\"}";
         }
