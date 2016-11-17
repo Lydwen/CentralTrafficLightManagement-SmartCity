@@ -1,7 +1,6 @@
 package fr.unice.polytech.al.trafficlight.utils;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by nathael on 26/10/16.
@@ -19,6 +18,7 @@ public class RuleGroup {
         this.greenTime = greenTime;
         trafficLights = new HashSet<>();
     }
+
 
     /** Add a traffic light to the rule group
      *  @param trafficLight the traffic light to add
