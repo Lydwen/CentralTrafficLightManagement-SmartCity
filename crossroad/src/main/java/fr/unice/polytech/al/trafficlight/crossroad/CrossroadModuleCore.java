@@ -68,11 +68,17 @@ public class CrossroadModuleCore {
         return runnable.isRunning();
     }
 
-    public void stopRunning() {
+    void stopRunning() {
         runnable.stopRunning();
     }
 
-    public void callEmergency(Emergency emergency) {
-        runnable.callEmergency(emergency);
+    void callEmergency(Emergency emergency) {
+        if(emergency.getDuration() <= 0) {
+            LOG.error("Refuse to execute emergency with time null or negative");
+            LOG.error("Emergency illegal: "+emergency);
+        }
+        else {
+            runnable.callEmergency(emergency);
+        }
     }
 }
