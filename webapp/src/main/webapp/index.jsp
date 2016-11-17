@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Add scenario</title>
+    <title>Traffic Light : Add scenario</title>
 </head>
 <body>
 <h4> Carrefour : INRIA</h4>
