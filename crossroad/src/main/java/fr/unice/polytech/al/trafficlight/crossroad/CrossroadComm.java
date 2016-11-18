@@ -1,7 +1,6 @@
 package fr.unice.polytech.al.trafficlight.crossroad;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.apache.log4j.Logger;
@@ -88,18 +87,8 @@ public class CrossroadComm {
 
         message = message.length()>0?"[" + message.substring(1) + "]":"[]";
 
-        /*for(TrafficLight trafficLight: CORE.getTrafficLights()) {
-            message += "<p>"+trafficLight.getId()
-                    + " <img  width=\"48\" height=\"48\" src=\""
-                    +(trafficLight.isDisabled()?
-                        "https://cdn2.iconfinder.com/data/icons/function_icon_set/warning_48.png"
-                        :trafficLight.isGreen()?
-                        "https://cdn2.iconfinder.com/data/icons/function_icon_set/circle_green.png"
-                        :"https://cdn2.iconfinder.com/data/icons/function_icon_set/circle_red.png")
-                    +"\"></p>";
-        }
-
-        message = "<html><head></head><body>"+message+"</body></html>";*/
+        JsonElement jsonElement = new JsonParser().parse(message);
+        message = new GsonBuilder().setPrettyPrinting().create().toJson(jsonElement);
 
         return Response.ok().entity(message).build();
     }
