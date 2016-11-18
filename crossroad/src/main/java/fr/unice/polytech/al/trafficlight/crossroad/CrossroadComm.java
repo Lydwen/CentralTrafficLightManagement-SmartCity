@@ -88,6 +88,8 @@ public class CrossroadComm {
 
         message = message.length()>0?"[" + message.substring(1) + "]":"[]";
 
+        message = new GsonBuilder().setPrettyPrinting().create().toJson(message);
+
         /*for(TrafficLight trafficLight: CORE.getTrafficLights()) {
             message += "<p>"+trafficLight.getId()
                     + " <img  width=\"48\" height=\"48\" src=\""
