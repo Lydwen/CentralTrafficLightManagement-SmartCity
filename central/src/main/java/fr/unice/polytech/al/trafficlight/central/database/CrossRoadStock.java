@@ -37,13 +37,13 @@ public class CrossRoadStock {
         TrafficLight trafficLight4 = new TrafficLight("haut_gauche");
         trafficLight4.addRoad("avenue des rhododendrons");
         TrafficLight trafficLight5 = new TrafficLight("gauche");
-        trafficLight1.addRoad("avenue des orangers");
+        trafficLight5.addRoad("avenue des orangers");
         TrafficLight trafficLight6 = new TrafficLight("bas_gauche");
-        trafficLight2.addRoad("avenue du tapis vert");
+        trafficLight6.addRoad("avenue du tapis vert");
         TrafficLight trafficLight7 = new TrafficLight("bas");
-        trafficLight3.addRoad("avenue des italiens");
+        trafficLight7.addRoad("avenue des italiens");
         TrafficLight trafficLight8 = new TrafficLight("bas_droite");
-        trafficLight4.addRoad("avenue des rhododendrons");
+        trafficLight8.addRoad("avenue des rhododendrons");
 
         crossRoad.addTrafficLight(trafficLight1);
         crossRoad.addTrafficLight(trafficLight2);
@@ -71,10 +71,10 @@ public class CrossRoadStock {
         group1.addTrafficLight(id3);
         group2.addTrafficLight(id2);
         group2.addTrafficLight(id4);
-        group2.addTrafficLight(id5);
-        group2.addTrafficLight(id7);
-        group2.addTrafficLight(id6);
-        group2.addTrafficLight(id8);
+        group3.addTrafficLight(id5);
+        group3.addTrafficLight(id7);
+        group4.addTrafficLight(id6);
+        group4.addTrafficLight(id8);
 
         scenar.addRuleGroup(0, group1);
         scenar.addRuleGroup(1, group2);
