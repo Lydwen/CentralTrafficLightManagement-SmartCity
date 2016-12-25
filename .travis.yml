@@ -16,6 +16,11 @@ script:
   - "ls"
   - "mvn clean heroku:deploy -DskipTests"
 
+# Route
+  - "cd route"
+  - "ls"
+  - "mvn clean heroku:deploy -DskipTests"
+
 # Crossroad 1
   #- "cd ../crossroadconfiggen"
   #- "mvn clean exec:java trafficLight1.config north south east west"
