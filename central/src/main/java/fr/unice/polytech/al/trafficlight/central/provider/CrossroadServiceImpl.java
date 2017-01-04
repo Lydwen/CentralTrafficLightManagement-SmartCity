@@ -3,6 +3,7 @@ package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +54,15 @@ public class CrossroadServiceImpl implements CrossroadService {
         crossroadRetriever.addCrossroad(crossroad);
         return "OK";
 
+    }
+
+    /**
+     * Retrieves the scenario corresponding to crossRoadName name
+     * @param crossRoadName The name of the crossroad we want to get it's scenario
+     * @return a Scenario object or null if crossRoadName is not linked with a CrossRoad in the db
+     */
+    @RequestMapping(value="/{crossRoadName}/scenario", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public Scenario retrieveScenarioCrossroad(@PathVariable String crossRoadName) {
+        return crossroadRetriever.getCrossroad(crossRoadName).getScenario();
     }
 }

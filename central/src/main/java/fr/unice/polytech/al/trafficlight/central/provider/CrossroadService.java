@@ -1,6 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,4 +18,6 @@ public interface CrossroadService {
     public @ResponseBody CrossRoad retrieveSpecificCrossRoad(@PathVariable String crossRoadName);
 
     public String receiveCrossroad(@RequestBody CrossRoad crossroad);
+
+    public Scenario retrieveScenarioCrossroad(@PathVariable String crossRoadName);
 }
