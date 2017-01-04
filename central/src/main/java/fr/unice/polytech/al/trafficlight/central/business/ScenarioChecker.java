@@ -1,6 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central.business;
 
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 
 /**
@@ -13,5 +13,4 @@ public interface ScenarioChecker {
     String checkAndSetScenario(Scenario scenario, CrossRoad crossRoad);
 
     String checkAndSetScenario(Scenario scenario, String crossRoadName);
-
-    }
+}

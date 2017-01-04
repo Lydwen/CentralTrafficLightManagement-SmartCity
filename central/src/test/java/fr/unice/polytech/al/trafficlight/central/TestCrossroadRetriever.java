@@ -2,7 +2,7 @@ package fr.unice.polytech.al.trafficlight.central;
 
 import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +17,6 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by rhoo on 17/11/16.
@@ -42,8 +41,8 @@ public class TestCrossroadRetriever {
     @Before
     public void init() {
         //database.clearDatabase();
-        crossroad1 = new CrossRoad(namecrossroad1,"url1");
-        crossroad2 = new CrossRoad(namecrossroad2,"url2");
+        crossroad1 = new CrossRoad(namecrossroad1, "url1");
+        crossroad2 = new CrossRoad(namecrossroad2, "url2");
         database.addCrossroad(crossroad1);
         database.addCrossroad(crossroad2);
     }
@@ -51,25 +50,25 @@ public class TestCrossroadRetriever {
     @Test
     public void testAddGet() {
         retriever.addCrossroad(crossroad1);
-        assertEquals(crossroad1,database.getCrossroad(namecrossroad1));
-        assertEquals(crossroad1,retriever.getCrossroad(namecrossroad1));
+        assertEquals(crossroad1, database.getCrossroad(namecrossroad1));
+        assertEquals(crossroad1, retriever.getCrossroad(namecrossroad1));
     }
 
     @Test
     public void testGetScenarioMatchTo() {
         answerSet.add(namecrossroad1);
         answerSet.add(namecrossroad2);
-        assertEquals(answerSet,retriever.getCrossroadNameMatchTo("cross"));
+        assertEquals(answerSet, retriever.getCrossroadNameMatchTo("cross"));
         answerSet.clear();
         answerSet.add(namecrossroad1);
-        assertEquals(answerSet,retriever.getCrossroadNameMatchTo("1"));
-        assertNotEquals(answerSet,retriever.getCrossroadNameMatchTo("2"));
+        assertEquals(answerSet, retriever.getCrossroadNameMatchTo("1"));
+        assertNotEquals(answerSet, retriever.getCrossroadNameMatchTo("2"));
         answerSet.clear();
-        assertEquals(answerSet,retriever.getCrossroadNameMatchTo("notIn"));
+        assertEquals(answerSet, retriever.getCrossroadNameMatchTo("notIn"));
     }
 
     @After
-    public void clean(){
+    public void clean() {
         database.clearDatabase();
     }
 }

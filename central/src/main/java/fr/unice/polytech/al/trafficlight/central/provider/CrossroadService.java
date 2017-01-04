@@ -1,6 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
