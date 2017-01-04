@@ -27,10 +27,10 @@ public class TestCrossroadModule {
 
     private CrossroadModuleCore module;
     private Scenario scenario = new Scenario("scenario test");
-    private RuleGroup group1 = new RuleGroup("group1", 2);
-    private RuleGroup group2 = new RuleGroup("group2", 3);
-    private RuleGroup group3 = new RuleGroup("group3", 4);
-    private RuleGroup group4 = new RuleGroup("group4", 5);
+    private RuleGroup group1 = new RuleGroup("group1", 2, 2);
+    private RuleGroup group2 = new RuleGroup("group2", 3, 3);
+    private RuleGroup group3 = new RuleGroup("group3", 4, 4);
+    private RuleGroup group4 = new RuleGroup("group4", 5, 5);
 
     @Before
     public void begin() throws IOException {

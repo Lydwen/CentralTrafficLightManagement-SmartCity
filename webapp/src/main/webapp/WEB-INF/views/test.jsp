@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">GreenTime</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="${i.index}" class="form-control" value="${group.greenTime}" />
+                                            <input type="text" name="${i.index}" class="form-control" value="${group.normalGreenTime}" />
                                         </div>
                                     </div>
                                     <c:forEach items="${group.trafficLights}" var="trafficLight">

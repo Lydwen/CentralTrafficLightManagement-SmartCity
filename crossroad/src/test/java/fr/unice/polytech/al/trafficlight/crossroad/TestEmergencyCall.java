@@ -26,12 +26,12 @@ public class TestEmergencyCall {
 
     private CrossroadModuleCore module;
     private Scenario scenario = new Scenario("scenario test");
-    private RuleGroup group1 = new RuleGroup("group1", 4);
-    private RuleGroup group2 = new RuleGroup("group2", 5);
+    private RuleGroup group1 = new RuleGroup("group1", 4, 4);
+    private RuleGroup group2 = new RuleGroup("group2", 5, 5);
 
     // Emergency call and the equivalent ruleGroup
     private Emergency emergencyCall = new Emergency();
-    private RuleGroup emergencyRule = new RuleGroup("emergency", 3);
+    private RuleGroup emergencyRule = new RuleGroup("emergency", 3, 3);
 
     @Before
     public void begin() throws IOException {

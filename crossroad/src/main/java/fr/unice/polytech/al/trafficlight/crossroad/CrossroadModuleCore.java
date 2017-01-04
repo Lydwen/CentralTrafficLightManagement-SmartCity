@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
+import fr.unice.polytech.al.trafficlight.utils.WaitingVehiclesMap;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -74,5 +76,11 @@ public class CrossroadModuleCore {
         else {
             runnable.callEmergency(emergency);
         }
+    }
+
+    void setNbWaitingCars(WaitingVehiclesMap map) {
+        map.entrySet().stream()
+                .filter(entry -> getActiveScenario().usesTrafficLight(entry.getKey()))
+                .forEach(entry -> runnable.setNbWaitingCars(entry.getKey(), entry.getValue()));
     }
 }

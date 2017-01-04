@@ -3,6 +3,8 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 import com.google.gson.*;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
+import fr.unice.polytech.al.trafficlight.utils.WaitingVehiclesMap;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
@@ -91,5 +93,18 @@ public class CrossroadComm {
         message = new GsonBuilder().setPrettyPrinting().create().toJson(jsonElement);
 
         return Response.ok().entity(message).build();
+    }
+
+    @PUT
+    @Path("/elec_car_waiting")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response setNbWaitingCars(String waitingVehiclesMapString) {
+        LOG.debug("######## setNbWaitingCars called !");
+
+        Gson gson = new GsonBuilder().create();
+        CORE.setNbWaitingCars(gson.fromJson(waitingVehiclesMapString, WaitingVehiclesMap.class));
+
+        return Response.ok().build();
     }
 }
