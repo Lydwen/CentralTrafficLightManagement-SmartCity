@@ -1,6 +1,9 @@
 package fr.unice.polytech.al.trafficlight.crossroadconfiggen;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 
 import java.io.File;
@@ -20,19 +23,27 @@ public class CrossroadConfigGenerator {
         Set<TrafficLightId> idList = new HashSet<>();
 
         // Check arguments
-        if(args.length < 2) {
-            System.err.println("Need at least 2 arguments separated by spaces:\n"
-            +" 1st argument : Name for Generated file\n"
-            +" 2nd argument : first TrafficLightId\n"
-            +"(nth argument): others TrafficLightIds");
+        if(args.length < 3) {
+            System.err.println("Need at least 3 arguments separated by spaces:\n"
+                    +" 1st argument : Name for Generated file\n"
+                    +" 2nd argument : CrossRoadId\n"
+                    +" 3rd argument : first TrafficLightId\n"
+                    +"(nth argument): others TrafficLightIds");
             return;
         }
 
+        Gson gson = new Gson();
+        JsonObject object = new JsonObject();
+        JsonElement jsonId = gson.toJsonTree(args[1]);
+        object.add("crossroad", jsonId);
 
-        for(int i=1; i<args.length; i++)
-            idList.add(new TrafficLightId(args[i]));
+        JsonArray trafficLights = new JsonArray();
+        object.add("trafficLights", trafficLights);
 
-        String json = new Gson().toJson(idList);
+        for(int i=2; i<args.length; i++)
+            trafficLights.add(gson.toJsonTree(new TrafficLightId(args[i])));
+
+        String json = object.getAsString();
         File f = new File(args[0]);
         try {
             f.createNewFile();

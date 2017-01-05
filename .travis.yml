@@ -23,7 +23,7 @@ script:
 
 # Crossroad 1
   #- "cd ../crossroadconfiggen"
-  #- "mvn clean exec:java trafficLight1.config north south east west"
+  #- "mvn clean exec:java trafficLight1.config carrefour_de_l_INRIA north south east west"
 
   #- "cp ../trafficLight1.config ../crossroad/src/main/resources/config/trafficLight.config"
 
