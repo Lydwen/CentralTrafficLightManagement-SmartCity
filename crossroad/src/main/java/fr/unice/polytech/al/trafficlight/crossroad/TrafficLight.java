@@ -82,17 +82,18 @@ class TrafficLight {
         return lastStateChangeDate;
     }
 
-    public void addElectricVehicle() {
+    void addElectricVehicle() {
         electricVehicleNumber++;
     }
 
-    public void removeElectricVehicle(){
+    void removeElectricVehicle(){
         electricVehicleNumber--;
     }
 
-    public int getElectricVehicle(){
+    int getElectricVehicle(){
         return electricVehicleNumber;
     }
+
     /**
      *  @return TrafficLight id
      */

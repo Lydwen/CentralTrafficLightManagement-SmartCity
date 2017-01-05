@@ -9,6 +9,11 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -23,6 +28,22 @@ public class CrossroadComm {
     static {
         try {
             CORE = new CrossroadModuleCore();
+
+            // ask for Central to get a scenario to run
+            for(int tries=0; tries<1000; tries++) {
+                try { // wait some time if no response
+                    LOG.warn("Connecting to central failed "+tries+" times. Retrying...");
+                    Thread.sleep(100 * tries);
+                } catch(InterruptedException ignored){}
+
+                URL url = new URL("https://central-traffic-light.herokuapp.com/crossroad/"+CORE.getCrossRoadId()+"/scenario");
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("PUT");
+
+                if(connection.getResponseCode() == 200)
+                    break;
+            }
+
         } catch (IOException e) {
             LOG.fatal("Impossible to initialise CrossroadModuleCore", e);
         }
