@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.core.MediaType;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Optional;
 
 /**
@@ -64,6 +67,25 @@ public class PremiumCarServiceImpl implements PremiumCarService {
 
         // Log success
         logger.info(premiumCarLocation); // TODO Something else than just log success
+        String urlString = ""; // TODO put the good carefourid in this
+        //urlString += "/trafficlight/" + trafficlightId + "/vehicle/" + vehicleID // TODO uncomment and edit variable name
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+            httpCon.setDoOutput(true);
+            httpCon.setRequestMethod("PUT");
+            OutputStreamWriter out = new OutputStreamWriter(
+                    httpCon.getOutputStream());
+            out.write("");
+            out.close();
+            httpCon.getInputStream();
+        }
+        catch (Exception e) {
+            // Log error
+            logger.error(e.getMessage());
+            return String.format("{\"status\": \"KO\", \"reason\": \"%s\"}", e.getMessage());
+        }
+
         return "{\"status\": \"OK\"}";
     }
 }
