@@ -69,7 +69,7 @@ public class CrossroadComm {
     }
 
     @POST
-    @Path("/trafficlight/{trafficlightId}/vehicle/{vehicleId}")
+    @Path("{trafficlightId}/{vehicleId}")
     public Response addVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") int vehicleId ) {
         LOG.debug("######## Add vehicle called !");
 
@@ -86,7 +86,7 @@ public class CrossroadComm {
     }
 
     @DELETE
-    @Path("/trafficlight/{trafficlightId}/vehicle/{vehicleId}")
+    @Path("{trafficlightId}/{vehicleId}")
     public Response removeVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") int vehicleId ) {
         LOG.debug("######## Remove vehicle called !");
 
