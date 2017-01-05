@@ -17,13 +17,13 @@ public class TestScenario {
         s.setTransitionTime(4);
         assertEquals(0, s.getTotalScenarioTime());
 
-        s.addRuleGroup(new RuleGroup("RuleGroupTest1", 13));
+        s.addRuleGroup(new RuleGroup("RuleGroupTest1", 13, 13));
         assertEquals(17, s.getTotalScenarioTime());
 
-        s.addRuleGroup(new RuleGroup("RuleGroupTest2", 17));
+        s.addRuleGroup(new RuleGroup("RuleGroupTest2", 17, 17));
         assertEquals(38, s.getTotalScenarioTime());
 
-        s.addRuleGroup(0, new RuleGroup("RuleGroupTest0", 9));
+        s.addRuleGroup(0, new RuleGroup("RuleGroupTest0", 9, 9));
         assertEquals(51, s.getTotalScenarioTime());
     }
 }
