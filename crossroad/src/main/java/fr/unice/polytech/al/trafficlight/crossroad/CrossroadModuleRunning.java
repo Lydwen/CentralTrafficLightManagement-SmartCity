@@ -81,6 +81,10 @@ class CrossroadModuleRunning implements Runnable {
 
                 // passing some traffic lights to green and wait
                 greenStep(runningRule);
+
+                for(TrafficLight trafficLight: crossModuleCore.getTrafficLights()) {
+                    LOG.debug("TrafficLight: " + trafficLight.getId().getId() + " have " + trafficLight.getElectricVehicle() + " electric vehicle");
+                }
             }
         } catch(IndexOutOfBoundsException ignored) {
             // activeScenario has no groupRules

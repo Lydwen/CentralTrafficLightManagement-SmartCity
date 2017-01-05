@@ -68,6 +68,40 @@ public class CrossroadComm {
         return Response.ok().build();
     }
 
+    @POST
+    @Path("/trafficlight/{trafficlightId}/vehicle/{vehicleId}")
+    public Response addVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") int vehicleId ) {
+        LOG.debug("######## Add vehicle called !");
+
+        for(TrafficLight trafficLight: CORE.getTrafficLights()) {
+            if(trafficLight.getId().getId().equals(trafficlightId)) {
+                LOG.debug("Electric vehicle before add: " + trafficLight.getElectricVehicle());
+                trafficLight.addElectricVehicle();
+                LOG.debug("Electric vehicle after add: " + trafficLight.getElectricVehicle());
+                return Response.ok().build();
+            }
+        }
+        LOG.error("TrafficLightId: " + trafficlightId +" do not exist");
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @DELETE
+    @Path("/trafficlight/{trafficlightId}/vehicle/{vehicleId}")
+    public Response removeVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") int vehicleId ) {
+        LOG.debug("######## Remove vehicle called !");
+
+        for(TrafficLight trafficLight: CORE.getTrafficLights()) {
+            if(trafficLight.getId().getId().equals(trafficlightId)) {
+                LOG.debug("Electric vehicle before remove: " + trafficLight.getElectricVehicle());
+                trafficLight.removeElectricVehicle();
+                LOG.debug("Electric vehicle after remove: " + trafficLight.getElectricVehicle());
+                return Response.ok().build();
+            }
+        }
+        LOG.error("TrafficLightId: " + trafficlightId +" do not exist");
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
     @GET
     @Path("/status")
     @Produces(MediaType.APPLICATION_JSON)
