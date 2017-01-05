@@ -3,10 +3,8 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.apache.log4j.Logger;
 
-import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -17,7 +15,6 @@ class CrossroadModuleRunning implements Runnable {
     private final CrossroadModuleCore crossModuleCore;
     private volatile Scenario activeScenario;
     private volatile boolean isRunning = false;
-    private final HashMap<TrafficLightId, Integer> nbWaitingCarsMap = new HashMap<>();
 
     private final Stack<Emergency> emergenciesStack = new Stack<>();
 
@@ -90,8 +87,9 @@ class CrossroadModuleRunning implements Runnable {
 
                 // count how many electric cars are waiting at green states traffic lights
                 int nbElecCar = 0;
-                for(TrafficLightId tl : runningRule.getTrafficLights()) {
-                    nbElecCar += nbWaitingCarsMap.getOrDefault(tl, 0);
+                for(TrafficLight tl : crossModuleCore.getTrafficLights()) {
+                    nbElecCar += tl.getElectricVehicle();
+                    LOG.debug("TrafficLight: " + tl.getId().getId() + " have " + tl.getElectricVehicle() + " electric vehicle");
                 }
 
                 // count how many we can reduce scenario late at maximum
@@ -107,10 +105,6 @@ class CrossroadModuleRunning implements Runnable {
 
                 // passing some traffic lights to green and wait
                 greenStep(runningRule.getNormalGreenTime()-currentLate, runningRule);
-
-                for(TrafficLight trafficLight: crossModuleCore.getTrafficLights()) {
-                    LOG.debug("TrafficLight: " + trafficLight.getId().getId() + " have " + trafficLight.getElectricVehicle() + " electric vehicle");
-                }
             }
         } catch(IndexOutOfBoundsException ignored) {
             // activeScenario has no groupRules
@@ -131,11 +125,7 @@ class CrossroadModuleRunning implements Runnable {
      */
     private int getCurrentLate(Scenario runningScenario, int runningRuleIndex) {
         // TODO
-        return 0;
-    }
-
-    void setNbWaitingCars(TrafficLightId trafficLightId, int nb) {
-        nbWaitingCarsMap.put(trafficLightId, nb);
+        return runningScenario.getTotalScenarioTime();
     }
 
     private void greenStep(int greenTime, final RuleGroup currentRunningRule) throws InterruptedException {
