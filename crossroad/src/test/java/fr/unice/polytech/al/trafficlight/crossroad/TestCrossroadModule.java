@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Set;
 
 import static fr.unice.polytech.al.trafficlight.crossroad.UtilsForTests.*;
 import static junit.framework.TestCase.*;
@@ -194,6 +196,19 @@ public class TestCrossroadModule {
             assertTrue(tl.toString(), tl.isDisabled());
         }
 
+    }
+
+    @Test
+    public void testNumberElectricVehicle() {
+        Set<TrafficLight> trafficLightSet = module.getTrafficLights();
+        for(TrafficLight t: trafficLightSet) {
+            assertEquals(t.getElectricVehicle(),0);
+            t.addElectricVehicle();
+            t.addElectricVehicle();
+            assertEquals(t.getElectricVehicle(),2);
+            t.removeElectricVehicle();
+            assertEquals(t.getElectricVehicle(),1);
+        }
     }
 
     /**

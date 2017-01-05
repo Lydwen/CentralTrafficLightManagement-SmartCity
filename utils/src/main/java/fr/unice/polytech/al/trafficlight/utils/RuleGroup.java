@@ -12,7 +12,9 @@ public class RuleGroup {
     private int minimumGreenTime; // Minimum time green (considering there are no electric vehicles waiting)
     private Set<TrafficLightId> trafficLights;
 
-    public RuleGroup(){}
+    public RuleGroup(){
+        trafficLights = new HashSet<>();
+    }
 
     public RuleGroup(String id, int normalGreenTime, int minimumGreenTime) {
         this.id = id;

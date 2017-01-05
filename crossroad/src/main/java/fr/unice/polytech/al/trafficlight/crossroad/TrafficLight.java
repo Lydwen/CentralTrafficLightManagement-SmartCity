@@ -15,6 +15,7 @@ class TrafficLight {
     private volatile boolean isGreen = false;
     private volatile boolean isDisabled = true;
     private volatile long lastStateChangeDate = Calendar.getInstance().getTimeInMillis();
+    private volatile int electricVehicleNumber = 0;
 
     TrafficLight(TrafficLightId id) {
         this.id = id;
@@ -81,7 +82,17 @@ class TrafficLight {
         return lastStateChangeDate;
     }
 
+    public void addElectricVehicle() {
+        electricVehicleNumber++;
+    }
 
+    public void removeElectricVehicle(){
+        electricVehicleNumber--;
+    }
+
+    public int getElectricVehicle(){
+        return electricVehicleNumber;
+    }
     /**
      *  @return TrafficLight id
      */

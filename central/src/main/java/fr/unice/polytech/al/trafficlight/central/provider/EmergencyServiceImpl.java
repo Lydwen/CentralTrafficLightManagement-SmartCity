@@ -1,7 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import org.springframework.beans.factory.annotation.Autowired;

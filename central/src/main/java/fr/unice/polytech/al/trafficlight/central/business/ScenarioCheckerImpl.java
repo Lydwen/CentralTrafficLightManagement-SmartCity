@@ -1,7 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.business;
 
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;

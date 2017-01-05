@@ -1,15 +1,10 @@
 package fr.unice.polytech.al.trafficlight.central;
 
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -30,37 +25,37 @@ public class TestCrossRoad {
 
     @Before
     public void init() {
-        crossRoad1 = new CrossRoad(name1,url1);
-        crossRoad2 = new CrossRoad(name2,url2);
+        crossRoad1 = new CrossRoad(name1, url1);
+        crossRoad2 = new CrossRoad(name2, url2);
     }
 
     @Test
     public void testEquals() {
-        assertNotEquals(crossRoad1,crossRoad2);
-        assertEquals(crossRoad1,crossRoad1);
-        crossRoad2 = new CrossRoad(name1,url1);
-        assertEquals(crossRoad1,crossRoad2);
-        crossRoad1 = new CrossRoad(name1,url1,scenario1);
-        assertNotEquals(crossRoad1,crossRoad2);
-        crossRoad2 = new CrossRoad(name2,url2,scenario2);
-        assertNotEquals(crossRoad1,crossRoad2);
-        assertEquals(crossRoad1,crossRoad1);
-        crossRoad2 = new CrossRoad(name1,url1,scenario2);
-        assertNotEquals(crossRoad1,crossRoad2);
+        assertNotEquals(crossRoad1, crossRoad2);
+        assertEquals(crossRoad1, crossRoad1);
+        crossRoad2 = new CrossRoad(name1, url1);
+        assertEquals(crossRoad1, crossRoad2);
+        crossRoad1 = new CrossRoad(name1, url1, scenario1);
+        assertNotEquals(crossRoad1, crossRoad2);
+        crossRoad2 = new CrossRoad(name2, url2, scenario2);
+        assertNotEquals(crossRoad1, crossRoad2);
+        assertEquals(crossRoad1, crossRoad1);
+        crossRoad2 = new CrossRoad(name1, url1, scenario2);
+        assertNotEquals(crossRoad1, crossRoad2);
     }
 
     @Test
     public void testHash() {
-        assertNotEquals(crossRoad1.hashCode(),crossRoad2.hashCode());
-        assertEquals(crossRoad1.hashCode(),crossRoad1.hashCode());
-        crossRoad2 = new CrossRoad(name1,url1);
-        assertEquals(crossRoad1.hashCode(),crossRoad2.hashCode());
-        crossRoad1 = new CrossRoad(name1,url1,scenario1);
-        assertNotEquals(crossRoad1.hashCode(),crossRoad2.hashCode());
-        crossRoad2 = new CrossRoad(name2,url2,scenario2);
-        assertNotEquals(crossRoad1.hashCode(),crossRoad2.hashCode());
-        assertEquals(crossRoad1.hashCode(),crossRoad1.hashCode());
-        crossRoad2 = new CrossRoad(name1,url1,scenario2);
-        assertNotEquals(crossRoad1.hashCode(),crossRoad2.hashCode());
+        assertNotEquals(crossRoad1.hashCode(), crossRoad2.hashCode());
+        assertEquals(crossRoad1.hashCode(), crossRoad1.hashCode());
+        crossRoad2 = new CrossRoad(name1, url1);
+        assertEquals(crossRoad1.hashCode(), crossRoad2.hashCode());
+        crossRoad1 = new CrossRoad(name1, url1, scenario1);
+        assertNotEquals(crossRoad1.hashCode(), crossRoad2.hashCode());
+        crossRoad2 = new CrossRoad(name2, url2, scenario2);
+        assertNotEquals(crossRoad1.hashCode(), crossRoad2.hashCode());
+        assertEquals(crossRoad1.hashCode(), crossRoad1.hashCode());
+        crossRoad2 = new CrossRoad(name1, url1, scenario2);
+        assertNotEquals(crossRoad1.hashCode(), crossRoad2.hashCode());
     }
 }

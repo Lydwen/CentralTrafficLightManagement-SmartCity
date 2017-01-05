@@ -1,8 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central;
 
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
-import fr.unice.polytech.al.trafficlight.central.data.TrafficLight;
-import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLight;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,31 +26,31 @@ public class TestTrafficLight {
 
     @Test
     public void testEquals() {
-        assertNotEquals(trafficLight1,trafficLight2);
-        assertEquals(trafficLight1,trafficLight1);
+        assertNotEquals(trafficLight1, trafficLight2);
+        assertEquals(trafficLight1, trafficLight1);
         trafficLight2 = new TrafficLight(name1);
-        assertEquals(trafficLight1,trafficLight2);
+        assertEquals(trafficLight1, trafficLight2);
         trafficLight1 = new TrafficLight(name1);
         trafficLight1.addRoad(road1);
-        assertNotEquals(trafficLight1,trafficLight2);
+        assertNotEquals(trafficLight1, trafficLight2);
         trafficLight2 = new TrafficLight(name2);
         trafficLight2.addRoad(road2);
-        assertNotEquals(trafficLight1,trafficLight2);
-        assertEquals(trafficLight1,trafficLight1);
+        assertNotEquals(trafficLight1, trafficLight2);
+        assertEquals(trafficLight1, trafficLight1);
     }
 
     @Test
     public void testHash() {
-        assertNotEquals(trafficLight1.hashCode(),trafficLight2.hashCode());
-        assertEquals(trafficLight1.hashCode(),trafficLight1.hashCode());
+        assertNotEquals(trafficLight1.hashCode(), trafficLight2.hashCode());
+        assertEquals(trafficLight1.hashCode(), trafficLight1.hashCode());
         trafficLight2 = new TrafficLight(name1);
-        assertEquals(trafficLight1.hashCode(),trafficLight2.hashCode());
+        assertEquals(trafficLight1.hashCode(), trafficLight2.hashCode());
         trafficLight1 = new TrafficLight(name1);
         trafficLight1.addRoad(road1);
-        assertNotEquals(trafficLight1.hashCode(),trafficLight2.hashCode());
+        assertNotEquals(trafficLight1.hashCode(), trafficLight2.hashCode());
         trafficLight2 = new TrafficLight(name2);
         trafficLight2.addRoad(road2);
-        assertNotEquals(trafficLight1.hashCode(),trafficLight2.hashCode());
-        assertEquals(trafficLight1.hashCode(),trafficLight1.hashCode());
+        assertNotEquals(trafficLight1.hashCode(), trafficLight2.hashCode());
+        assertEquals(trafficLight1.hashCode(), trafficLight1.hashCode());
     }
 }

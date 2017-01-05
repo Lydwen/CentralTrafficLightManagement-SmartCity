@@ -1,7 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central.business;
 
-import fr.unice.polytech.al.trafficlight.central.data.CrossRoad;
-import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 
 import java.util.Set;
 

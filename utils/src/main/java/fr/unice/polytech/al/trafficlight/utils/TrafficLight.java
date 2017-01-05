@@ -7,23 +7,23 @@ import java.util.Set;
  * Represents a TrafficLight :
  * which roads does it permits to access if it
  * is green.
- *
+ * <p>
  * Created by tom dall'agnol on 27/10/16.
  */
 public class TrafficLight {
     private String name;
     private Set<String> accessibleRoads;
 
-    public TrafficLight(String name){
+    public TrafficLight(String name) {
         this.name = name;
         this.accessibleRoads = new HashSet<>();
     }
 
-    public void addRoad(String road){
+    public void addRoad(String road) {
         this.accessibleRoads.add(road);
     }
 
-    public void removeRoad(String road){
+    public void removeRoad(String road) {
         this.accessibleRoads.remove(road);
     }
 
@@ -54,12 +54,15 @@ public class TrafficLight {
 
         TrafficLight that = (TrafficLight) o;
 
+        if (this.getName() != ((TrafficLight) o).getName())
+            return false;
+
         return accessibleRoads != null ? accessibleRoads.equals(that.accessibleRoads) : that.accessibleRoads == null;
 
     }
 
     @Override
     public int hashCode() {
-        return accessibleRoads != null ? accessibleRoads.hashCode() : 0;
+        return accessibleRoads != null ? accessibleRoads.hashCode() + this.getName().hashCode() : 0 + this.getName().hashCode();
     }
 }
