@@ -79,7 +79,7 @@ public class Scenario {
     public int getTotalScenarioTime() {
         int time = 0;
         for(RuleGroup rg : ruleGroupList) {
-            time += rg.getGreenTime() + transitionTime;
+            time += rg.getNormalGreenTime() + transitionTime;
         }
 
         return time;
@@ -110,5 +110,13 @@ public class Scenario {
     @Override
     public String toString() {
         return "Sc:"+id+":"+transitionTime+":"+ruleGroupList;
+    }
+
+    public boolean usesTrafficLight(TrafficLightId search) {
+        for(RuleGroup rg : ruleGroupList)
+            if(rg.getTrafficLights().contains(search))
+                return true;
+
+        return false;
     }
 }
