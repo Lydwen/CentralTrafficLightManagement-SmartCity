@@ -66,6 +66,7 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
         if(result.equals("OK")){
             //change the scenario in the db
             crossRoad.setScenario(scenario);
+            database.addScenario(scenario);
             //send the change to the crossroad
             requester.put(crossRoad.getName(), "/crossroad/starter", scenario);
         }
