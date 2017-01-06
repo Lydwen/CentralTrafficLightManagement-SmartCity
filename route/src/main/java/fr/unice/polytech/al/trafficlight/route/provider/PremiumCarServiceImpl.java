@@ -63,7 +63,7 @@ public class PremiumCarServiceImpl implements PremiumCarService {
             logger.info("[PREMIUM] Car " + vehicleId + " ARRIVING on " + trafficLight.getName() + " of " + crossRoad.getName());
 
             // Transfer the request to the crossroad
-            crossroadsRequester.put(crossRoad.getName(),
+            crossroadsRequester.post(crossRoad.getName(),
                     String.format("/crossroad/trafficlight/%s/vehicle/%s", trafficLight.getName(), vehicleId),
                     "");
 
