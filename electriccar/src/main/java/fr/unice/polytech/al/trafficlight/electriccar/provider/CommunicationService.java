@@ -15,7 +15,7 @@ import java.io.IOException;
 public class CommunicationService {
 
     private final static Logger LOG = Logger.getLogger(CommunicationService.class);
-    String routeUrl = "https://route-smart-city.herokuapp.com/crossroad/";
+    String routeUrl = "https://route-smart-city.herokuapp.com/premium/crossroad/";
     public void ImHere(String crossroadId, String trafficLightId, String carId) {
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpPut req = new HttpPut(routeUrl + crossroadId + "/trafficlight/" + trafficLightId + "/vehicle/" + carId);
