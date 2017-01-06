@@ -8,9 +8,7 @@ import org.apache.log4j.Logger;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -38,10 +36,27 @@ public class CrossroadComm {
 
                 URL url = new URL("https://central-traffic-light.herokuapp.com/crossroad/"+CORE.getCrossRoadId()+"/scenario");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("PUT");
+                connection.setRequestMethod("GET");
+                if(connection.getResponseCode() == 200) {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(
+                        (connection.getInputStream())));
 
-                if(connection.getResponseCode() == 200)
+                    String response="";
+                    String output;
+                    System.out.println("Output from Server .... \n");
+                    while ((output= br.readLine()) != null) {
+                        response+=output;
+                    }
+
+                    connection.disconnect();
+
+                    LOG.debug("######## We have a response!");
+                    LOG.debug("######## "+response);
+                    Gson gson = new GsonBuilder().create();
+                    Scenario newScenario = gson.fromJson(response, Scenario.class);
+                    CORE.changeScenario(newScenario);
                     break;
+                }
             }
 
         } catch (IOException e) {
@@ -91,7 +106,7 @@ public class CrossroadComm {
 
     @POST
     @Path("/trafficlight/{trafficlightId}/vehicle/{vehicleId}")
-    public Response addVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") int vehicleId ) {
+    public Response addVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") String vehicleId ) {
         LOG.debug("######## Add vehicle called !");
 
         for(TrafficLight trafficLight: CORE.getTrafficLights()) {
@@ -108,7 +123,7 @@ public class CrossroadComm {
 
     @DELETE
     @Path("/trafficlight/{trafficlightId}/vehicle/{vehicleId}")
-    public Response removeVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") int vehicleId ) {
+    public Response removeVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") String vehicleId ) {
         LOG.debug("######## Remove vehicle called !");
 
         for(TrafficLight trafficLight: CORE.getTrafficLights()) {
