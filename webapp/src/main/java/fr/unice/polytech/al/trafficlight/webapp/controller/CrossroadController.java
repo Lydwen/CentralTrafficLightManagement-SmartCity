@@ -59,6 +59,7 @@ public class CrossroadController {
                 RuleGroup ruleGroup = new RuleGroup();
                 ruleGroup.setId("group" + num);
                 ruleGroup.setNormalGreenTime(Integer.parseInt(request.getParameter(num + "")));
+                ruleGroup.setMinimumGreenTime(Integer.parseInt(request.getParameter(num + "")));
                 String[] trafficLights = request.getParameterValues("t" + num);
                 for(String t : trafficLights)
                     ruleGroup.addTrafficLight(new TrafficLightId(t));
