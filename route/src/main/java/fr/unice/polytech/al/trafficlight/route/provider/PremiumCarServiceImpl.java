@@ -76,6 +76,7 @@ public class PremiumCarServiceImpl implements PremiumCarService {
     }
 
     @Override
+    @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(
             value = "/crossroad/{crossroadName}/trafficlight/{trafficlightName}/vehicle/{vehicleId}",
             method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON)
