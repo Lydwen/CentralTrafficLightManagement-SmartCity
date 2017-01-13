@@ -43,7 +43,7 @@ public class CrossroadComm {
 
                     String response="";
                     String output;
-                    System.out.println("Output from Server .... \n");
+                    LOG.debug("Output from Server .... \n");
                     while ((output= br.readLine()) != null) {
                         response+=output;
                     }
@@ -144,22 +144,24 @@ public class CrossroadComm {
     public Response getStatus() {
         LOG.debug("######## Get status called !");
 
-        String message = "";
+        JsonArray jsonArray = new JsonArray();
 
         for(TrafficLight trafficLight: CORE.getTrafficLights()) {
-            message += ",{\"id\":\""+trafficLight.getId() + "\",\"state\":\""
-                    +(trafficLight.isDisabled()?"disabled":trafficLight.isGreen()?"green":"red")
-                    +  "\",\"last_state_change\":\""
-                    + new SimpleDateFormat("dd MMM HH:mm:ss")
-                        .format(new Date(trafficLight.getLastStateChangeDate()))
-                    +"\"}";
+            JsonObject jsonTrafficLight = new JsonObject();
+            jsonTrafficLight.addProperty("id", trafficLight.getId().toString());
+            jsonTrafficLight.addProperty("state",
+                    (trafficLight.isDisabled()?"disabled"
+                            :trafficLight.isGreen()?"green"
+                            :"red"));
+            jsonTrafficLight.addProperty("last_state_change", new SimpleDateFormat("dd MMM HH:mm:ss")
+                    .format(new Date(trafficLight.getLastStateChangeDate())));
+
+            jsonTrafficLight.addProperty("electric_vehicles", trafficLight.getElectricVehicle());
+
+            jsonArray.add(jsonTrafficLight);
         }
 
-        message = message.length()>0?"[" + message.substring(1) + "]":"[]";
-
-        JsonElement jsonElement = new JsonParser().parse(message);
-        message = new GsonBuilder().setPrettyPrinting().create().toJson(jsonElement);
-
+        String message = new GsonBuilder().setPrettyPrinting().create().toJson(jsonArray);
         return Response.ok().entity(message).build();
     }
 }
