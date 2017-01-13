@@ -3,6 +3,7 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.SynchronizeMessage;
 import org.apache.log4j.Logger;
 
 import java.util.Stack;
@@ -14,6 +15,8 @@ class CrossroadModuleRunning implements Runnable {
     private final static Logger LOG = Logger.getLogger(CrossroadModuleRunning.class);
     private final CrossroadModuleCore crossModuleCore;
     private volatile Scenario activeScenario;
+    private volatile SynchronizeMessage synchronizedTime = null;
+
     private volatile boolean isRunning = false;
 
     private final Stack<Emergency> emergenciesStack = new Stack<>();
@@ -125,6 +128,10 @@ class CrossroadModuleRunning implements Runnable {
      */
     private int getCurrentLate(Scenario runningScenario, int runningRuleIndex) {
         // TODO
+
+
+        // TODO
+
         return runningScenario.getTotalScenarioTime();
     }
 
@@ -228,5 +235,9 @@ class CrossroadModuleRunning implements Runnable {
         }
 
         return hasSolvedEmergency;
+    }
+
+    void synchronize(SynchronizeMessage synchronizeMessage) {
+        this.synchronizedTime = synchronizeMessage;
     }
 }

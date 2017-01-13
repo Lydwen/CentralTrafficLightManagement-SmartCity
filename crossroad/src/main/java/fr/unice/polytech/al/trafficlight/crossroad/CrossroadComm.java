@@ -3,6 +3,7 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 import com.google.gson.*;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.SynchronizeMessage;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
@@ -100,6 +101,19 @@ public class CrossroadComm {
 
         Gson gson = new GsonBuilder().create();
         CORE.callEmergency(gson.fromJson(emergencyCallStr, Emergency.class));
+
+        return Response.ok().build();
+    }
+
+    @PUT
+    @Path("/synchronize")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response callSynchronize(String synchronizeStr) {
+        LOG.debug("######## Synchronize called !");
+
+        Gson gson = new GsonBuilder().create();
+        CORE.synchronize(gson.fromJson(synchronizeStr, SynchronizeMessage.class));
 
         return Response.ok().build();
     }
