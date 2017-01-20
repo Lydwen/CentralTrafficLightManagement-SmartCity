@@ -6,6 +6,8 @@ import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.SynchronizeMessage;
 import org.apache.log4j.Logger;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Stack;
 
 /**
@@ -102,9 +104,8 @@ class CrossroadModuleRunning implements Runnable {
                 int currentLate = getCurrentLate(runningScenario, runningRuleIndex);
 
                 // we can't reduce greenTime more than maxModulation
-                if(maxModulation < currentLate) {
+                if(currentLate > maxModulation)
                     currentLate = maxModulation;
-                }
 
                 // passing some traffic lights to green and wait
                 greenStep(runningRule.getNormalGreenTime()-currentLate, runningRule);
@@ -127,12 +128,19 @@ class CrossroadModuleRunning implements Runnable {
      * @return Current scenario late time in seconds
      */
     private int getCurrentLate(Scenario runningScenario, int runningRuleIndex) {
-        // TODO
+        int late = 0;
+        if(synchronizedTime != null) {
+            int now = (int)(Calendar.getInstance().getTimeInMillis()/1000);
+            int synchTime = (int)(synchronizedTime.getDate().getTime()/1000);
+            int scenarTime = runningScenario.getTotalScenarioTime();
 
+            // have the date just before the current scenario loop
+            int toAdd = ((now - synchTime)/scenarTime);
+            late = -(synchTime + scenarTime*toAdd);
+            LOG.debug("Computed late: "+late);
+        }
 
-        // TODO
-
-        return runningScenario.getTotalScenarioTime();
+        return late;
     }
 
     private void greenStep(int greenTime, final RuleGroup currentRunningRule) throws InterruptedException {

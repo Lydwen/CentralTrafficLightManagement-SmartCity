@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by nathael on 13/01/17.
  */
 public class SynchronizeMessage {
-    private String date;
+    private Date date;
     private RuleGroup ruleGroup; // this ruleGroup should Switch to Green state at the specified date
 
     /**
@@ -18,9 +18,8 @@ public class SynchronizeMessage {
      */
     public SynchronizeMessage(RuleGroup ruleGroup, String date) throws ParseException {
         SimpleDateFormat dt = new SimpleDateFormat("yyyyy-MM-dd hh:mm:ss");
-        Date thedate = dt.parse(date);
 
-        this.date = date;
+        this.date = dt.parse(date);
         this.ruleGroup = ruleGroup;
     }
 
@@ -30,12 +29,11 @@ public class SynchronizeMessage {
      * @param date As Date object
      */
     public SynchronizeMessage(RuleGroup ruleGroup, Date date) {
-        SimpleDateFormat dt = new SimpleDateFormat("yyyyy-MM-dd hh:mm:ss");
-        this.date = dt.format(date);
+        this.date = (Date) date.clone();
         this.ruleGroup = ruleGroup;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 

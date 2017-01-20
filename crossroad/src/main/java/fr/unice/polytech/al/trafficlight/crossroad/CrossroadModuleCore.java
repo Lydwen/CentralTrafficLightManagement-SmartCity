@@ -91,4 +91,8 @@ class CrossroadModuleCore {
     void synchronize(SynchronizeMessage synchronizeMessage) {
         runnable.synchronize(synchronizeMessage);
     }
+
+    public CrossroadModuleRunning getRunnable() {
+        return runnable;
+    }
 }
