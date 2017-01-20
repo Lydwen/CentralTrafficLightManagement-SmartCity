@@ -141,14 +141,19 @@ public class CrossroadComm {
         LOG.debug("######## Remove vehicle called !");
 
         for(TrafficLight trafficLight: CORE.getTrafficLights()) {
-            if(trafficLight.getId().getId().equals(trafficlightId)) {
-                LOG.debug("Electric vehicle before remove: " + trafficLight.getElectricVehicle());
-                trafficLight.removeElectricVehicle();
-                LOG.debug("Electric vehicle after remove: " + trafficLight.getElectricVehicle());
-                return Response.ok().build();
-            }
+            if (trafficLight.getId().getId().equals(trafficlightId))
+                try {
+                    LOG.debug("Electric vehicle before remove: " + trafficLight.getElectricVehicle());
+                    trafficLight.removeElectricVehicle();
+                    LOG.debug("Electric vehicle after remove: " + trafficLight.getElectricVehicle());
+                    return Response.ok().build();
+                } catch (NoVehiclesToRemove noVehiclesToRemove) {
+                    LOG.error("Tryng to remove vehicle where there are no vehicles waiting");
+                    return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+                }
         }
-        LOG.error("TrafficLightId: " + trafficlightId +" do not exist");
+
+        LOG.error("TrafficLightId: " + trafficlightId +" do not exists");
         return Response.status(Response.Status.NOT_FOUND).build();
     }
 
