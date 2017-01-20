@@ -7,15 +7,15 @@ import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Emergency service implementation.
@@ -26,6 +26,8 @@ import java.io.IOException;
 @EnableAutoConfiguration
 @RequestMapping(value = "/emergency")
 public class EmergencyServiceImpl implements EmergencyService {
+    private static Map<Emergency, Date> emergencyLogs = new HashMap<>();
+
     @Autowired
     private CrossroadRetriever crossroadRetriever;
 
@@ -35,6 +37,9 @@ public class EmergencyServiceImpl implements EmergencyService {
 
     @RequestMapping(value = "", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON)
     public void declareEmergency(@RequestBody Emergency emergency, HttpServletResponse response) throws IOException {
+        // Log the emergency request
+        emergencyLogs.put(emergency, new Date());
+
         // Check crossroad exists
         CrossRoad crossRoad = crossroadRetriever.getCrossroad(emergency.getCrossroadId().getId());
         if (crossRoad == null) {
@@ -51,5 +56,10 @@ public class EmergencyServiceImpl implements EmergencyService {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.getWriter().println("Error: " + e.getMessage());
         }
+    }
+
+    @RequestMapping(value = "/logs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public @ResponseBody Map<Emergency, Date> getEmergencyLogs() {
+        return emergencyLogs;
     }
 }

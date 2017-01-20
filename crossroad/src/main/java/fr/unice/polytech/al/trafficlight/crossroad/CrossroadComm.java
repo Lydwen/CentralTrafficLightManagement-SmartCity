@@ -11,12 +11,15 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by nathael on 16/11/16.
  */
 @Path("crossroad")
 public class CrossroadComm {
+    private static Map<Emergency, Date> emergencyLogs = new HashMap<>();
     private final static Logger LOG = Logger.getLogger(CrossroadComm.class);
     private static CrossroadModuleCore CORE;
 
@@ -63,9 +66,23 @@ public class CrossroadComm {
         LOG.debug("######## Emergency called !");
 
         Gson gson = new GsonBuilder().create();
-        CORE.callEmergency(gson.fromJson(emergencyCallStr, Emergency.class));
+        Emergency emergency = gson.fromJson(emergencyCallStr, Emergency.class);
+
+        // Log the emergency
+        emergencyLogs.put(emergency, new Date());
+
+        CORE.callEmergency(emergency);
 
         return Response.ok().build();
+    }
+
+    @GET
+    @Path("/emergency/logs")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEmergencyLogs() {
+        return Response.ok().entity(
+                new GsonBuilder().setPrettyPrinting().create().toJson(emergencyLogs)
+        ).build();
     }
 
     @GET
