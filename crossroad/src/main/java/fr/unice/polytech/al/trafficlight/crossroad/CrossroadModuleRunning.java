@@ -129,10 +129,10 @@ class CrossroadModuleRunning implements Runnable {
      */
     private int getCurrentLate(Scenario runningScenario, int runningRuleIndex) {
         int late = 0;
+        int scenarTime = runningScenario.getTotalScenarioTime();
         if(synchronizedTime != null) {
             int now = (int)(Calendar.getInstance().getTimeInMillis()/1000);
             int synchTime = (int)(synchronizedTime.getDate().getTime()/1000);
-            int scenarTime = runningScenario.getTotalScenarioTime();
 
             // have the date just before the current scenario loop
             int toAdd = ((now - synchTime)/scenarTime);
@@ -140,7 +140,7 @@ class CrossroadModuleRunning implements Runnable {
             LOG.debug("Computed late: "+late);
         }
 
-        return late;
+        return late==0?scenarTime:late;
     }
 
     private void greenStep(int greenTime, final RuleGroup currentRunningRule) throws InterruptedException {
