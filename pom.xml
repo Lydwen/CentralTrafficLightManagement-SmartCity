@@ -35,7 +35,6 @@
         <module>crossroadconfiggen</module>
         <module>route</module>
         <module>electriccar</module>
-        <module>integration</module>
     </modules>
 
     <build>

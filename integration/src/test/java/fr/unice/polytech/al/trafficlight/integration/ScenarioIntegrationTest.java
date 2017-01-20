@@ -25,7 +25,7 @@ public class ScenarioIntegrationTest {
     private static Properties crossroadsUrls;
 
     @BeforeClass
-    private static void beforeClass() throws IOException {
+    public static void beforeClass() throws IOException {
         crossroadsUrls = PropertiesLoaderUtils.loadProperties(
                 new ClassPathResource("/urls/crossroads.properties"));
     }
