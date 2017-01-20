@@ -3,7 +3,6 @@ package fr.unice.polytech.al.trafficlight.webapp.controller;
 /**
  * Created by nasri on 09/11/16.
  */
-import com.google.gson.Gson;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
@@ -59,7 +58,8 @@ public class CrossroadController {
             if(request.getParameter(num + "") != null){
                 RuleGroup ruleGroup = new RuleGroup();
                 ruleGroup.setId("group" + num);
-                ruleGroup.setGreenTime(Integer.parseInt(request.getParameter(num + "")));
+                ruleGroup.setNormalGreenTime(Integer.parseInt(request.getParameter(num + "")));
+                ruleGroup.setMinimumGreenTime(Integer.parseInt(request.getParameter(num + "")));
                 String[] trafficLights = request.getParameterValues("t" + num);
                 for(String t : trafficLights)
                     ruleGroup.addTrafficLight(new TrafficLightId(t));

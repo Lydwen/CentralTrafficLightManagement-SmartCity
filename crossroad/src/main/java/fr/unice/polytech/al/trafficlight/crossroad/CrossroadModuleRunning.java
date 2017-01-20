@@ -3,8 +3,11 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.SynchronizeMessage;
 import org.apache.log4j.Logger;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Stack;
 
 /**
@@ -14,6 +17,8 @@ class CrossroadModuleRunning implements Runnable {
     private final static Logger LOG = Logger.getLogger(CrossroadModuleRunning.class);
     private final CrossroadModuleCore crossModuleCore;
     private volatile Scenario activeScenario;
+    private volatile SynchronizeMessage synchronizedTime = null;
+
     private volatile boolean isRunning = false;
 
     private final Stack<Emergency> emergenciesStack = new Stack<>();
@@ -76,11 +81,34 @@ class CrossroadModuleRunning implements Runnable {
                 RuleGroup runningRule = activeScenario.getRuleGroup(runningRuleIndex);
                 LOG.debug("RuleGroup changed to "+runningRule);
 
+
+                // /// RED STEP /// //
+
                 // passing traffic lights to red and wait
                 redStep(activeScenario.getTransitionTime(), runningRule);
 
+
+                // /// GREEN STEP /// //
+
+                // count how many electric cars are waiting at green states traffic lights
+                int nbElecCar = 0;
+                for(TrafficLight tl : crossModuleCore.getTrafficLights()) {
+                    nbElecCar += tl.getElectricVehicle();
+                    LOG.debug("TrafficLight: " + tl.getId().getId() + " have " + tl.getElectricVehicle() + " electric vehicle");
+                }
+
+                // count how many we can reduce scenario late at maximum
+                int maxModulation = (runningRule.getNormalGreenTime()-runningRule.getMinimumGreenTime())/(nbElecCar+1);
+
+                // count current scenario late
+                int currentLate = getCurrentLate(runningScenario, runningRuleIndex);
+
+                // we can't reduce greenTime more than maxModulation
+                if(currentLate > maxModulation)
+                    currentLate = maxModulation;
+
                 // passing some traffic lights to green and wait
-                greenStep(runningRule);
+                greenStep(runningRule.getNormalGreenTime()-currentLate, runningRule);
             }
         } catch(IndexOutOfBoundsException ignored) {
             // activeScenario has no groupRules
@@ -94,7 +122,28 @@ class CrossroadModuleRunning implements Runnable {
         LOG.info("CrossRoadModule stopped running, thread die.");
     }
 
-    private void greenStep(final RuleGroup currentRunningRule) throws InterruptedException {
+    /**
+     * @param runningScenario the Running scenario
+     * @param runningRuleIndex the index of current active rule of the scenario
+     * @return Current scenario late time in seconds
+     */
+    private int getCurrentLate(Scenario runningScenario, int runningRuleIndex) {
+        int late = 0;
+        int scenarTime = runningScenario.getTotalScenarioTime();
+        if(synchronizedTime != null) {
+            int now = (int)(Calendar.getInstance().getTimeInMillis()/1000);
+            int synchTime = (int)(synchronizedTime.getDate().getTime()/1000);
+
+            // have the date just before the current scenario loop
+            int toAdd = ((now - synchTime)/scenarTime);
+            late = -(synchTime + scenarTime*toAdd);
+            LOG.debug("Computed late: "+late);
+        }
+
+        return late==0?scenarTime:late;
+    }
+
+    private void greenStep(int greenTime, final RuleGroup currentRunningRule) throws InterruptedException {
         // set to green all traffic lights specified in rule
         crossModuleCore.getTrafficLights().forEach(trafficLight -> {
             if(currentRunningRule.getTrafficLights().contains(trafficLight.getId()))
@@ -102,11 +151,11 @@ class CrossroadModuleRunning implements Runnable {
         });
 
         // wait for step time seconds
-        LOG.debug("Wait "+currentRunningRule.getGreenTime()+"s green step...");
+        LOG.debug("Wait "+greenTime+"s green step...");
         try {
             synchronized (emergenciesStack) {
-                if(currentRunningRule.getGreenTime() > 0) {
-                    emergenciesStack.wait(currentRunningRule.getGreenTime() * 1000L);
+                if(greenTime > 0) {
+                    emergenciesStack.wait(currentRunningRule.getNormalGreenTime() * 1000L);
                 }
             }
 
@@ -178,8 +227,8 @@ class CrossroadModuleRunning implements Runnable {
             Emergency currentEmergency = emergenciesStack.pop();
 
 
-            // creating temporary rulegroup
-            RuleGroup runningRule = new RuleGroup(currentEmergency.toString(), currentEmergency.getDuration());
+            // creating temporary rulegroup with minimum time = normal time (cannot be reduce)
+            RuleGroup runningRule = new RuleGroup(currentEmergency.toString(), currentEmergency.getDuration(), currentEmergency.getDuration());
             runningRule.addTrafficLight(currentEmergency.getTrafficLightId());
             LOG.warn("EMERGENCY: RuleGroup changed to " + runningRule);
 
@@ -187,12 +236,16 @@ class CrossroadModuleRunning implements Runnable {
             redStep(activeScenario.getTransitionTime(), runningRule);
 
             // passing the traffic light to green and wait needed duration
-            greenStep(runningRule);
+            greenStep(runningRule.getNormalGreenTime(), runningRule);
 
             // end of emergency step, remove emergenciesStack
             LOG.warn("Emergency call normally ended");
         }
 
         return hasSolvedEmergency;
+    }
+
+    void synchronize(SynchronizeMessage synchronizeMessage) {
+        this.synchronizedTime = synchronizeMessage;
     }
 }

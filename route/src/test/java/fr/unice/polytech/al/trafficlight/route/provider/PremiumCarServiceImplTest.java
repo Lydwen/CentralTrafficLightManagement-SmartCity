@@ -21,7 +21,7 @@ public class PremiumCarServiceImplTest {
     public void testDeclareLocation() throws Exception {
         // Classic location
         assertEquals("{\"status\": \"OK\"}",
-                premiumCarService.declareLocation("carrefour_du_casino", "haut_gauche", "Chips<3"));
+                premiumCarService.declareLocation("carrefour_de_l_INRIA", "north", "Chips<3"));
     }
 
     @Test

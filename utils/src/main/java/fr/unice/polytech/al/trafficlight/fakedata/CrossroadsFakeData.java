@@ -55,10 +55,10 @@ public class CrossroadsFakeData {
         crossRoad.addTrafficLight(trafficLight8);
 
         Scenario scenar = new Scenario("basicScenario");
-        RuleGroup group1 = new RuleGroup("group1", 20);
-        RuleGroup group2 = new RuleGroup("group2", 40);
-        RuleGroup group3 = new RuleGroup("group3", 30);
-        RuleGroup group4 = new RuleGroup("group4", 20);
+        RuleGroup group1 = new RuleGroup("group1", 20, 20);
+        RuleGroup group2 = new RuleGroup("group2", 40, 40);
+        RuleGroup group3 = new RuleGroup("group3", 30, 30);
+        RuleGroup group4 = new RuleGroup("group4", 20, 20);
         TrafficLightId id1 = new TrafficLightId("droite");
         TrafficLightId id2 = new TrafficLightId("bas");
         TrafficLightId id3 = new TrafficLightId("gauche");
@@ -108,8 +108,8 @@ public class CrossroadsFakeData {
         crossRoad.addTrafficLight(trafficLight4);
 
         scenar = new Scenario("basicScenario");
-        group1 = new RuleGroup("group1", 10);
-        group2 = new RuleGroup("group2", 30);
+        group1 = new RuleGroup("group1", 10, 10);
+        group2 = new RuleGroup("group2", 30, 30);
         id1 = new TrafficLightId("north");
         id2 = new TrafficLightId("west");
         id3 = new TrafficLightId("east");

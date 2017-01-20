@@ -50,17 +50,17 @@ public class WebRequester {
     }
 
     /**
-     * Puts a request for the specified URL at the specified path.
+     * Post a request for the specified URL at the specified path.
      *
      * @param urlId   url's ID (in properties file)
-     * @param urlPath url path to put
-     * @param entity  the entity we want to put at the specifiied uri
+     * @param urlPath url path to post
+     * @param entity  the entity we want to post at the specifiied uri
      */
-    public void put(String urlId, String urlPath, Object entity) {
-        // Put the entity
+    public void post(String urlId, String urlPath, Object entity) {
+        Object response = null;
+        // Post the entity
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.put(
-                this.target(urlId, urlPath), entity);
+        restTemplate.postForEntity(this.target(urlId, urlPath), entity, String.class);
     }
 
     /**

@@ -26,12 +26,12 @@ public class TestEmergencyCall {
 
     private CrossroadModuleCore module;
     private Scenario scenario = new Scenario("scenario test");
-    private RuleGroup group1 = new RuleGroup("group1", 4);
-    private RuleGroup group2 = new RuleGroup("group2", 5);
+    private RuleGroup group1 = new RuleGroup("group1", 4, 4);
+    private RuleGroup group2 = new RuleGroup("group2", 5, 5);
 
     // Emergency call and the equivalent ruleGroup
     private Emergency emergencyCall = new Emergency();
-    private RuleGroup emergencyRule = new RuleGroup("emergency", 3);
+    private RuleGroup emergencyRule = new RuleGroup("emergency", 3, 3);
 
     @Before
     public void begin() throws IOException {
@@ -125,7 +125,7 @@ public class TestEmergencyCall {
         module.stopRunning(); // should stop after (2nd) group1 red step
         sleep(5);
         LOG.debug("TEST>Wait 5s (1s after Group2 Green Step)");
-        assertFalse(module.runnable.isRunning());
+        assertFalse(module.getRunnable().isRunning());
 
         // Check all trafficLights are disabled
         for(TrafficLight tl : module.getTrafficLights()) {
@@ -198,7 +198,7 @@ public class TestEmergencyCall {
         module.stopRunning(); // should stop after (2nd) group1 red step
         sleep(5);
         LOG.debug("TEST>Wait 5s (1s after Group2 Green Step)");
-        assertFalse(module.runnable.isRunning());
+        assertFalse(module.getRunnable().isRunning());
 
         // Check all trafficLights are disabled
         for(TrafficLight tl : module.getTrafficLights()) {

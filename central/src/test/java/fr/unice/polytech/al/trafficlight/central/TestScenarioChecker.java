@@ -32,8 +32,8 @@ public class TestScenarioChecker {
     @Before
     public void init() {
         ScenarioTrue = new Scenario("basicScenario");
-        RuleGroup group1 = new RuleGroup("group1", 20);
-        RuleGroup group2 = new RuleGroup("group2", 40);
+        RuleGroup group1 = new RuleGroup("group1", 20,20);
+        RuleGroup group2 = new RuleGroup("group2", 40,40);
         TrafficLightId id1 = new TrafficLightId("feu de l'avenue des orangers");
         TrafficLightId id2 = new TrafficLightId("feu de l'avenue du tapis vert");
         group1.addTrafficLight(id1);
@@ -44,8 +44,8 @@ public class TestScenarioChecker {
         ScenarioTrue.setTransitionTime(5);
 
         ScenarioFalse = new Scenario("basicScenario");
-        group1 = new RuleGroup("group1", 20);
-        group2 = new RuleGroup("group2", 40);
+        group1 = new RuleGroup("group1", 20,20);
+        group2 = new RuleGroup("group2", 40,20);
         group1.addTrafficLight(id1);
         group1.addTrafficLight(id2);
         group2.addTrafficLight(id2);

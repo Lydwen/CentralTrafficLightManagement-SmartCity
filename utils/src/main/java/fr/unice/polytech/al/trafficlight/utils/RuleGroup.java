@@ -8,16 +8,18 @@ import java.util.*;
 public class RuleGroup {
 
     private String id;
-    private int greenTime; // Green time in s
+    private int normalGreenTime; // Green time in s
+    private int minimumGreenTime; // Minimum time green (considering there are no electric vehicles waiting)
     private Set<TrafficLightId> trafficLights;
 
     public RuleGroup(){
         trafficLights = new HashSet<>();
     }
 
-    public RuleGroup(String id, int greenTime) {
+    public RuleGroup(String id, int normalGreenTime, int minimumGreenTime) {
         this.id = id;
-        this.greenTime = greenTime;
+        this.normalGreenTime = normalGreenTime;
+        this.minimumGreenTime = minimumGreenTime;
         trafficLights = new HashSet<>();
     }
 
@@ -48,13 +50,20 @@ public class RuleGroup {
     }
 
     /**
-     * Get how long is this group traffic lights's green time
-     * @return s time
+     * Get how long is this group traffic lights's green time (when scenario is just in time)
+     * @return s Normal case Green time
      */
-    public int getGreenTime() {
-        return greenTime;
+    public int getNormalGreenTime() {
+        return normalGreenTime;
     }
 
+    /**
+     * Get how long is this group traffic lights's green time if scenario is late
+     * @return s minimum Green time allowed
+     */
+    public int getMinimumGreenTime() {
+        return minimumGreenTime;
+    }
 
     //  //  //  //  //   SET   //   //  //  //  //
 
@@ -67,15 +76,23 @@ public class RuleGroup {
     }
 
     /**
-     * Change this group traffic lights's green time
-     * @param greenTime Green time in s
+     * Change this group traffic lights's green time (when scenario isn't late)
+     * @param normalGreenTime Normal case green time in s
      */
-    public void setGreenTime(int greenTime) {
-        this.greenTime = greenTime;
+    public void setNormalGreenTime(int normalGreenTime) {
+        this.normalGreenTime = normalGreenTime;
+    }
+
+    /**
+     * Change this group traffic lights's minimum green time (when there scenario is late)
+     * @param minimumGreenTime Minimum green time in s
+     */
+    public void setMinimumGreenTime(int minimumGreenTime) {
+        this.minimumGreenTime = minimumGreenTime;
     }
 
     @Override
     public String toString() {
-        return "RG:"+id+":"+greenTime+":"+ trafficLights;
+        return "RG:"+id+":"+ normalGreenTime +":"+ trafficLights;
     }
 }

@@ -1,9 +1,9 @@
 package fr.unice.polytech.al.trafficlight.crossroad;
 
-import com.google.gson.Gson;
-import fr.unice.polytech.al.trafficlight.utils.Emergency;
-import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
+//import com.google.gson.Gson;
+//import com.google.gson.JsonObject;
+import com.google.gson.*;
+import fr.unice.polytech.al.trafficlight.utils.*;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -16,10 +16,11 @@ import java.util.Set;
 /**
  * Created by nathael on 27/10/16.
  */
-public class CrossroadModuleCore {
+class CrossroadModuleCore {
     private final static Logger LOG = Logger.getLogger(CrossroadModuleCore.class);
 
-    final CrossroadModuleRunning runnable;
+    private final CrossroadModuleRunning runnable;
+    private final String crossRoadId;
     private final Set<TrafficLight> trafficLightSet;
 
     public CrossroadModuleCore() throws IOException {
@@ -32,13 +33,20 @@ public class CrossroadModuleCore {
         for(String line : lines)
             json += line;
 
+
         LOG.debug("Json= "+json);
 
         trafficLightSet = new HashSet<>();
         Gson gson = new Gson();
-        Set trafficLightIds = gson.fromJson(json, Set.class);
-        for(Object trafficLightId : trafficLightIds) {
-            trafficLightSet.add(new TrafficLight(gson.fromJson(trafficLightId.toString(), TrafficLightId.class)));
+
+        // {"crossroad":"crossroadID","trafficLights":[{trafficLightId},...]}
+        JsonParser jp = new JsonParser();
+        JsonObject jsonObject = jp.parse(json).getAsJsonObject();
+        crossRoadId = jsonObject.get("crossroad").getAsString();
+
+        JsonArray trafficLightsSet = jsonObject.getAsJsonArray("trafficLights");
+        for(JsonElement trafficLightId : trafficLightsSet) {
+            trafficLightSet.add(new TrafficLight(gson.fromJson(trafficLightId, TrafficLightId.class)));
         }
         LOG.debug("TrafficLightSet: "+trafficLightSet);
 
@@ -74,5 +82,17 @@ public class CrossroadModuleCore {
         else {
             runnable.callEmergency(emergency);
         }
+    }
+
+    String getCrossRoadId() {
+        return crossRoadId;
+    }
+
+    void synchronize(SynchronizeMessage synchronizeMessage) {
+        runnable.synchronize(synchronizeMessage);
+    }
+
+    public CrossroadModuleRunning getRunnable() {
+        return runnable;
     }
 }
