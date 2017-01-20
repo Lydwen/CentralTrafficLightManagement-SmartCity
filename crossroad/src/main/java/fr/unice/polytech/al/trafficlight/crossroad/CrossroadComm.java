@@ -1,6 +1,7 @@
 package fr.unice.polytech.al.trafficlight.crossroad;
 
 import com.google.gson.*;
+import fr.unice.polytech.al.trafficlight.crossroad.utils.EmergencyLogger;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.SynchronizeMessage;
@@ -16,6 +17,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,7 +25,6 @@ import java.util.Map;
  */
 @Path("crossroad")
 public class CrossroadComm {
-    private static Map<Emergency, Date> emergencyLogs = new HashMap<>();
     private final static Logger LOG = Logger.getLogger(CrossroadComm.class);
     private static CrossroadModuleCore CORE;
 
@@ -68,19 +69,31 @@ public class CrossroadComm {
         }
     }
 
+    private EmergencyLogger emergencyLogger = EmergencyLogger.getInstance();
+    private Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
     @PUT
     @Path("/starter")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response changeScenario(String newScenarioStr) {
         LOG.debug("######## Starter called !");
-        Gson gson = new GsonBuilder().create();
         Scenario newScenario = gson.fromJson(newScenarioStr, Scenario.class);
         CORE.changeScenario(newScenario);
 
         LOG.debug("Starter call finished > Response OK");
         return Response.ok().entity(gson.toJson(newScenario)).build();
     }
+
+    @GET
+    @Path("/scenario")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getScenario() {
+        return Response.ok().entity(gson.toJson(
+                CORE.getActiveScenario())
+        ).build();
+    }
+
     @PUT
     @Path("/stopper")
     @Produces(MediaType.APPLICATION_JSON)
@@ -102,11 +115,8 @@ public class CrossroadComm {
     public Response callEmergency(String emergencyCallStr) {
         LOG.debug("######## Emergency called !");
 
-        Gson gson = new GsonBuilder().create();
         Emergency emergency = gson.fromJson(emergencyCallStr, Emergency.class);
-
-        // Log the emergency
-        emergencyLogs.put(emergency, new Date());
+        emergencyLogger.log(emergency);
 
         CORE.callEmergency(emergency);
 
@@ -165,7 +175,7 @@ public class CrossroadComm {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEmergencyLogs() {
         return Response.ok().entity(
-                new GsonBuilder().setPrettyPrinting().create().toJson(emergencyLogs)
+                gson.toJson(emergencyLogger.getLogs())
         ).build();
     }
 
@@ -192,7 +202,9 @@ public class CrossroadComm {
             jsonArray.add(jsonTrafficLight);
         }
 
-        String message = new GsonBuilder().setPrettyPrinting().create().toJson(jsonArray);
+        String message = gson.toJson(jsonArray);
+        message = message.length()>0?"[" + message.substring(1) + "]":"[]";
+
         return Response.ok().entity(message).build();
     }
 }

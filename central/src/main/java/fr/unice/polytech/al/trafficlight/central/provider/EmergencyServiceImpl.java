@@ -1,8 +1,9 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
-import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
+import fr.unice.polytech.al.trafficlight.central.utils.EmergencyLogger;
 import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,9 +14,7 @@ import org.springframework.web.client.RestClientException;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Emergency service implementation.
@@ -26,7 +25,7 @@ import java.util.Map;
 @EnableAutoConfiguration
 @RequestMapping(value = "/emergency")
 public class EmergencyServiceImpl implements EmergencyService {
-    private static Map<Emergency, Date> emergencyLogs = new HashMap<>();
+    private EmergencyLogger emergencyLogger = EmergencyLogger.getInstance();
 
     @Autowired
     private CrossroadRetriever crossroadRetriever;
@@ -38,7 +37,7 @@ public class EmergencyServiceImpl implements EmergencyService {
     @RequestMapping(value = "", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON)
     public void declareEmergency(@RequestBody Emergency emergency, HttpServletResponse response) throws IOException {
         // Log the emergency request
-        emergencyLogs.put(emergency, new Date());
+        emergencyLogger.log(emergency);
 
         // Check crossroad exists
         CrossRoad crossRoad = crossroadRetriever.getCrossroad(emergency.getCrossroadId().getId());
@@ -59,7 +58,9 @@ public class EmergencyServiceImpl implements EmergencyService {
     }
 
     @RequestMapping(value = "/logs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-    public @ResponseBody Map<Emergency, Date> getEmergencyLogs() {
-        return emergencyLogs;
+    public
+    @ResponseBody
+    List<EmergencyLogger.EmergencyLog> getEmergencyLogs() {
+        return emergencyLogger.getLogs();
     }
 }
