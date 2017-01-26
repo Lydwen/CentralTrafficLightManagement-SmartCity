@@ -1,5 +1,6 @@
 package fr.unice.polytech.al.trafficlight.integration;
 
+import fr.unice.polytech.al.trafficlight.integration.utils.HttpEntityFactory;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
@@ -8,12 +9,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -23,9 +18,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Scenario integration test.
@@ -46,7 +39,8 @@ public class ScenarioIntegrationTest {
 
     @Test
     public void testSetScenario() {
-        final String scenarioFormData = "transitionTime=5&" +
+        final String scenarioFormData = "" +
+                "transitionTime=5&" +
                 "nbGroups=4&" +
                 "0=3&t0=gauche&t0=droite&" +
                 "1=4&t1=haut&t1=bas&" +
@@ -57,7 +51,7 @@ public class ScenarioIntegrationTest {
         // Set the scenario using the webapp
         restTemplate.postForEntity(
                 WEBAPP_URL + CASINO_CROSSROAD,
-                buildScenarioRequest(scenarioFormData),
+                HttpEntityFactory.createFromFormData(scenarioFormData),
                 String.class);
 
         // Wait for server to receive
@@ -69,7 +63,6 @@ public class ScenarioIntegrationTest {
 
         // Get the scenario from the central
         {
-            System.out.println(CENTRAL_URL + "crossroad/" + CASINO_CROSSROAD + "/scenario");
             Scenario scenario = restTemplate.getForEntity(
                     CENTRAL_URL + "crossroad/" + CASINO_CROSSROAD + "/scenario", Scenario.class).getBody();
             assertCasinoScenario(scenario);
@@ -132,20 +125,5 @@ public class ScenarioIntegrationTest {
         assertTrue(trafficLights.stream()
                 .map(TrafficLightId::getId).collect(Collectors.toList())
                 .containsAll(Arrays.asList(ids)));
-    }
-
-    private HttpEntity<MultiValueMap<String, String>> buildScenarioRequest(String scenario) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-        // Create map form data from the specified scenario
-        MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
-        Arrays.stream(scenario.split("&")).forEach(
-                v -> {
-                    String[] values = v.split("=");
-                    formData.add(values[0], values[1]);
-                });
-
-        return new HttpEntity<>(formData, headers);
     }
 }
