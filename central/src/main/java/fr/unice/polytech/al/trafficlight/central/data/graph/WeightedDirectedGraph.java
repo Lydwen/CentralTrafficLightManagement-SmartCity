@@ -107,9 +107,11 @@ public class WeightedDirectedGraph<T> {
      *          the node that we want to remove all the edges
      */
     public void removeAllEdgesOfNode(T node){
-        this.outGraph.get(node).forEach(this::removeEdge);
+        List<Edge<T>> edges = new ArrayList<>(this.outGraph.get(node));
+        edges.forEach(this::removeEdge);
 
-        this.inGraph.get(node).forEach(this::removeEdge);
+        edges = new ArrayList<>(this.inGraph.get(node));
+        edges.forEach(this::removeEdge);
     }
 
     /**
@@ -122,5 +124,35 @@ public class WeightedDirectedGraph<T> {
      */
     public List<T> getNeighbours(T node){
         return this.outGraph.get(node).stream().map(Edge<T>::getEnd).collect(Collectors.toList());
+    }
+
+    /**
+     * Retrieve the number of neighbours of a specific node
+     * @param node
+     *          the node that we want to retrieve the number of neighbourgh
+     * @return the number of neighbourgh
+     */
+    public int getNumberOfNeighbours(T node){
+        return this.outGraph.get(node).size();
+    }
+
+    /**
+     * Retrieve all the nodes that can access
+     * the specific node
+     *
+     * @param node
+     *              the node that we need to know how many nodes can access
+     * @return a list containing all the nodes that can access a specific node
+     */
+    public List<T> getNodesThatEntersInNode(T node){
+        return this.inGraph.get(node).stream().map(Edge<T>::getEnd).collect(Collectors.toList());
+    }
+
+    /**
+     * Retrieve the number of node the graph is containing
+     * @return the number of node in the graph
+     */
+    public int getNumberOfNode(){
+        return this.inGraph.size();
     }
 }
