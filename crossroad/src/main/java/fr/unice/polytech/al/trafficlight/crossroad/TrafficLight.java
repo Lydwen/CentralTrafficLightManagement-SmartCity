@@ -86,7 +86,10 @@ class TrafficLight {
         electricVehicleNumber++;
     }
 
-    void removeElectricVehicle(){
+    void removeElectricVehicle() throws NoVehiclesToRemove {
+        if(electricVehicleNumber == 0)
+            throw new NoVehiclesToRemove();
+
         electricVehicleNumber--;
     }
 

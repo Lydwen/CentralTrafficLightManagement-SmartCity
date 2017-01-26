@@ -206,7 +206,11 @@ public class TestCrossroadModule {
             t.addElectricVehicle();
             t.addElectricVehicle();
             assertEquals(t.getElectricVehicle(),2);
-            t.removeElectricVehicle();
+            try {
+                t.removeElectricVehicle();
+            } catch (NoVehiclesToRemove noVehiclesToRemove) {
+                noVehiclesToRemove.printStackTrace();
+            }
             assertEquals(t.getElectricVehicle(),1);
         }
     }

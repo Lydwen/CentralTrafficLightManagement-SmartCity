@@ -92,7 +92,7 @@ class CrossroadModuleCore {
         runnable.synchronize(synchronizeMessage);
     }
 
-    public CrossroadModuleRunning getRunnable() {
+    CrossroadModuleRunning getRunnable() {
         return runnable;
     }
 }
