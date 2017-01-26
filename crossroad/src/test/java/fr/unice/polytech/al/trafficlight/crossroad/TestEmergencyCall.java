@@ -125,7 +125,7 @@ public class TestEmergencyCall {
         module.stopRunning(); // should stop after (2nd) group1 red step
         sleep(5);
         LOG.debug("TEST>Wait 5s (1s after Group2 Green Step)");
-        assertFalse(module.runnable.isRunning());
+        assertFalse(module.getRunnable().isRunning());
 
         // Check all trafficLights are disabled
         for(TrafficLight tl : module.getTrafficLights()) {
@@ -198,7 +198,7 @@ public class TestEmergencyCall {
         module.stopRunning(); // should stop after (2nd) group1 red step
         sleep(5);
         LOG.debug("TEST>Wait 5s (1s after Group2 Green Step)");
-        assertFalse(module.runnable.isRunning());
+        assertFalse(module.getRunnable().isRunning());
 
         // Check all trafficLights are disabled
         for(TrafficLight tl : module.getTrafficLights()) {

@@ -3,8 +3,11 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.SynchronizeMessage;
 import org.apache.log4j.Logger;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Stack;
 
 /**
@@ -14,6 +17,8 @@ class CrossroadModuleRunning implements Runnable {
     private final static Logger LOG = Logger.getLogger(CrossroadModuleRunning.class);
     private final CrossroadModuleCore crossModuleCore;
     private volatile Scenario activeScenario;
+    private volatile SynchronizeMessage synchronizedTime = null;
+
     private volatile boolean isRunning = false;
 
     private final Stack<Emergency> emergenciesStack = new Stack<>();
@@ -99,9 +104,8 @@ class CrossroadModuleRunning implements Runnable {
                 int currentLate = getCurrentLate(runningScenario, runningRuleIndex);
 
                 // we can't reduce greenTime more than maxModulation
-                if(maxModulation < currentLate) {
+                if(currentLate > maxModulation)
                     currentLate = maxModulation;
-                }
 
                 // passing some traffic lights to green and wait
                 greenStep(runningRule.getNormalGreenTime()-currentLate, runningRule);
@@ -124,8 +128,19 @@ class CrossroadModuleRunning implements Runnable {
      * @return Current scenario late time in seconds
      */
     private int getCurrentLate(Scenario runningScenario, int runningRuleIndex) {
-        // TODO
-        return runningScenario.getTotalScenarioTime();
+        int late = 0;
+        int scenarTime = runningScenario.getTotalScenarioTime();
+        if(synchronizedTime != null) {
+            int now = (int)(Calendar.getInstance().getTimeInMillis()/1000);
+            int synchTime = (int)(synchronizedTime.getDate().getTime()/1000);
+
+            // have the date just before the current scenario loop
+            int toAdd = ((now - synchTime)/scenarTime);
+            late = -(synchTime + scenarTime*toAdd);
+            LOG.debug("Computed late: "+late);
+        }
+
+        return late==0?scenarTime:late;
     }
 
     private void greenStep(int greenTime, final RuleGroup currentRunningRule) throws InterruptedException {
@@ -228,5 +243,9 @@ class CrossroadModuleRunning implements Runnable {
         }
 
         return hasSolvedEmergency;
+    }
+
+    void synchronize(SynchronizeMessage synchronizeMessage) {
+        this.synchronizedTime = synchronizeMessage;
     }
 }

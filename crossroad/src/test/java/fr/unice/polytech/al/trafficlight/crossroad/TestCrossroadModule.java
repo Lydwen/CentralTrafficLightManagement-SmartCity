@@ -139,7 +139,7 @@ public class TestCrossroadModule {
         module.stopRunning(); // should stop after group1 green step
         sleep(7); // 7s (sufficient delay for any rule + red step time)
 
-        assertFalse(module.runnable.isRunning());
+        assertFalse(module.getRunnable().isRunning());
         // Check all trafficLights are disabled
         for(TrafficLight tl : module.getTrafficLights()) {
             assertTrue(tl.toString(), tl.isDisabled());
@@ -189,7 +189,7 @@ public class TestCrossroadModule {
         // Wait for green to end; traffic lights should be disabled after
         LOG.debug("TEST>Wait 1s (0.5s after Group1 Green Step)");
         sleep(1);
-        assertFalse(module.runnable.isRunning());
+        assertFalse(module.getRunnable().isRunning());
 
         // Check all trafficLights are disabled
         for(TrafficLight tl : module.getTrafficLights()) {
@@ -206,7 +206,11 @@ public class TestCrossroadModule {
             t.addElectricVehicle();
             t.addElectricVehicle();
             assertEquals(t.getElectricVehicle(),2);
-            t.removeElectricVehicle();
+            try {
+                t.removeElectricVehicle();
+            } catch (NoVehiclesToRemove noVehiclesToRemove) {
+                noVehiclesToRemove.printStackTrace();
+            }
             assertEquals(t.getElectricVehicle(),1);
         }
     }
@@ -267,7 +271,7 @@ public class TestCrossroadModule {
         LOG.debug("TEST>Wait 3s (.5s after Group2 Green Step)");
         sleep(3);
         // Now should be stopped
-        assertFalse(module.runnable.isRunning());
+        assertFalse(module.getRunnable().isRunning());
 
         // Check all trafficLights are disabled
         for(TrafficLight tl : module.getTrafficLights()) {

@@ -3,6 +3,7 @@ package fr.unice.polytech.al.trafficlight.crossroad;
 import com.google.gson.*;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
+import fr.unice.polytech.al.trafficlight.utils.SynchronizeMessage;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
@@ -43,7 +44,7 @@ public class CrossroadComm {
 
                     String response="";
                     String output;
-                    System.out.println("Output from Server .... \n");
+                    LOG.debug("Output from Server .... \n");
                     while ((output= br.readLine()) != null) {
                         response+=output;
                     }
@@ -104,6 +105,19 @@ public class CrossroadComm {
         return Response.ok().build();
     }
 
+    @PUT
+    @Path("/synchronize")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response callSynchronize(String synchronizeStr) {
+        LOG.debug("######## Synchronize called !");
+
+        Gson gson = new GsonBuilder().create();
+        CORE.synchronize(gson.fromJson(synchronizeStr, SynchronizeMessage.class));
+
+        return Response.ok().build();
+    }
+
     @POST
     @Path("/trafficlight/{trafficlightId}/vehicle/{vehicleId}")
     public Response addVehicle(@PathParam("trafficlightId") String trafficlightId, @PathParam("vehicleId") String vehicleId ) {
@@ -127,14 +141,19 @@ public class CrossroadComm {
         LOG.debug("######## Remove vehicle called !");
 
         for(TrafficLight trafficLight: CORE.getTrafficLights()) {
-            if(trafficLight.getId().getId().equals(trafficlightId)) {
-                LOG.debug("Electric vehicle before remove: " + trafficLight.getElectricVehicle());
-                trafficLight.removeElectricVehicle();
-                LOG.debug("Electric vehicle after remove: " + trafficLight.getElectricVehicle());
-                return Response.ok().build();
-            }
+            if (trafficLight.getId().getId().equals(trafficlightId))
+                try {
+                    LOG.debug("Electric vehicle before remove: " + trafficLight.getElectricVehicle());
+                    trafficLight.removeElectricVehicle();
+                    LOG.debug("Electric vehicle after remove: " + trafficLight.getElectricVehicle());
+                    return Response.ok().build();
+                } catch (NoVehiclesToRemove noVehiclesToRemove) {
+                    LOG.error("Tryng to remove vehicle where there are no vehicles waiting");
+                    return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+                }
         }
-        LOG.error("TrafficLightId: " + trafficlightId +" do not exist");
+
+        LOG.error("TrafficLightId: " + trafficlightId +" do not exists");
         return Response.status(Response.Status.NOT_FOUND).build();
     }
 
@@ -144,22 +163,24 @@ public class CrossroadComm {
     public Response getStatus() {
         LOG.debug("######## Get status called !");
 
-        String message = "";
+        JsonArray jsonArray = new JsonArray();
 
         for(TrafficLight trafficLight: CORE.getTrafficLights()) {
-            message += ",{\"id\":\""+trafficLight.getId() + "\",\"state\":\""
-                    +(trafficLight.isDisabled()?"disabled":trafficLight.isGreen()?"green":"red")
-                    +  "\",\"last_state_change\":\""
-                    + new SimpleDateFormat("dd MMM HH:mm:ss")
-                        .format(new Date(trafficLight.getLastStateChangeDate()))
-                    +"\"}";
+            JsonObject jsonTrafficLight = new JsonObject();
+            jsonTrafficLight.addProperty("id", trafficLight.getId().toString());
+            jsonTrafficLight.addProperty("state",
+                    (trafficLight.isDisabled()?"disabled"
+                            :trafficLight.isGreen()?"green"
+                            :"red"));
+            jsonTrafficLight.addProperty("last_state_change", new SimpleDateFormat("dd MMM HH:mm:ss")
+                    .format(new Date(trafficLight.getLastStateChangeDate())));
+
+            jsonTrafficLight.addProperty("electric_vehicles", trafficLight.getElectricVehicle());
+
+            jsonArray.add(jsonTrafficLight);
         }
 
-        message = message.length()>0?"[" + message.substring(1) + "]":"[]";
-
-        JsonElement jsonElement = new JsonParser().parse(message);
-        message = new GsonBuilder().setPrettyPrinting().create().toJson(jsonElement);
-
+        String message = new GsonBuilder().setPrettyPrinting().create().toJson(jsonArray);
         return Response.ok().entity(message).build();
     }
 }

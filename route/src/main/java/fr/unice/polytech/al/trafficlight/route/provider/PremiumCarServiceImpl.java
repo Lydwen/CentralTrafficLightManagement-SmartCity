@@ -8,10 +8,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.core.MediaType;
 import java.util.Optional;
@@ -42,7 +41,9 @@ public class PremiumCarServiceImpl implements PremiumCarService {
     @Qualifier("crossroadsRequester")
     private WebRequester crossroadsRequester;
 
+
     @Override
+    @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(
             value = "/crossroad/{crossroadName}/trafficlight/{trafficlightName}/vehicle/{vehicleId}",
             method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON)
@@ -75,6 +76,7 @@ public class PremiumCarServiceImpl implements PremiumCarService {
     }
 
     @Override
+    @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(
             value = "/crossroad/{crossroadName}/trafficlight/{trafficlightName}/vehicle/{vehicleId}",
             method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON)
@@ -159,5 +161,13 @@ public class PremiumCarServiceImpl implements PremiumCarService {
 
         // KO status
         return String.format("{\"status\": \"KO\", \"reason\": \"%s\"}", e.getMessage());
+    }
+
+    @RequestMapping(
+            value = "/**",
+            method = RequestMethod.OPTIONS
+    )
+    public ResponseEntity handle() {
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
