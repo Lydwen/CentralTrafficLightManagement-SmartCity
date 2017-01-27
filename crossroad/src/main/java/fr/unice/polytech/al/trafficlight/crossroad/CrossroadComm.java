@@ -148,7 +148,7 @@ public class CrossroadComm {
                     LOG.debug("Electric vehicle after remove: " + trafficLight.getElectricVehicle());
                     return Response.ok().build();
                 } catch (NoVehiclesToRemove noVehiclesToRemove) {
-                    LOG.error("Tryng to remove vehicle where there are no vehicles waiting");
+                    LOG.error("Trying to remove vehicle where there are no vehicles waiting");
                     return Response.status(Response.Status.NOT_ACCEPTABLE).build();
                 }
         }
