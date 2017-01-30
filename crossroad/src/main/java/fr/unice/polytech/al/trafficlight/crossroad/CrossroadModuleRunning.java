@@ -131,7 +131,7 @@ class CrossroadModuleRunning implements Runnable {
         int late = 0;
         int scenarTime = runningScenario.getTotalScenarioTime();
         if(synchronizedTime != null) {
-            int now = (int)(Calendar.getInstance().getTimeInMillis()/1000);
+            int now = (int)(Calendar.getInstance().getTimeInMillis()/1000)+runningScenario.getTotalScenarioTimeAfterRule(runningRuleIndex);
             int synchTime = (int)(synchronizedTime.getDate().getTime()/1000);
 
             // have the date just before the current scenario loop

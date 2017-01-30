@@ -77,9 +77,13 @@ public class Scenario {
      * @return The time to do a complete scenario loop in s (including transition times)
      */
     public int getTotalScenarioTime() {
+        return getTotalScenarioTimeAfterRule(0);
+    }
+
+    public int getTotalScenarioTimeAfterRule(int runningRuleIndex) {
         int time = 0;
-        for(RuleGroup rg : ruleGroupList) {
-            time += rg.getNormalGreenTime() + transitionTime;
+        for(int i=runningRuleIndex; i<ruleGroupList.size(); i++) {
+            time += ruleGroupList.get(i).getNormalGreenTime() + transitionTime;
         }
 
         return time;
