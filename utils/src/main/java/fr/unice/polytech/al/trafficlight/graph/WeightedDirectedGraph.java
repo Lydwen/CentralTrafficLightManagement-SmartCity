@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.central.data.graph;
+package fr.unice.polytech.al.trafficlight.graph;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -76,11 +76,11 @@ public class WeightedDirectedGraph<T> {
      * @param weight
      *          the weight we want to put for this specific edge
      */
-    public void addEdge(T begin, T end, int weight){
+    public void addEdge(String name, T begin, T end, int weight){
         addNode(begin);
         addNode(end);
 
-        Edge<T> edge = new Edge<>(begin, end, weight);
+        Edge<T> edge = new Edge<>(name, begin, end, weight);
 
         this.outGraph.get(begin).add(edge);
         this.inGraph.get(end).add(edge);
@@ -154,5 +154,23 @@ public class WeightedDirectedGraph<T> {
      */
     public int getNumberOfNode(){
         return this.inGraph.size();
+    }
+
+    /**
+     * Return all the nodes of the graph
+     * @return a Collection containing all the nodes
+     */
+    public Collection<T> getAllNodes(){
+        return outGraph.keySet();
+    }
+
+    /**
+     * Return the map containing all the nodes
+     * and the edges that came out from them
+     * @return a Map where the key is the node of beginning and the value
+     * is the list of the edges that came out of it
+     */
+    public Map<T, List<Edge<T>>> getOutGraph() {
+        return outGraph;
     }
 }

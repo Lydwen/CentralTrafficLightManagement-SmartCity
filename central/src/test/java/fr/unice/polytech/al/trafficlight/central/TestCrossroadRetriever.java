@@ -2,6 +2,7 @@ package fr.unice.polytech.al.trafficlight.central;
 
 import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
+import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import org.junit.After;
 import org.junit.Before;
@@ -32,8 +33,8 @@ public class TestCrossroadRetriever {
     @Autowired
     private DatabaseDao database;
 
-    private CrossRoad crossroad1;
-    private CrossRoad crossroad2;
+    private GeolocalizedCrossroad crossroad1;
+    private GeolocalizedCrossroad crossroad2;
     private Set<String> answerSet = new HashSet<>();
     private String namecrossroad1 = "crossroad1";
     private String namecrossroad2 = "crossroad2";
@@ -41,8 +42,8 @@ public class TestCrossroadRetriever {
     @Before
     public void init() {
         //database.clearDatabase();
-        crossroad1 = new CrossRoad(namecrossroad1, "url1");
-        crossroad2 = new CrossRoad(namecrossroad2, "url2");
+        crossroad1 = new GeolocalizedCrossroad(namecrossroad1, "url1");
+        crossroad2 = new GeolocalizedCrossroad(namecrossroad2, "url2");
         database.addCrossroad(crossroad1);
         database.addCrossroad(crossroad2);
     }

@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.central.data.graph;
+package fr.unice.polytech.al.trafficlight.graph;
 
 import org.junit.Test;
 
@@ -36,7 +36,7 @@ public class WeightedDirectedGraphTest {
         WeightedDirectedGraph<String> graph = new WeightedDirectedGraph<>();
         graph.addNode("firstNode");
         graph.addNode("endNode");
-        graph.addEdge("firstNode","endNode",12);
+        graph.addEdge("edge","firstNode","endNode",12);
 
         assertEquals(1, graph.getNumberOfNeighbours("firstNode"));
     }
@@ -44,7 +44,7 @@ public class WeightedDirectedGraphTest {
     @Test
     public void testAddEdgeWithoutNode() throws Exception {
         WeightedDirectedGraph<String> graph = new WeightedDirectedGraph<>();
-        graph.addEdge("nonExistingNode1","nonExistingNode2", 42);
+        graph.addEdge("edge","nonExistingNode1","nonExistingNode2", 42);
 
         assertEquals(2, graph.getNumberOfNode());
         assertEquals(1, graph.getNumberOfNeighbours("nonExistingNode1"));
@@ -57,7 +57,7 @@ public class WeightedDirectedGraphTest {
         WeightedDirectedGraph<String> graph = new WeightedDirectedGraph<>();
         graph.addNode("firstNode");
         graph.addNode("endNode");
-        graph.addEdge("firstNode","endNode",12);
+        graph.addEdge("edge","firstNode","endNode",12);
         //TODO remove edge
     }
 
@@ -66,7 +66,7 @@ public class WeightedDirectedGraphTest {
         WeightedDirectedGraph<String> graph = new WeightedDirectedGraph<>();
         //add 20 edges
         for(int i = 0; i<20; i++){
-            graph.addEdge("firstNode","endNode",i);
+            graph.addEdge("edge","firstNode","endNode",i);
         }
 
         assertEquals(20, graph.getNumberOfNeighbours("firstNode"));
@@ -80,7 +80,7 @@ public class WeightedDirectedGraphTest {
     @Test
     public void testGetNeighbours() throws Exception {
         WeightedDirectedGraph<String> graph = new WeightedDirectedGraph<>();
-        graph.addEdge("firstNode","endNode",12);
+        graph.addEdge("edge","firstNode","endNode",12);
 
         assertEquals("endNode", graph.getNeighbours("firstNode").get(0));
         assertEquals(0, graph.getNeighbours("endNode").size());

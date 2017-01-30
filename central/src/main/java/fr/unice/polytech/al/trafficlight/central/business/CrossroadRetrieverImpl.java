@@ -1,6 +1,8 @@
 package fr.unice.polytech.al.trafficlight.central.business;
 
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
+import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
+import fr.unice.polytech.al.trafficlight.central.utils.CrossRoadConverter;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +19,11 @@ public class CrossroadRetrieverImpl implements CrossroadRetriever {
     @Autowired
     private DatabaseDao databaseDao;
 
-    public CrossRoad getCrossroad(String name) {
+    public GeolocalizedCrossroad getCrossroad(String name) {
         return databaseDao.getCrossroad(name);
     }
 
-    public Set<CrossRoad> getAllCrossroad(){
+    public Set<GeolocalizedCrossroad> getAllCrossroad(){
         return databaseDao.getAllCrossroad();
     }
 
@@ -38,7 +40,7 @@ public class CrossroadRetrieverImpl implements CrossroadRetriever {
         return ret;
     }
 
-    public void addCrossroad(CrossRoad crossRoad) {
+    public void addCrossroad(GeolocalizedCrossroad crossRoad) {
         databaseDao.addCrossroad(crossRoad);
     }
 

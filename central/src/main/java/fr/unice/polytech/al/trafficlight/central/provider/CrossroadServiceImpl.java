@@ -2,6 +2,8 @@ package fr.unice.polytech.al.trafficlight.central.provider;
 
 
 import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
+import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
+import fr.unice.polytech.al.trafficlight.central.utils.CrossRoadConverter;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Crossroad service.
+ * GeolocalizedCrossroad service.
  *
  * @author Tom Dall'Agnol
  */
@@ -23,6 +25,9 @@ import java.util.List;
 public class CrossroadServiceImpl implements CrossroadService {
     @Autowired
     private CrossroadRetriever crossroadRetriever;
+
+    CrossRoadConverter converter = new CrossRoadConverter();
+
 
     /**
      * Retrieves all the existing crossroads
@@ -45,11 +50,12 @@ public class CrossroadServiceImpl implements CrossroadService {
      */
     @RequestMapping(value="/{crossRoadName}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public @ResponseBody CrossRoad retrieveSpecificCrossRoad(@PathVariable String crossRoadName) {
-        return crossroadRetriever.getCrossroad(crossRoadName);
+
+        return converter.geolocalizedCrossroadToCrossRoad(crossroadRetriever.getCrossroad(crossRoadName));
     }
 
     @RequestMapping(value="", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
-    public String receiveCrossroad(@RequestBody CrossRoad crossroad) {
+    public String receiveCrossroad(@RequestBody GeolocalizedCrossroad crossroad) {
 
         crossroadRetriever.addCrossroad(crossroad);
         return "OK";

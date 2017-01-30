@@ -1,10 +1,11 @@
 package fr.unice.polytech.al.trafficlight.central.database;
 
-import fr.unice.polytech.al.trafficlight.fakedata.CrossroadsFakeData;
+import fr.unice.polytech.al.trafficlight.central.data.CrossRoadGraphLinker;
+import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
+import fr.unice.polytech.al.trafficlight.graph.WeightedDirectedGraph;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -12,29 +13,33 @@ import java.util.Set;
  */
 public class CrossRoadStock {
 
-    private Map<String, CrossRoad> crossroadData = CrossroadsFakeData.get();
+    private CrossRoadGraphLinker crossroadLinker = new CrossRoadGraphLinker();
 
-    public void add(CrossRoad crossroad) {
-        crossroadData.put(crossroad.getName(), crossroad);
+    public void add(GeolocalizedCrossroad crossroad) {
+        crossroadLinker.getCrossRoadData().put(crossroad.getName(), crossroad);
     }
 
-    public CrossRoad get(String name) {
-        return crossroadData.containsKey(name) ? crossroadData.get(name) : null;
+    public GeolocalizedCrossroad get(String name) {
+        return crossroadLinker.getCrossRoadData().containsKey(name) ? crossroadLinker.getCrossRoadData().get(name) : null;
     }
 
     public void remove(String name) {
-        crossroadData.remove(name);
+        crossroadLinker.getCrossRoadData().remove(name);
     }
 
     public Set<String> getAllKey() {
-        return crossroadData.keySet();
+        return crossroadLinker.getCrossRoadData().keySet();
     }
 
-    public Set<CrossRoad> getAllScenario() {
-        return new HashSet<>(crossroadData.values());
+    public WeightedDirectedGraph<GeolocalizedCrossroad> getGraph(){
+        return crossroadLinker.getGraph();
+    }
+
+    public Set<GeolocalizedCrossroad> getAllScenario() {
+        return new HashSet<>(crossroadLinker.getCrossRoadData().values());
     }
 
     public void clearDatabase() {
-        crossroadData.clear();
+        crossroadLinker.getCrossRoadData().clear();
     }
 }

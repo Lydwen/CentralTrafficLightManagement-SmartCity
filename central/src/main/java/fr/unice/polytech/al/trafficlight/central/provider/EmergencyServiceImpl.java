@@ -1,6 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.provider;
 
 import fr.unice.polytech.al.trafficlight.central.business.CrossroadRetriever;
+import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.utils.Emergency;
@@ -36,7 +37,7 @@ public class EmergencyServiceImpl implements EmergencyService {
     @RequestMapping(value = "", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON)
     public void declareEmergency(@RequestBody Emergency emergency, HttpServletResponse response) throws IOException {
         // Check crossroad exists
-        CrossRoad crossRoad = crossroadRetriever.getCrossroad(emergency.getCrossroadId().getId());
+        GeolocalizedCrossroad crossRoad = crossroadRetriever.getCrossroad(emergency.getCrossroadId().getId());
         if (crossRoad == null) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.getWriter().println("Error: The crossroad does not exists.");
