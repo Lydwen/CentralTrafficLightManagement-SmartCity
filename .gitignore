@@ -17,6 +17,7 @@ target
 .project
 .settings/
 */temp/
+dist/*
 
 SmartCityProject.tar.gz
 *.log
