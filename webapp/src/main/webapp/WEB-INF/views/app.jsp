@@ -36,6 +36,12 @@
                                     <input type="hidden" id="nbGroups" name="nbGroups" class="form-control"  value="" />
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="spread" class="col-sm-2 control-label">Spread</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="spread" class="form-control" id="spread" />
+                                </div>
+                            </div>
                             <hr>
                             <c:forEach items="${scenario.ruleGroupList}" var="group"  varStatus="i">
                                 <div class="group">

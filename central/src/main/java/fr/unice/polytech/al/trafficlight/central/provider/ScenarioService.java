@@ -18,4 +18,6 @@ public interface ScenarioService {
     Scenario retrieveSpecificScenario(@PathVariable String scenarioId);
 
     public String receiveScenario(@RequestBody Scenario scenario, @PathVariable String idCrossRoad);
+
+    public String receiveScenarioWithSpread(@RequestBody Scenario scenario, @PathVariable String idCrossRoad, @PathVariable String road);
 }

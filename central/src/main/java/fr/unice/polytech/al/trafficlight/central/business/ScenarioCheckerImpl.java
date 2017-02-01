@@ -7,6 +7,7 @@ import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,8 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
 
     @Autowired
     private DatabaseDao database;
+
+    private final static Logger LOG = Logger.getLogger(ScenarioCheckerImpl.class);
 
     /**
      * Check the validity of a Scenario against a CrossRoad object
@@ -92,4 +95,5 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
         }
         return this.checkAndSetScenario(scenario, crossroad);
     }
+
 }
