@@ -96,27 +96,4 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
         return this.checkAndSetScenario(scenario, crossroad);
     }
 
-    public String checkAndSetScenario(Scenario scenario, String crossRoadName, String spread){
-        // TODO CHECK SPREAD
-        CrossRoad crossroad = database.getCrossroad(crossRoadName);
-        //if the crossroad doesn't exist we can't continue
-        if(crossroad==null){
-            return "The specified crossroad name doesn't exist : "+crossRoadName;
-        }
-        return this.checkAndSetScenario(scenario, crossroad, spread);
-    }
-
-    public String checkAndSetScenario(Scenario scenario, CrossRoad crossRoad, String spread){
-        LOG.info("GOT SPREAD " + spread);
-        String result = checkScenario(scenario);
-        //if the Scenario is ok
-        if(result.equals("OK")){
-            //change the scenario in the db
-            crossRoad.setScenario(scenario);
-            database.addScenario(scenario);
-            //send the change to the crossroad
-            requester.put(crossRoad.getName(), "/crossroad/starter", scenario);
-        }
-        return result;
-    }
 }

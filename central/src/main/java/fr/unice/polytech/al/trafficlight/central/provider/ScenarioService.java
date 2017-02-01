@@ -19,5 +19,5 @@ public interface ScenarioService {
 
     public String receiveScenario(@RequestBody Scenario scenario, @PathVariable String idCrossRoad);
 
-    public String receiveScenarioWithSpread(@RequestBody Scenario scenario, @PathVariable String idCrossRoad, @RequestBody String spread);
+    public String receiveScenarioWithSpread(@RequestBody Scenario scenario, @PathVariable String idCrossRoad, @PathVariable String road);
 }

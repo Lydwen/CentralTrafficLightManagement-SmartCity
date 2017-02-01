@@ -14,6 +14,4 @@ public interface ScenarioChecker {
     String checkAndSetScenario(Scenario scenario, GeolocalizedCrossroad crossRoad);
 
     String checkAndSetScenario(Scenario scenario, String crossRoadName);
-
-    String checkAndSetScenario(Scenario scenario, String crossRoadName, String spread);
 }

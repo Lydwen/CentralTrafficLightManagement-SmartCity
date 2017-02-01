@@ -4,6 +4,7 @@ import fr.unice.polytech.al.trafficlight.central.business.ScenarioChecker;
 import fr.unice.polytech.al.trafficlight.central.business.ScenarioRetriever;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.Wrapper;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 @EnableAutoConfiguration
 @RequestMapping(value="/scenario")
 public class ScenarioServiceImpl implements ScenarioService {
-
+    private final static Logger LOG = Logger.getLogger(ScenarioServiceImpl.class);
     @Autowired
     private ScenarioChecker scenarioChecker;
 
@@ -58,9 +59,10 @@ public class ScenarioServiceImpl implements ScenarioService {
         return scenarioChecker.checkAndSetScenario(scenario, idCrossRoad);
     }
 
-    @RequestMapping(value="/{idCrossRoad}", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
-    public String receiveScenarioWithSpread(@RequestBody Scenario scenario, @PathVariable String idCrossRoad, @RequestBody String spread) {
-        return scenarioChecker.checkAndSetScenario(scenario, idCrossRoad, spread);
-
+    @RequestMapping(value="/{idCrossRoad}/{road}", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    public String receiveScenarioWithSpread(@RequestBody Scenario scenario, @PathVariable String idCrossRoad, @PathVariable String road) {
+        LOG.info("GOT THE SPREAD : " + road);
+        return scenarioChecker.checkAndSetScenario(scenario, idCrossRoad);
     }
+
 }

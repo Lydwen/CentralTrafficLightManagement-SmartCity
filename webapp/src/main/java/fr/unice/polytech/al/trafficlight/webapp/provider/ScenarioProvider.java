@@ -26,8 +26,11 @@ public class ScenarioProvider {
         l.debug("START SENDING SCENARIO");
         String status = "";
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
-            HttpPut req = new HttpPut("https://central-traffic-light.herokuapp.com/scenario/" + id);
-
+            HttpPut req;
+            if(spread.equals(""))
+                req = new HttpPut("https://central-traffic-light.herokuapp.com/scenario/" + id);
+            else
+                req = new HttpPut("https://central-traffic-light.herokuapp.com/scenario/" + id + "/" + spread);
 
             Gson gson = new Gson();
             String json = gson.toJson(scenario);
@@ -37,9 +40,6 @@ public class ScenarioProvider {
             req.addHeader("Content-Type", "application/json");
 
             req.setEntity(se);
-
-            StringEntity sp = new StringEntity(spread);
-            req.setEntity(sp);
 
             HttpResponse result = httpClient.execute(req);
             status = result.getStatusLine().getStatusCode() + "";
