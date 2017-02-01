@@ -21,6 +21,479 @@
             <artifactId>utils</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>ant</artifactId>
+        <version>1.9.3</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/ant-1.9.3.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>ant-launcher</artifactId>
+        <version>1.9.3</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/ant-launcher-1.9.3.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>aopalliance</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/aopalliance-1.0.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>asm</artifactId>
+        <version>5.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/asm-5.0_BETA.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>asm-analysis</artifactId>
+        <version>5.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/asm-analysis-5.0_BETA.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>asm-commons</artifactId>
+        <version>5.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/asm-commons-5.0_BETA.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>asm-tree</artifactId>
+        <version>5.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/asm-tree-5.0_BETA.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>asm-util</artifactId>
+        <version>5.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/asm-util-5.0_BETA.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.6</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/commons-codec-1.6.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.1</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/commons-lang3-3.1.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>commons-lang-2.5</artifactId>
+        <version>2.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/commons-lang-2.5.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1.1</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/commons-logging-1.1.1.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>concurrentlinkedhashmap</artifactId>
+        <version>1.4</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/concurrentlinkedhashmap-lru-1.4.jar</systemPath>
+    </dependency>
+
+        <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>curator-client</artifactId>
+        <version>2.3.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/curator-client-2.3.0.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>curator-framework</artifactId>
+        <version>2.3.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/curator-framework-2.3.0.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>curator-recipes</artifactId>
+        <version>2.3.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/curator-recipes-2.3.0.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>disruptor</artifactId>
+        <version>3.2.1</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/disruptor-3.2.1.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>galaxy</artifactId>
+        <version>1.3</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/galaxy-1.3.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>geodesy</artifactId>
+        <version>2.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/geodesy-2.2.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>guava</artifactId>
+        <version>15.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/guava-15.0.jar</systemPath>
+    </dependency>
+
+        <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>hamcrest</artifactId>
+        <version>1.3</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/hamcrest-core-1.3.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>4.2.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/httpclient-4.2.5.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>httpcore</artifactId>
+        <version>4.2.4</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/httpcore-4.2.4.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>jcl</artifactId>
+        <version>1.7.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/jcl-over-slf4j-1.7.5.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>je</artifactId>
+        <version>5.0.73</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/je-5.0.73.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>jgroups</artifactId>
+        <version>3.4.1</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/jgroups-3.4.1.Final.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>jinterface</artifactId>
+        <version>1.5.6</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/jinterface-1.5.6.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>jline</artifactId>
+        <version>0.9.94</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/jline-0.9.94.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.11</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/junit-4.11.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>kryo</artifactId>
+        <version>2.23.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/kryo-2.23.0.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>kryo-serializers</artifactId>
+        <version>0.26</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/kryo-serializers-0.26.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>libthrift</artifactId>
+        <version>0.9.1</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/libthrift-0.9.1.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.16</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/log4j-1.2.16.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/log4j-api-2.0-rc1.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/log4j-core-2.0-rc1.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>log4j-over</artifactId>
+        <version>1.7.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/log4j-over-slf4j-1.7.5.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>log4j-slf</artifactId>
+        <version>2.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/log4j-slf4j-impl-2.0-rc1.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>metrics</artifactId>
+        <version>3.0.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/metrics-core-3.0.2.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>minlog</artifactId>
+        <version>1.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/minlog-1.2.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>netty-3.2.2</artifactId>
+        <version>3.2.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/netty-3.2.2.Final.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>netty-3.8.0</artifactId>
+        <version>3.8.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/netty-3.8.0.Final.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>objnesis</artifactId>
+        <version>2.1</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/objenesis-2.1.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>quasar-actors</artifactId>
+        <version>0.5.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/quasar-actors-0.5.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>quasar-core</artifactId>
+        <version>0.5.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/quasar-core-0.5.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>quasar-core-jdk8</artifactId>
+        <version>0.5.0</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/quasar-core-0.5.0-SNAPSHOT-jdk8.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/slf4j-api-1.7.5.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spacebase-core</artifactId>
+        <version>2.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spacebase-core-2.2.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spacebase-core-jdk8</artifactId>
+        <version>2.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spacebase-core-2.2-jdk8.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spacebase-galaxy</artifactId>
+        <version>2.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spacebase-galaxy-2.2.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spacebase-geoquerries</artifactId>
+        <version>2.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spacebase-geoqueries-2.2.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spacebase-java-example</artifactId>
+        <version>2.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spacebase-java-example-2.2.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spacebase-native</artifactId>
+        <version>2.2</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spacebase-native-2.2.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spring-aop</artifactId>
+        <version>3.2.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spring-aop-3.2.5.RELEASE.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spring-beans</artifactId>
+        <version>3.2.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spring-beans-3.2.5.RELEASE.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>3.2.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spring-context-3.2.5.RELEASE.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>3.2.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spring-core-3.2.5.RELEASE.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>spring-expression</artifactId>
+        <version>3.2.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/spring-expression-3.2.5.RELEASE.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>trove4j-3.0.3</artifactId>
+        <version>3.0.3</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/trove4j-3.0.3.jar</systemPath>
+    </dependency>
+
+            <dependency>
+        <groupId>com.spacebase</groupId>
+        <artifactId>zookeeper</artifactId>
+        <version>3.4.5</version>
+        <scope>system</scope>
+        <systemPath>${ARCHILIB}/zookeeper-3.4.5.jar</systemPath>
+    </dependency>
+
     </dependencies>
 
     <build>
