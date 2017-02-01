@@ -11,63 +11,37 @@ import java.util.Set;
  *
  * Created by tom dall'agnol on 27/10/16.
  */
-public class CrossRoad {
-    private String name;
+public class CrossRoad extends CrossRoadCore{
     private String url;
     private Scenario scenario;
-    private Set<TrafficLight> trafficLights;
-    private Set<String> roads;
+
 
     public CrossRoad(String name, String url, Scenario scenario) {
-        this.name = name;
+        super(name, new HashSet<>(), new HashSet<>());
         this.url = url;
         this.scenario = scenario;
-        this.trafficLights = new HashSet<>();
-        this.roads = new HashSet<>();
     }
     public CrossRoad(String name, String url) {
-        this.name = name;
-        this.url = url;
-        this.scenario = null;
-        this.trafficLights = new HashSet<>();
-        this.roads = new HashSet<>();
+        this(name, url, null);
     }
 
-    public CrossRoad(){}
-
     public void addTrafficLight(TrafficLight trafficLight){
-        this.trafficLights.add(trafficLight);
+        this.getTrafficLights().add(trafficLight);
     }
 
     public void addRoad(String road){
-        this.roads.add(road);
+        this.getRoads().add(road);
     }
 
     public void removeTrafficLight(TrafficLight trafficLight){
-        this.trafficLights.remove(trafficLight);
+        this.getTrafficLights().remove(trafficLight);
     }
 
     public void removeRoad(String road){
-        this.roads.remove(road);
+        this.getRoads().remove(road);
     }
 
 //================ GETTERs & SETTERs ================
-
-    public Set<String> getRoads() {
-        return roads;
-    }
-
-    public void setRoads(Set<String> roads) {
-        this.roads = roads;
-    }
-
-    public Set<TrafficLight> getTrafficLights() {
-        return trafficLights;
-    }
-
-    public void setTrafficLights(Set<TrafficLight> trafficLights) {
-        this.trafficLights = trafficLights;
-    }
 
     public Scenario getScenario() {
         return scenario;
@@ -85,39 +59,24 @@ public class CrossRoad {
         this.url = url;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 //================ HashCode & Equals ================
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         CrossRoad crossRoad = (CrossRoad) o;
 
-        if (!name.equals(crossRoad.name)) return false;
-        if (!url.equals(crossRoad.url)) return false;
-        if (scenario != null ? !scenario.equals(crossRoad.scenario) : crossRoad.scenario != null) return false;
-        if (trafficLights != null ? !trafficLights.equals(crossRoad.trafficLights) : crossRoad.trafficLights != null)
-            return false;
-        return roads != null ? roads.equals(crossRoad.roads) : crossRoad.roads == null;
-
+        return url != null ? url.equals(crossRoad.url) : crossRoad.url == null;
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + url.hashCode();
-        result = 31 * result + (scenario != null ? scenario.hashCode() : 0);
-        result = 31 * result + (trafficLights != null ? trafficLights.hashCode() : 0);
-        result = 31 * result + (roads != null ? roads.hashCode() : 0);
+        int result = super.hashCode();
+        result = 31 * result + (url != null ? url.hashCode() : 0);
         return result;
     }
 }
