@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.central.data.graph;
+package fr.unice.polytech.al.trafficlight.graph;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -76,11 +76,11 @@ public class WeightedDirectedGraph<T> {
      * @param weight
      *          the weight we want to put for this specific edge
      */
-    public void addEdge(T begin, T end, int weight){
+    public void addEdge(String name, T begin, T end, int weight){
         addNode(begin);
         addNode(end);
 
-        Edge<T> edge = new Edge<>(begin, end, weight);
+        Edge<T> edge = new Edge<>(name, begin, end, weight);
 
         this.outGraph.get(begin).add(edge);
         this.inGraph.get(end).add(edge);
@@ -107,9 +107,11 @@ public class WeightedDirectedGraph<T> {
      *          the node that we want to remove all the edges
      */
     public void removeAllEdgesOfNode(T node){
-        this.outGraph.get(node).forEach(this::removeEdge);
+        List<Edge<T>> edges = new ArrayList<>(this.outGraph.get(node));
+        edges.forEach(this::removeEdge);
 
-        this.inGraph.get(node).forEach(this::removeEdge);
+        edges = new ArrayList<>(this.inGraph.get(node));
+        edges.forEach(this::removeEdge);
     }
 
     /**
@@ -122,5 +124,53 @@ public class WeightedDirectedGraph<T> {
      */
     public List<T> getNeighbours(T node){
         return this.outGraph.get(node).stream().map(Edge<T>::getEnd).collect(Collectors.toList());
+    }
+
+    /**
+     * Retrieve the number of neighbours of a specific node
+     * @param node
+     *          the node that we want to retrieve the number of neighbourgh
+     * @return the number of neighbourgh
+     */
+    public int getNumberOfNeighbours(T node){
+        return this.outGraph.get(node).size();
+    }
+
+    /**
+     * Retrieve all the nodes that can access
+     * the specific node
+     *
+     * @param node
+     *              the node that we need to know how many nodes can access
+     * @return a list containing all the nodes that can access a specific node
+     */
+    public List<T> getNodesThatEntersInNode(T node){
+        return this.inGraph.get(node).stream().map(Edge<T>::getEnd).collect(Collectors.toList());
+    }
+
+    /**
+     * Retrieve the number of node the graph is containing
+     * @return the number of node in the graph
+     */
+    public int getNumberOfNode(){
+        return this.inGraph.size();
+    }
+
+    /**
+     * Return all the nodes of the graph
+     * @return a Collection containing all the nodes
+     */
+    public Collection<T> getAllNodes(){
+        return outGraph.keySet();
+    }
+
+    /**
+     * Return the map containing all the nodes
+     * and the edges that came out from them
+     * @return a Map where the key is the node of beginning and the value
+     * is the list of the edges that came out of it
+     */
+    public Map<T, List<Edge<T>>> getOutGraph() {
+        return outGraph;
     }
 }

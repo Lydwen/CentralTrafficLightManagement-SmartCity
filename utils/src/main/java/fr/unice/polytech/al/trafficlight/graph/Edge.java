@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.central.data.graph;
+package fr.unice.polytech.al.trafficlight.graph;
 
 /**
  * Representation of an edge in a graph.
@@ -12,9 +12,12 @@ public class Edge<T> {
     private T begin;        //the node where the edge begins
     private T end;          //the node where the edge ends
 
+    private String name;
+
     private int weight;     //the cost to go from begin to end
 
-    public Edge(T begin, T end, int weight){
+    public Edge(String name, T begin, T end, int weight){
+        this.name = name;
         this.begin = begin;
         this.end = end;
         this.weight = weight;
@@ -45,6 +48,13 @@ public class Edge<T> {
         this.weight = weight;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 //============================ EQUALS & HASHCODE ============================
     @Override
     public boolean equals(Object o) {
@@ -55,14 +65,15 @@ public class Edge<T> {
 
         if (weight != edge.weight) return false;
         if (!begin.equals(edge.begin)) return false;
-        return end.equals(edge.end);
-
+        if (!end.equals(edge.end)) return false;
+        return name.equals(edge.name);
     }
 
     @Override
     public int hashCode() {
         int result = begin.hashCode();
         result = 31 * result + end.hashCode();
+        result = 31 * result + name.hashCode();
         result = 31 * result + weight;
         return result;
     }

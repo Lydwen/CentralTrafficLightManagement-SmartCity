@@ -1,5 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central.business;
 
+import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 
 import java.util.Set;
@@ -9,13 +10,13 @@ import java.util.Set;
  */
 public interface CrossroadRetriever {
 
-    public CrossRoad getCrossroad(String name);
+    public GeolocalizedCrossroad getCrossroad(String name);
 
-    public Set<CrossRoad> getAllCrossroad();
+    public Set<GeolocalizedCrossroad> getAllCrossroad();
 
     public Set<String> getAllCrossroadName();
 
     public Set<String> getCrossroadNameMatchTo(String searchName);
 
-    public void addCrossroad(CrossRoad crossRoad);
+    public void addCrossroad(GeolocalizedCrossroad crossRoad);
 }

@@ -1,6 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.business;
 
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
+import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
@@ -63,7 +64,7 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
      *              the crossroad on which we'll test the scenario
      * @return "OK" if no problem, a String describing the error otherwise
      */
-    public String checkAndSetScenario(Scenario scenario, CrossRoad crossRoad){
+    public String checkAndSetScenario(Scenario scenario, GeolocalizedCrossroad crossRoad){
         String result = checkScenario(scenario);
         //if the Scenario is ok
         if(result.equals("OK")){
@@ -87,7 +88,7 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
      * @return "OK" if no problem, a String describing the error otherwise
      */
     public String checkAndSetScenario(Scenario scenario, String crossRoadName){
-        CrossRoad crossroad = database.getCrossroad(crossRoadName);
+        GeolocalizedCrossroad crossroad = database.getCrossroad(crossRoadName);
         //if the crossroad doesn't exist we can't continue
         if(crossroad==null){
             return "The specified crossroad name doesn't exist : "+crossRoadName;

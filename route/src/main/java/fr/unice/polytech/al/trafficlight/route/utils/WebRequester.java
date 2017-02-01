@@ -57,8 +57,6 @@ public class WebRequester {
      * @param entity  the entity we want to post at the specifiied uri
      */
     public void post(String urlId, String urlPath, Object entity) {
-        Object response = null;
-        // Post the entity
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.postForEntity(this.target(urlId, urlPath), entity, String.class);
     }
