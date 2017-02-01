@@ -12,6 +12,7 @@ Credits:
 Hosted on Github: 
 	https://github.com/Lydwen/CentralTrafficLightManagement-SmartCity
 
+If you want to edit electricar component you need to define an environment variable: ARCHILIB who point to the dist/lib directory of the project
 -----
 
  Module Central by Tom D'all Agnol, Kevin Buisson & Edgar Persenda
