@@ -1,6 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.data;
 
 import fr.unice.polytech.al.trafficlight.central.TestCrossRoad;
+import fr.unice.polytech.al.trafficlight.utils.Coordinates;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.junit.Before;
 import org.junit.Test;

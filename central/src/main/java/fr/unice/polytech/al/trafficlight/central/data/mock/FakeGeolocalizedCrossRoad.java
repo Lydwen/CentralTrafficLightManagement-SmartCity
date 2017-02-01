@@ -1,6 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central.data.mock;
 
-import fr.unice.polytech.al.trafficlight.central.data.Coordinates;
+import fr.unice.polytech.al.trafficlight.utils.Coordinates;
 import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
 import fr.unice.polytech.al.trafficlight.graph.WeightedDirectedGraph;
 import fr.unice.polytech.al.trafficlight.utils.*;
@@ -60,19 +60,19 @@ public class FakeGeolocalizedCrossRoad {
         scenar.addRuleGroup(1, group2);
         scenar.setTransitionTime(5);
 
-        GeolocalizedCrossroad crossRoad = new GeolocalizedCrossroad("carrefour_de_l_INRIA", "url", scenar, new Coordinates(13.0,13.0));
+        GeolocalizedCrossroad crossRoad = new GeolocalizedCrossroad("carrefour_de_l_INRIA", "url", scenar, new Coordinates(43.617296, 7.074373));
         crossRoad.addRoad("avenue de polytech");
         crossRoad.addRoad("avenue de l'IUT");
         crossRoad.addRoad("avenue des lucioles");
         crossRoad.addRoad("avenue des murs");
 
-        TrafficLight trafficLight1 = new TrafficLight("north");
+        TrafficLight trafficLight1 = new TrafficLight("north", new Coordinates(43.617331, 7.074382));
         trafficLight1.addRoad("avenue de polytech");
-        TrafficLight trafficLight2 = new TrafficLight("west");
+        TrafficLight trafficLight2 = new TrafficLight("west", new Coordinates(43.617335, 7.074186));
         trafficLight2.addRoad("avenue de l'IUT");
-        TrafficLight trafficLight3 = new TrafficLight("east");
+        TrafficLight trafficLight3 = new TrafficLight("east", new Coordinates(43.617261, 7.074556));
         trafficLight3.addRoad("avenue des lucioles");
-        TrafficLight trafficLight4 = new TrafficLight("south");
+        TrafficLight trafficLight4 = new TrafficLight("south", new Coordinates(43.617455, 7.074443));
         trafficLight4.addRoad("avenue des murs");
 
         crossRoad.addTrafficLight(trafficLight1);
@@ -113,27 +113,27 @@ public class FakeGeolocalizedCrossRoad {
         scenar.setTransitionTime(5);
 
         //first scenario with 8 traffic lights
-        GeolocalizedCrossroad crossRoad = new GeolocalizedCrossroad("carrefour_du_casino", "url", scenar, new Coordinates(12.0,12.0));
+        GeolocalizedCrossroad crossRoad = new GeolocalizedCrossroad("carrefour_du_casino", "url", scenar, new Coordinates(10.617531, 10.074482));
         crossRoad.addRoad("avenue du tapis vert");
         crossRoad.addRoad("avenue des orangers");
         crossRoad.addRoad("avenue des italiens");
         crossRoad.addRoad("avenue des rhododendrons");
 
-        TrafficLight trafficLight1 = new TrafficLight("droite");
+        TrafficLight trafficLight1 = new TrafficLight("droite", new Coordinates(10.617531, 10.074482));
         trafficLight1.addRoad("avenue des orangers");
-        TrafficLight trafficLight2 = new TrafficLight("haut_droite");
+        TrafficLight trafficLight2 = new TrafficLight("haut_droite", new Coordinates(10.617431, 10.075382));
         trafficLight2.addRoad("avenue du tapis vert");
-        TrafficLight trafficLight3 = new TrafficLight("haut");
+        TrafficLight trafficLight3 = new TrafficLight("haut", new Coordinates(10.617331, 10.074382));
         trafficLight3.addRoad("avenue des italiens");
-        TrafficLight trafficLight4 = new TrafficLight("haut_gauche");
+        TrafficLight trafficLight4 = new TrafficLight("haut_gauche", new Coordinates(10.617381, 10.074482));
         trafficLight4.addRoad("avenue des rhododendrons");
-        TrafficLight trafficLight5 = new TrafficLight("gauche");
+        TrafficLight trafficLight5 = new TrafficLight("gauche", new Coordinates(10.617339, 10.074386));
         trafficLight5.addRoad("avenue des orangers");
-        TrafficLight trafficLight6 = new TrafficLight("bas_gauche");
+        TrafficLight trafficLight6 = new TrafficLight("bas_gauche", new Coordinates(10.617231, 10.073382));
         trafficLight6.addRoad("avenue du tapis vert");
-        TrafficLight trafficLight7 = new TrafficLight("bas");
+        TrafficLight trafficLight7 = new TrafficLight("bas", new Coordinates(10.617311, 10.074352));
         trafficLight7.addRoad("avenue des italiens");
-        TrafficLight trafficLight8 = new TrafficLight("bas_droite");
+        TrafficLight trafficLight8 = new TrafficLight("bas_droite", new Coordinates(10.617321, 10.074312));
         trafficLight8.addRoad("avenue des rhododendrons");
 
         crossRoad.addTrafficLight(trafficLight1);

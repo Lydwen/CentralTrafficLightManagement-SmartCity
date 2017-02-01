@@ -13,9 +13,15 @@ import java.util.Set;
 public class TrafficLight {
     private String name;
     private Set<String> accessibleRoads;
+    private Coordinates coordinates;
 
     public TrafficLight(String name) {
+        this(name, new Coordinates(0,0));
+    }
+
+    public TrafficLight(String name, Coordinates coordinates){
         this.name = name;
+        this.coordinates = coordinates;
         this.accessibleRoads = new HashSet<>();
     }
 
@@ -27,7 +33,7 @@ public class TrafficLight {
         this.accessibleRoads.remove(road);
     }
 
-//================ GETTERs & SETTERs ================
+    //================ GETTERs & SETTERs ================
 
     public Set<String> getAccessibleRoads() {
         return accessibleRoads;
@@ -47,6 +53,7 @@ public class TrafficLight {
 
     //================ HashCode & Equals ================
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -54,15 +61,17 @@ public class TrafficLight {
 
         TrafficLight that = (TrafficLight) o;
 
-        if (this.getName() != ((TrafficLight) o).getName())
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (accessibleRoads != null ? !accessibleRoads.equals(that.accessibleRoads) : that.accessibleRoads != null)
             return false;
-
-        return accessibleRoads != null ? accessibleRoads.equals(that.accessibleRoads) : that.accessibleRoads == null;
-
+        return coordinates != null ? coordinates.equals(that.coordinates) : that.coordinates == null;
     }
 
     @Override
     public int hashCode() {
-        return accessibleRoads != null ? accessibleRoads.hashCode() + this.getName().hashCode() : 0 + this.getName().hashCode();
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (accessibleRoads != null ? accessibleRoads.hashCode() : 0);
+        result = 31 * result + (coordinates != null ? coordinates.hashCode() : 0);
+        return result;
     }
 }

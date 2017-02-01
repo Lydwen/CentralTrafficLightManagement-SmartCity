@@ -1,11 +1,10 @@
 package fr.unice.polytech.al.trafficlight.central.data;
 
+import fr.unice.polytech.al.trafficlight.utils.Coordinates;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.TrafficLight;
 
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Represents a CrossRoad : its name, what are the

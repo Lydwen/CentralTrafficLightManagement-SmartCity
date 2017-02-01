@@ -1,5 +1,6 @@
 package fr.unice.polytech.al.trafficlight.central.data;
 
+import fr.unice.polytech.al.trafficlight.utils.Coordinates;
 import org.junit.Before;
 import org.junit.Test;
 
