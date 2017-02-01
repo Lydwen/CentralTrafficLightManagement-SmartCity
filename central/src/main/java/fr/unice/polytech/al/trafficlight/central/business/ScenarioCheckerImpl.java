@@ -6,6 +6,7 @@ import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
 import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,8 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
 
     @Autowired
     private DatabaseDao database;
+
+    private final static Logger LOG = Logger.getLogger(ScenarioCheckerImpl.class);
 
     /**
      * Check the validity of a Scenario against a CrossRoad object
@@ -90,5 +93,29 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
             return "The specified crossroad name doesn't exist : "+crossRoadName;
         }
         return this.checkAndSetScenario(scenario, crossroad);
+    }
+
+    public String checkAndSetScenario(Scenario scenario, String crossRoadName, String spread){
+        // TODO CHECK SPREAD
+        CrossRoad crossroad = database.getCrossroad(crossRoadName);
+        //if the crossroad doesn't exist we can't continue
+        if(crossroad==null){
+            return "The specified crossroad name doesn't exist : "+crossRoadName;
+        }
+        return this.checkAndSetScenario(scenario, crossroad, spread);
+    }
+
+    public String checkAndSetScenario(Scenario scenario, CrossRoad crossRoad, String spread){
+        LOG.info("GOT SPREAD " + spread);
+        String result = checkScenario(scenario);
+        //if the Scenario is ok
+        if(result.equals("OK")){
+            //change the scenario in the db
+            crossRoad.setScenario(scenario);
+            database.addScenario(scenario);
+            //send the change to the crossroad
+            requester.put(crossRoad.getName(), "/crossroad/starter", scenario);
+        }
+        return result;
     }
 }

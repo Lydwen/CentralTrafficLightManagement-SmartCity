@@ -27,7 +27,7 @@ public class CrossroadController {
             List<String> crossroads = new CrossroadProvider().getCrossroads();
 
             ModelAndView model = new ModelAndView();
-            model.setViewName("test");
+            model.setViewName("app");
             model.addObject("crossroads", crossroads);
 
             return model;
@@ -46,7 +46,6 @@ public class CrossroadController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public ModelAndView setScenario(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
-
         Scenario scenario = new Scenario();
         scenario.setTransitionTime(Integer.parseInt(request.getParameter("transitionTime")));
         scenario.setId(id);
@@ -68,7 +67,9 @@ public class CrossroadController {
             }
             num++;
         }
-        String status = new ScenarioProvider().setScenario(id,scenario);
+
+        String spread = request.getParameter("spread");
+        String status = new ScenarioProvider().setScenario(id,scenario,spread);
 
         ModelAndView model = getCrossroads();
         model.addObject("status", status);

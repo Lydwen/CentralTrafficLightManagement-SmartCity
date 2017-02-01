@@ -56,6 +56,11 @@ public class ScenarioServiceImpl implements ScenarioService {
     @RequestMapping(value="/{idCrossRoad}", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public String receiveScenario(@RequestBody Scenario scenario, @PathVariable String idCrossRoad) {
         return scenarioChecker.checkAndSetScenario(scenario, idCrossRoad);
+    }
+
+    @RequestMapping(value="/{idCrossRoad}", method= RequestMethod.PUT, consumes= MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    public String receiveScenarioWithSpread(@RequestBody Scenario scenario, @PathVariable String idCrossRoad, @RequestBody String spread) {
+        return scenarioChecker.checkAndSetScenario(scenario, idCrossRoad, spread);
 
     }
 }

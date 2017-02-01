@@ -21,7 +21,7 @@ import java.io.InputStreamReader;
  * Created by nasri on 16/11/16.
  */
 public class ScenarioProvider {
-    public String setScenario(String id, Scenario scenario) {
+    public String setScenario(String id, Scenario scenario, String spread) {
         Logger l = Logger.getLogger(this.getClass());
         l.debug("START SENDING SCENARIO");
         String status = "";
@@ -38,6 +38,8 @@ public class ScenarioProvider {
 
             req.setEntity(se);
 
+            StringEntity sp = new StringEntity(spread);
+            req.setEntity(sp);
 
             HttpResponse result = httpClient.execute(req);
             status = result.getStatusLine().getStatusCode() + "";
