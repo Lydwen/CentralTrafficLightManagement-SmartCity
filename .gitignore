@@ -17,7 +17,9 @@ target
 .project
 .settings/
 */temp/
-temp
+temp/
+**/temp/
+*/**/temp/
 
 SmartCityProject.tar.gz
 *.log
