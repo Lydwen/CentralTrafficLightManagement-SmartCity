@@ -37,6 +37,7 @@ public class Launcher extends Application {
         prevTrafficLight[0] = "None";
         prevTrafficLight[1] = "None";
         database = new SpatialDatabase();
+        System.out.println("here");
         database.updateTrafficLight(new CommunicationService().getTrafficLights());
 
         primaryStage.setTitle("IHM ElectricCar");
@@ -85,10 +86,10 @@ public class Launcher extends Application {
                 actiontarget.setFill(Color.FIREBRICK);
                 actiontarget.setText("I'm HERE");
 
-                String[] data = database.getNextTrafficLight(Double.parseDouble(longitudeField.getText()),Double.parseDouble(latitudeField.getText()),1);
+                String[] data = database.getNextTrafficLight(Double.parseDouble(longitudeField.getText()),Double.parseDouble(latitudeField.getText()),100000000);
+                System.out.println(data[0]);
                 if((data[0].equals("None") || !data[0].equals(prevTrafficLight[0])) && !prevTrafficLight[0].equals("None")) {
                     new CommunicationService().ILeave(prevTrafficLight[1],prevTrafficLight[0],carIdField.getText());
-                    return;
                 }
                 if(data[0].equals("None")) {
                     return;

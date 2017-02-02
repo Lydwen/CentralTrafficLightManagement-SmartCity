@@ -61,6 +61,7 @@ public class CommunicationService {
     }
 
     public Set<SpatialTrafficLight> getTrafficLights() {
+        System.out.println("debut de methode");
         Set<SpatialTrafficLight> trafficLights = new HashSet<SpatialTrafficLight>();
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpGet get = new HttpGet(trafficLightUrl);
@@ -71,7 +72,9 @@ public class CommunicationService {
             Gson gson = builder.create();
 
             CrossRoadListWrapper wrap = gson.fromJson(body, CrossRoadListWrapper.class);
+            System.out.println("Wrap" + wrap.getCrossRoadCores());
             for(CrossRoadCore crc : wrap.getCrossRoadCores()) {
+                System.out.println("INSIDE " + crc.getTrafficLights());
                 for(TrafficLight tl : crc.getTrafficLights()) {
                     trafficLights.add(new SpatialTrafficLight(tl.getName(),crc.getName(),tl.getCoordinates().getLatitude(),tl.getCoordinates().getLongitude()));
                 }

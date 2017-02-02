@@ -21,7 +21,7 @@ public class SpatialDatabase {
     public String[] getNextTrafficLight(double longitude, double latitude, double range) {
         String[] result = new String[2];
         AABB pos = AABB.create(latitude,latitude,longitude,longitude);
-        RangeQuery query = new RangeQuery(AABB.create(longitude,longitude,latitude,latitude),range );
+        RangeQuery query = new RangeQuery(pos,range );
         spatialDatabase.query(query,    new SpatialSetVisitor<SpatialTrafficLight>() {
             public void visit(Set<SpatialTrafficLight> result, Set<ElementUpdater<SpatialTrafficLight>> resForUpdate) {
                 queryResult = result;
@@ -46,9 +46,18 @@ public class SpatialDatabase {
     }
 
     public void updateTrafficLight(Set<SpatialTrafficLight> trafficLights) {
+        int i = 0;
         for(SpatialTrafficLight stl : trafficLights) {
-            spatialDatabase.insert(stl, stl.getAABB());
+            System.out.println(stl);
+            System.out.println(stl.getAABB());
+            System.out.println(i++);
+            if(i == 11)
+                break;
+                //spatialDatabase.insert(new SpatialTrafficLight("a","b",5,5),AABB.create(5,5,5,5));
+            else
+                spatialDatabase.insert(stl, stl.getAABB());
         }
+        System.out.println("out");
     }
 
 }
