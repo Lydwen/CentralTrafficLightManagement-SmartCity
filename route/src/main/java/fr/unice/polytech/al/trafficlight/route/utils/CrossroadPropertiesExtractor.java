@@ -2,10 +2,8 @@ package fr.unice.polytech.al.trafficlight.route.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoadCore;
-import org.junit.Before;
-import org.junit.Test;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoadListWrapper;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 

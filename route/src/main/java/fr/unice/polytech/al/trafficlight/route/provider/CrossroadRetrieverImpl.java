@@ -1,6 +1,6 @@
 package fr.unice.polytech.al.trafficlight.route.provider;
 
-import fr.unice.polytech.al.trafficlight.route.utils.CrossRoadListWrapper;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoadListWrapper;
 import fr.unice.polytech.al.trafficlight.route.utils.CrossroadPropertiesExtractor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;

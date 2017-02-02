@@ -488,17 +488,12 @@
         <systemPath>${libs}/trove4j-3.0.3.jar</systemPath>
     </dependency>
 
-            <dependency>
-        <groupId>com.spacebase</groupId>
-        <artifactId>zookeeper</artifactId>
-        <version>3.4.5</version>
-        <scope>system</scope>
-        <systemPath>${libs}/zookeeper-3.4.5.jar</systemPath>
-    </dependency>
         <dependency>
-            <groupId>fr.unice.polytech.al.trafficlight</groupId>
-            <artifactId>route</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.spacebase</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.5</version>
+            <scope>system</scope>
+            <systemPath>${libs}/zookeeper-3.4.5.jar</systemPath>
         </dependency>
 
     </dependencies>

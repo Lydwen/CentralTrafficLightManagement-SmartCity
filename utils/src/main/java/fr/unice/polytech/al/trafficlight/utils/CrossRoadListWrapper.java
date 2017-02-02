@@ -1,4 +1,4 @@
-package fr.unice.polytech.al.trafficlight.route.utils;
+package fr.unice.polytech.al.trafficlight.utils;
 
 import fr.unice.polytech.al.trafficlight.utils.CrossRoadCore;
 

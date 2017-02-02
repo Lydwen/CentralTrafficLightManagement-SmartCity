@@ -2,13 +2,10 @@ package fr.unice.polytech.al.trafficlight.electriccar.provider;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import fr.unice.polytech.al.trafficlight.electriccar.utils.SpatialTrafficLight;
-import fr.unice.polytech.al.trafficlight.route.utils.CrossRoadListWrapper;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoadListWrapper;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoadCore;
 import fr.unice.polytech.al.trafficlight.utils.TrafficLight;
-import fr.unice.polytech.al.trafficlight.utils.Wrapper;
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpDelete;
