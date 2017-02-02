@@ -47,13 +47,14 @@ public class SpatialDatabase {
 
     public void updateTrafficLight(Set<SpatialTrafficLight> trafficLights) {
         int i = 0;
+        boolean drop = true;
         for(SpatialTrafficLight stl : trafficLights) {
             System.out.println(stl);
             System.out.println(stl.getAABB());
-            System.out.println(i++);
-            if(i == 11)
-                break;
-                //spatialDatabase.insert(new SpatialTrafficLight("a","b",5,5),AABB.create(5,5,5,5));
+            if(stl.getCrossroadId().equals("carrefour_du_casino") && i<2) {
+                i++;
+                continue;
+            }
             else
                 spatialDatabase.insert(stl, stl.getAABB());
         }
