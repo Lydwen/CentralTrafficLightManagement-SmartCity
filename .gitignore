@@ -20,6 +20,7 @@ target
 temp/
 **/temp/
 */**/temp/
+dist/*
 
 SmartCityProject.tar.gz
 *.log
