@@ -4,6 +4,9 @@
 *.jar
 *.war
 
+#except the libs
+!*/**/lib/*.jar
+
 #target folder
 target
 
