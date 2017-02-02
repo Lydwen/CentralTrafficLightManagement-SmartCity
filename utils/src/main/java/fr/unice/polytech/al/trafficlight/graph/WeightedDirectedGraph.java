@@ -173,4 +173,36 @@ public class WeightedDirectedGraph<T> {
     public Map<T, List<Edge<T>>> getOutGraph() {
         return outGraph;
     }
+
+    public List<Edge<T>> getNeighboursByEdge(T begin, String edgeName) {
+        return this.retrieveEdgesFromMapCorrespondingToEdge(outGraph, edgeName, begin);
+    }
+
+    public List<Edge<T>> getNodesThatEntersInNodeFromEdge(T end, String edgeName) {
+        return this.retrieveEdgesFromMapCorrespondingToEdge(inGraph, edgeName, end);
+    }
+
+    /**
+     * Retrieve all edges that shares the name passed in parameter
+     * in a specified map
+     *
+     * @param map
+     *          the map in which we want to search the corresponding name
+     * @param edgeName
+     *          the name of the edges we want
+     * @param node
+     *          the node from where we search
+     * @return a List of Edges that contains the name edgeName
+     */
+    private List<Edge<T>> retrieveEdgesFromMapCorrespondingToEdge(Map<T, List<Edge<T>>> map, String edgeName, T node){
+        List<Edge<T>> edges = new ArrayList<>();
+
+        for(Edge<T> edge : map.get(node)){
+            if(edge.getName().equals(edgeName)){
+                edges.add(edge);
+            }
+        }
+
+        return edges;
+    }
 }

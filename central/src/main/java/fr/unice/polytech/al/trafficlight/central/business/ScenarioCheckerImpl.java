@@ -2,11 +2,9 @@ package fr.unice.polytech.al.trafficlight.central.business;
 
 import fr.unice.polytech.al.trafficlight.central.dao.DatabaseDao;
 import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
-import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
+import fr.unice.polytech.al.trafficlight.graph.Edge;
+import fr.unice.polytech.al.trafficlight.utils.*;
 import fr.unice.polytech.al.trafficlight.central.utils.WebRequester;
-import fr.unice.polytech.al.trafficlight.utils.RuleGroup;
-import fr.unice.polytech.al.trafficlight.utils.Scenario;
-import fr.unice.polytech.al.trafficlight.utils.TrafficLightId;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,7 +49,6 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
                 return "All trafficLight green at same time";
             }
         }
-
         return "OK";
     }
 
@@ -66,8 +63,20 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
      */
     public String checkAndSetScenario(Scenario scenario, GeolocalizedCrossroad crossRoad){
         String result = checkScenario(scenario);
+
         //if the Scenario is ok
         if(result.equals("OK")){
+            Set<TrafficLight> trafficLights = crossRoad.getTrafficLights();
+            Set<TrafficLightId> trafficLightIds = new HashSet<>();
+            for(RuleGroup ruleGroup: scenario.getRuleGroupList()){
+                trafficLightIds.addAll(ruleGroup.getTrafficLights());
+            }
+
+            for(TrafficLight trafficLight : trafficLights){
+                if(!trafficLightIds.contains(new TrafficLightId(trafficLight.getName()))){
+                    return "There is wrong traffic light in this scenario";
+                }
+            }
             //change the scenario in the db
             crossRoad.setScenario(scenario);
             database.addScenario(scenario);
@@ -94,6 +103,32 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
             return "The specified crossroad name doesn't exist : "+crossRoadName;
         }
         return this.checkAndSetScenario(scenario, crossroad);
+    }
+
+    @Override
+    public String checkAndSetScenarioAndSpread(Scenario scenario, String idCrossRoad, String road) {
+        //retrieve the path to go from the begin to the last crossroad on a road
+        List<Edge<GeolocalizedCrossroad>> crossroads = database.getAllCrossroadLinkedWithRoadFrom(idCrossRoad, road);
+        if(crossroads.isEmpty()) {
+            return "The specified crossroad name doesn't exist : " + idCrossRoad;
+        }
+
+        this.propagateScenario(crossroads, scenario);
+
+        return "OK";
+    }
+
+    private void propagateScenario(List<Edge<GeolocalizedCrossroad>> crossroads, Scenario scenario){
+        //if the first scenario is ok, we continue
+        if(this.checkAndSetScenario(scenario, crossroads.get(0).getBegin()).equals("OK")) {
+            for (Edge<GeolocalizedCrossroad> edge : crossroads) {
+                //set each end crossroad
+                if (this.checkAndSetScenario(scenario, edge.getEnd()).equals("OK")) {
+                    //say synchronize from the edge value
+                    int value = edge.getWeight();
+                }
+            }
+        }
     }
 
 }

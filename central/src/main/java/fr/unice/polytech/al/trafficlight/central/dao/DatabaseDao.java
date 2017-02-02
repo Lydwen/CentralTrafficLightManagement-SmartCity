@@ -3,11 +3,14 @@ package fr.unice.polytech.al.trafficlight.central.dao;
 import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
 import fr.unice.polytech.al.trafficlight.central.database.CrossRoadStock;
 import fr.unice.polytech.al.trafficlight.central.database.ScenarioStock;
+import fr.unice.polytech.al.trafficlight.graph.Edge;
 import fr.unice.polytech.al.trafficlight.graph.WeightedDirectedGraph;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 import fr.unice.polytech.al.trafficlight.utils.Scenario;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -61,6 +64,16 @@ public class DatabaseDao {
 
     public WeightedDirectedGraph<GeolocalizedCrossroad> getGraph(){
         return crossRoadData.getGraph();
+    }
+
+    public List<Edge<GeolocalizedCrossroad>>  getAllCrossroadLinkedWithRoadFrom(String crossroad, String road){
+        List<Edge<GeolocalizedCrossroad>> crossroads = new ArrayList<>();
+        GeolocalizedCrossroad geoCrossroad= getCrossroad(crossroad);
+        if(geoCrossroad != null){
+            crossroads = crossRoadData.getEdgesFromCrossroadOnRoad(geoCrossroad, road);
+        }
+
+        return crossroads;
     }
 
     public void clearDatabase() {
