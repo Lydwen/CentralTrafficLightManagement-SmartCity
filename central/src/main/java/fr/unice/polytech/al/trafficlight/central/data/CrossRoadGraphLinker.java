@@ -1,10 +1,14 @@
 package fr.unice.polytech.al.trafficlight.central.data;
 
 import fr.unice.polytech.al.trafficlight.central.data.mock.FakeGeolocalizedCrossRoad;
+import fr.unice.polytech.al.trafficlight.graph.Edge;
 import fr.unice.polytech.al.trafficlight.graph.WeightedDirectedGraph;
 import fr.unice.polytech.al.trafficlight.fakedata.CrossroadsFakeData;
 import fr.unice.polytech.al.trafficlight.utils.CrossRoad;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,5 +40,21 @@ public class CrossRoadGraphLinker {
 
     public void setCrossRoadData(Map<String, GeolocalizedCrossroad> crossRoadData) {
         this.crossRoadData = crossRoadData;
+    }
+
+    public Collection<Edge<GeolocalizedCrossroad>> getEdgesFromCrossRoadWithRoad(GeolocalizedCrossroad end, String road) {
+        List<Edge<GeolocalizedCrossroad>> crossroads;
+
+        crossroads = graph.getNeighboursByEdge(end, road);
+
+        return crossroads;
+    }
+
+    public Collection<Edge<GeolocalizedCrossroad>> getEdgesToCrossRoadWithRoad(GeolocalizedCrossroad begin, String road) {
+        List<Edge<GeolocalizedCrossroad>> crossroads;
+
+        crossroads = graph.getNodesThatEntersInNodeFromEdge(begin, road);
+
+        return crossroads;
     }
 }
