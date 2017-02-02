@@ -1,13 +1,27 @@
 package fr.unice.polytech.al.trafficlight.electriccar.provider;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import fr.unice.polytech.al.trafficlight.electriccar.utils.SpatialTrafficLight;
+import fr.unice.polytech.al.trafficlight.route.utils.CrossRoadListWrapper;
+import fr.unice.polytech.al.trafficlight.utils.CrossRoadCore;
+import fr.unice.polytech.al.trafficlight.utils.TrafficLight;
+import fr.unice.polytech.al.trafficlight.utils.Wrapper;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
+import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by nasri on 05/01/17.
@@ -16,6 +30,7 @@ public class CommunicationService {
 
     private final static Logger LOG = Logger.getLogger(CommunicationService.class);
     String routeUrl = "https://route-smart-city.herokuapp.com/premium/crossroad/";
+    String trafficLightUrl = "https://route-smart-city.herokuapp.com/crossroadList";
     public void ImHere(String crossroadId, String trafficLightId, String carId) {
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpPut req = new HttpPut(routeUrl + crossroadId + "/trafficlight/" + trafficLightId + "/vehicle/" + carId);
@@ -43,5 +58,28 @@ public class CommunicationService {
 
         } catch (IOException ex) {
         }
+    }
+
+    public Set<SpatialTrafficLight> getTrafficLights() {
+        Set<SpatialTrafficLight> trafficLights = new HashSet<SpatialTrafficLight>();
+        try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
+            HttpGet get = new HttpGet(trafficLightUrl);
+            HttpResponse resp = httpClient.execute(get);
+            ResponseHandler<String> handler = new BasicResponseHandler();
+            String body = handler.handleResponse(resp);
+            GsonBuilder builder = new GsonBuilder();
+            Gson gson = builder.create();
+
+            CrossRoadListWrapper wrap = gson.fromJson(body, CrossRoadListWrapper.class);
+            for(CrossRoadCore crc : wrap.getCrossRoadCores()) {
+                for(TrafficLight tl : crc.getTrafficLights()) {
+                    trafficLights.add(new SpatialTrafficLight(tl.getName(),crc.getName(),tl.getCoordinates().getLatitude(),tl.getCoordinates().getLongitude()));
+                }
+            }
+
+        } catch(IOException ex) {
+
+        }
+        return trafficLights;
     }
 }

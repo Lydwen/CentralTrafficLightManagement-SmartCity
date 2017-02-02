@@ -17,17 +17,15 @@ public class SpatialTrafficLight {
     private final static int MIN_Y = 2;
     private final static int MAX_Y = 3;
 
-    final int id;
-    double[] location;
-    AABB aabb;
+    final private String id;
+    final private String crossroadId;
+    private double[] location;
+    private AABB aabb;
     private SpatialToken spatialToken;
 
-    public SpatialTrafficLight(AABB location) {
-        this(-1, location);
-    }
-
-    public SpatialTrafficLight(int id, AABB location) {
+    public SpatialTrafficLight(String id, String crossroad, AABB location) {
         this.id = id;
+        this.crossroadId = crossroad;
         aabb = location;
         this.location = new double[location.dims()*2];
         for (int i = 0; i < location.dims(); i++) {
@@ -37,18 +35,15 @@ public class SpatialTrafficLight {
         floatify(this.location);
     }
 
-    public SpatialTrafficLight(double minX, double maxX, double minY, double maxY) {
-        this(-1, minX, maxX, minY, maxY);
-    }
-
-    public SpatialTrafficLight(int id, double minX, double maxX, double minY, double maxY) {
+    public SpatialTrafficLight(String id, String crossroad, double latitude, double longitude) {
         this.id = id;
+        this.crossroadId = crossroad;
         this.location = new double[4];
-        this.location[MIN_X] = minX;
-        this.location[MAX_X] = maxX;
-        this.location[MIN_Y] = minY;
-        this.location[MAX_Y] = maxY;
-        aabb = AABB.create(minX,maxX,minY,maxY);
+        this.location[MIN_X] = latitude;
+        this.location[MAX_X] = latitude;
+        this.location[MIN_Y] = longitude;
+        this.location[MAX_Y] = longitude;
+        aabb = AABB.create(latitude,latitude,longitude,longitude);
         floatify(location);
     }
 
@@ -71,11 +66,20 @@ public class SpatialTrafficLight {
         this.spatialToken = spatialToken;
     }
 
+    public String getCrossroadId() {
+        return crossroadId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("SpatialObject@");
-        sb.append(id > 0 ? id : Integer.toHexString(System.identityHashCode(this)));
+        sb.append(id);
+        sb.append(crossroadId);
         sb.append("[" + location+"]");
         sb.delete(sb.length() - 1, sb.length());
         return sb.toString();
