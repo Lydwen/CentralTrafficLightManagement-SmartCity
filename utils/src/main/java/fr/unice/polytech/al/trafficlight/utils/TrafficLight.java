@@ -51,6 +51,14 @@ public class TrafficLight {
         this.name = name;
     }
 
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
     //================ HashCode & Equals ================
 
 

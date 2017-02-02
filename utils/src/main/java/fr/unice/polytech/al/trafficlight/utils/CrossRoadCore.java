@@ -63,4 +63,9 @@ public class CrossRoadCore {
         result = 31 * result + (roads != null ? roads.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString(){
+        return this.getName();
+    }
 }
