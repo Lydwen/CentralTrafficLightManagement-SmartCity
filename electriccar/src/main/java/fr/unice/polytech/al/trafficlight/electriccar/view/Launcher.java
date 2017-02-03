@@ -86,7 +86,7 @@ public class Launcher extends Application {
                 actiontarget.setFill(Color.FIREBRICK);
                 actiontarget.setText("I'm HERE");
 
-                String[] data = database.getNextTrafficLight(Double.parseDouble(longitudeField.getText()),Double.parseDouble(latitudeField.getText()),100000000);
+                String[] data = database.getNextTrafficLight(Double.parseDouble(longitudeField.getText()),Double.parseDouble(latitudeField.getText()),1);
                 System.out.println(data[0]);
                 if((data[0].equals("None") || !data[0].equals(prevTrafficLight[0])) && !prevTrafficLight[0].equals("None")) {
                     new CommunicationService().ILeave(prevTrafficLight[1],prevTrafficLight[0],carIdField.getText());
