@@ -1,5 +1,7 @@
 package fr.unice.polytech.al.trafficlight.central.data.mock;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import fr.unice.polytech.al.trafficlight.utils.Coordinates;
 import fr.unice.polytech.al.trafficlight.central.data.GeolocalizedCrossroad;
 import fr.unice.polytech.al.trafficlight.graph.WeightedDirectedGraph;
@@ -39,7 +41,9 @@ public class FakeGeolocalizedCrossRoad {
 
         graph.addEdge("roadBetweenInriaCasino",inria, casino, 12);
         graph.addEdge("roadBetweenCasinoInria", inria, casino, 21);
-
+        Gson gson = new GsonBuilder().create();
+        System.out.println(gson.toJson(inria));
+        System.out.println(gson.toJson(casino));
         return graph;
     }
 

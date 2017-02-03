@@ -52,6 +52,18 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
         return "OK";
     }
 
+    public String checkScenario(Scenario scenario, GeolocalizedCrossroad crossroad){
+        String result = checkScenario(scenario);
+
+        if(result.equals("OK")){
+            //check if there isn't any wrong traffic light in a scenario
+            if(!checkTrafficLightsOfScenario(crossroad, scenario)){
+                return "traffic lights in the scenario not ok";
+            }
+        }
+        return result;
+    }
+
     /**
      * Check the validity of a Scenario against a CrossRoad object,
      * and if it's valid it will put the scenario into the crossroad object
@@ -62,21 +74,10 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
      * @return "OK" if no problem, a String describing the error otherwise
      */
     public String checkAndSetScenario(Scenario scenario, GeolocalizedCrossroad crossRoad){
-        String result = checkScenario(scenario);
+        String result = checkScenario(scenario, crossRoad);
 
         //if the Scenario is ok
         if(result.equals("OK")){
-            Set<TrafficLight> trafficLights = crossRoad.getTrafficLights();
-            Set<TrafficLightId> trafficLightIds = new HashSet<>();
-            for(RuleGroup ruleGroup: scenario.getRuleGroupList()){
-                trafficLightIds.addAll(ruleGroup.getTrafficLights());
-            }
-
-            for(TrafficLight trafficLight : trafficLights){
-                if(!trafficLightIds.contains(new TrafficLightId(trafficLight.getName()))){
-                    return "There is wrong traffic light in this scenario";
-                }
-            }
             //change the scenario in the db
             crossRoad.setScenario(scenario);
             database.addScenario(scenario);
@@ -131,4 +132,28 @@ public class ScenarioCheckerImpl implements ScenarioChecker {
         }
     }
 
+
+    /**
+     * Check if there is a traffic light in the new scenario
+     * that doesn't exist in the real crossroad
+     * @param crossRoad
+     *          the crossroad that has the real trafficlights
+     * @param scenario
+     *          the scenario that we want to test
+     * @return true if all the traffic lights are in the crossroad, false otherwise
+     */
+    private boolean checkTrafficLightsOfScenario(GeolocalizedCrossroad crossRoad, Scenario scenario) {
+        Set<TrafficLight> trafficLights = crossRoad.getTrafficLights();
+        Set<TrafficLightId> trafficLightIds = new HashSet<>();
+        for(RuleGroup ruleGroup: scenario.getRuleGroupList()){
+            trafficLightIds.addAll(ruleGroup.getTrafficLights());
+        }
+        for(TrafficLight trafficLight : trafficLights){
+            if(!trafficLightIds.contains(new TrafficLightId(trafficLight.getName()))){
+                return false;
+            }
+        }
+
+        return trafficLightIds.size() == trafficLights.size();
+    }
 }

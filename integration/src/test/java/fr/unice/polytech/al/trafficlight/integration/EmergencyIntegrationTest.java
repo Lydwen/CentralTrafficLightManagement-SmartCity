@@ -19,7 +19,7 @@ import static org.junit.Assert.assertNotNull;
  * Emergency integration test.
  * This test asserts that when you submit an emergency from the web-app, the emergency is well declared on the central, and then on the crossroad.
  */
-@Ignore
+
 public class EmergencyIntegrationTest {
     private static final String WEBAPP_URL = "https://webapp-traffic-light.herokuapp.com/";
     private static final String CENTRAL_URL = "https://central-traffic-light.herokuapp.com/";
